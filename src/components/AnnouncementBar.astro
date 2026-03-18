@@ -1,38 +1,55 @@
 ---
 const messages = [
-  { text: "🐟 Tarpon Dock Open Daily 7am–9pm — Hand-Feed the Silver Kings!", href: "/activities" },
-  { text: "🎣 Captain Michael Party Boat: 3 Trips Daily · $100/person · All Tackle Included", href: "/fishing" },
-  { text: "🪸 Glass Bottom Boat Tours: 9:30am · 12pm · 3pm · Night Tour after Sunset", href: "/glass-bottom-boat" },
-  { text: "🌅 Sunset Cruises from $49 — Catamaran · Private Boat · Luxury Yacht", href: "/sunset-cruises" },
-  { text: "📍 77522 Overseas Hwy, Islamorada FL · Open Mon–Sun 7am–9pm · (305) 664-8070", href: "/" },
-  { text: "🏆 Voted #1 Place in the Florida Keys Every Tourist Should Visit!", href: "/" },
+  { text: "Click To Book A Fishing Trip", href: "/fishing" },
+  { text: "Trivia Night Every Tues. 6:30pm – 8:30pm at Hungry Tarpon Restaurant", href: "/dining" },
+  { text: "Click To Shop Robbie's Merch", href: "https://shop.robbies.com/" },
+  { text: "Glass Bottom Boat Tours — 4 Daily Departures Including Night Tour", href: "/glass-bottom-boat" },
+  { text: "Brad Bertelli History Tours — Mon & Thu · 11:30am & 2:30pm", href: "/history-tours" },
 ];
 ---
 
-<div id="announcement-bar" class="text-white text-xs font-medium py-2 px-4 text-center relative overflow-hidden" style="background-color: #c9a84c;">
-  {messages.map((msg, i) => (
-    <a
-      href={msg.href}
-      class={`announcement-msg absolute inset-0 flex items-center justify-center hover:underline transition-opacity duration-500 ${i === 0 ? 'opacity-100' : 'opacity-0'}`}
-      data-index={i}
-    >
-      {msg.text}
-    </a>
-  ))}
-  <!-- Static fallback for first message height -->
-  <span class="invisible text-xs">{messages[0].text}</span>
+<div id="announcement-bar" class="relative flex items-center justify-center text-white text-sm font-medium py-2 px-12 overflow-hidden" style="background-color: #2d5fa8; min-height: 38px;">
+  <!-- Arrows -->
+  <button id="ann-prev" class="absolute left-4 text-white/70 hover:text-white text-lg font-bold transition-colors select-none" aria-label="Previous">&#8249;</button>
+  <button id="ann-next" class="absolute right-4 text-white/70 hover:text-white text-lg font-bold transition-colors select-none" aria-label="Next">&#8250;</button>
+
+  <!-- Messages -->
+  <div class="relative w-full text-center" style="min-height: 20px;">
+    {messages.map((msg, i) => (
+      <a
+        href={msg.href}
+        class={`announcement-msg block w-full text-center transition-opacity duration-500 hover:underline ${i === 0 ? '' : 'absolute inset-0 opacity-0'}`}
+        data-index={i}
+        target={msg.href.startsWith('http') ? '_blank' : undefined}
+        rel={msg.href.startsWith('http') ? 'noopener' : undefined}
+      >
+        {msg.text}
+      </a>
+    ))}
+  </div>
 </div>
 
 <script>
-  const msgs = document.querySelectorAll('.announcement-msg');
+  const msgs = Array.from(document.querySelectorAll('.announcement-msg')) as HTMLElement[];
   let current = 0;
-  if (msgs.length > 1) {
-    setInterval(() => {
-      msgs[current].classList.remove('opacity-100');
-      msgs[current].classList.add('opacity-0');
-      current = (current + 1) % msgs.length;
-      msgs[current].classList.remove('opacity-0');
-      msgs[current].classList.add('opacity-100');
-    }, 4000);
+  let timer: ReturnType<typeof setInterval>;
+
+  function goTo(index: number) {
+    msgs[current].classList.add('opacity-0');
+    msgs[current].classList.remove('relative');
+    msgs[current].classList.add('absolute', 'inset-0');
+    current = (index + msgs.length) % msgs.length;
+    msgs[current].classList.remove('opacity-0', 'absolute', 'inset-0');
+    msgs[current].classList.add('relative');
   }
+
+  function startTimer() {
+    clearInterval(timer);
+    timer = setInterval(() => goTo(current + 1), 5000);
+  }
+
+  document.getElementById('ann-prev')?.addEventListener('click', () => { goTo(current - 1); startTimer(); });
+  document.getElementById('ann-next')?.addEventListener('click', () => { goTo(current + 1); startTimer(); });
+
+  startTimer();
 </script>

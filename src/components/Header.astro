@@ -1,261 +1,351 @@
 ---
-const menus = [
+// Nav items matching robbies.com structure
+const navItems = [
   {
-    label: 'Activities',
+    label: 'ACTIVITIES',
     href: '/activities',
+    heading: 'ACTIVITIES IN ISLAMORADA',
+    image: 'https://images.unsplash.com/photo-1559827260-dc66d52bef19?w=600&q=80&auto=format&fit=crop',
+    imageAlt: 'Tarpon feeding at Robbie\'s Marina',
     cols: [
-      {
-        heading: 'Water Adventures',
-        links: [
-          { label: '🐟 Tarpon Feeding', href: '/activities' },
-          { label: '🤿 Snorkeling Tours', href: '/snorkeling' },
-          { label: '🪸 Glass Bottom Boat', href: '/glass-bottom-boat' },
-          { label: '🌊 SNUBA Diving', href: '/activities' },
-          { label: '🚣 Kayak & Paddleboard', href: '/kayak-paddleboard' },
-          { label: '💨 Jet Ski Adventures', href: '/kayak-paddleboard' },
-        ]
-      },
-      {
-        heading: 'On the Water',
-        links: [
-          { label: '🌅 Sunset Cruises', href: '/sunset-cruises' },
-          { label: '🛥️ Four Aces Yacht', href: '/four-aces' },
-          { label: '⛵ Boat Rentals', href: '/boat-rentals' },
-          { label: '🌿 Eco Tours', href: '/eco-tours' },
-        ]
-      },
-      {
-        heading: 'Explore & Dine',
-        links: [
-          { label: '🍽️ Hungry Tarpon Restaurant', href: '/dining' },
-          { label: '🛍️ Tropical Open Air Market', href: '/market' },
-          { label: '📜 History Tours', href: '/history-tours' },
-          { label: '💍 Weddings & Events', href: '/weddings-events' },
-          { label: '📖 Our History', href: '/history' },
-        ]
-      }
-    ]
+      [
+        { label: 'ALL ACTIVITIES', href: '/activities' },
+        { label: 'MORNING ACTIVITIES', href: '/activities' },
+        { label: 'EVENING ACTIVITIES', href: '/activities' },
+        { label: 'TARPON FEEDING', href: '/activities' },
+        { label: 'JET-SKI ADVENTURES', href: '/kayak-paddleboard' },
+        { label: 'SNORKELING', href: '/snorkeling' },
+        { label: 'SNUBA DIVE', href: '/activities' },
+      ],
+      [
+        { label: 'ISLAMORADA FISHING', href: '/fishing' },
+        { label: 'SUNSET CRUISES', href: '/sunset-cruises' },
+        { label: 'KAYAK AND PADDLE BOARD RENTALS/TOURS', href: '/kayak-paddleboard' },
+        { label: 'BOAT RENTALS', href: '/boat-rentals' },
+        { label: 'ISLAMORADA ECO TOURS', href: '/eco-tours' },
+        { label: 'GLASS BOTTOM BOAT TOURS', href: '/glass-bottom-boat' },
+      ],
+    ],
   },
   {
-    label: 'Fishing',
+    label: 'FISHING',
     href: '/fishing',
-    cols: [
+    image: 'https://images.unsplash.com/photo-1501949087-cb1dc00eada1?w=600&q=80&auto=format&fit=crop',
+    imageAlt: 'Fishing in Islamorada',
+    sections: [
       {
-        heading: 'Party Boat',
-        links: [
-          { label: '🎣 Captain Michael Party Boat', href: '/fishing' },
-          { label: '🌙 Night Fishing', href: '/fishing' },
-          { label: '🤝 Split (Shared) Charters', href: '/fishing' },
-        ]
+        heading: 'ISLAMORADA FISHING',
+        cols: [
+          [
+            { label: 'ALL FISHING', href: '/fishing' },
+            { label: 'PARTYBOAT FISHING', href: '/fishing' },
+            { label: 'ISLAMORADA NIGHT FISHING', href: '/fishing' },
+            { label: 'SPLIT CHARTER FISHING', href: '/fishing' },
+            { label: 'OFFSHORE FISHING', href: '/fishing' },
+            { label: 'MAHI-MAHI FISHING', href: '/fishing' },
+            { label: 'SWORDFISH FISHING', href: '/fishing' },
+          ],
+          [
+            { label: 'REEF & WRECK FISHING', href: '/fishing' },
+            { label: 'TARPON & SHARK FISHING', href: '/fishing' },
+            { label: 'BACKCOUNTRY FISHING', href: '/fishing' },
+            { label: 'FAMILY FISHING', href: '/fishing' },
+            { label: 'FLY FISHING', href: '/fishing' },
+            { label: 'FISHING CALENDAR', href: '/fishing' },
+          ],
+        ],
       },
       {
-        heading: 'Private Charters',
-        links: [
-          { label: '🦈 Tarpon & Shark Fishing', href: '/fishing' },
-          { label: '🌊 Offshore Fishing', href: '/fishing' },
-          { label: '⚔️ Swordfish Fishing', href: '/fishing' },
-          { label: '🐟 Mahi-Mahi Fishing', href: '/fishing' },
-          { label: '🪸 Reef & Wreck Fishing', href: '/fishing' },
-          { label: '🌿 Backcountry Fishing', href: '/fishing' },
-        ]
+        heading: 'OUR CAPTAINS',
+        cols: [
+          [
+            { label: 'ALL CAPTAINS', href: '/fishing' },
+            { label: 'BLUE HEAVEN CHARTERS', href: '/fishing' },
+            { label: 'CONTAGIOUS CHARTERS', href: '/fishing' },
+            { label: 'DIRTYBOAT CHARTERS', href: '/fishing' },
+            { label: 'FIN-TASTIC CHARTERS', href: '/fishing' },
+            { label: 'FOUR ACES CHARTERS', href: '/four-aces' },
+            { label: 'MISS PENNY CHARTERS', href: '/fishing' },
+          ],
+          [
+            { label: 'GO TIME CHARTERS', href: '/fishing' },
+            { label: 'KATSIKAS CHARTERS', href: '/fishing' },
+            { label: "I'M BIT CHARTERS", href: '/fishing' },
+            { label: 'CAPT. RICHARD HASTINGS', href: '/fishing' },
+            { label: 'SATISFACTION CHARTERS', href: '/fishing' },
+            { label: 'CONCHED OUT CHARTERS', href: '/fishing' },
+          ],
+        ],
       },
-      {
-        heading: 'Resources',
-        links: [
-          { label: '📅 Fishing Calendar', href: '/fishing' },
-          { label: '👨‍👩‍👧 Family Fishing', href: '/fishing' },
-          { label: '📝 Blog: Winter Fishing', href: '/blog/winter-fishing-islamorada' },
-          { label: '📝 Best Fish in Winter', href: '/blog/best-fish-winter' },
-        ]
-      }
-    ]
+    ],
   },
   {
-    label: 'Snorkeling',
-    href: '/snorkeling',
-    simple: true,
-    links: [
-      { label: 'Sundance Watersports (Daily 10am & 1:30pm)', href: '/snorkeling' },
-      { label: 'KeyZ Charters (Private, 6 or fewer)', href: '/snorkeling' },
-      { label: 'Glass Bottom Boat Tours', href: '/glass-bottom-boat' },
-      { label: 'SNUBA Diving', href: '/activities' },
-      { label: 'Blog: Top Snorkel Spots', href: '/blog/top-places-to-snorkel-islamorada' },
-      { label: 'Blog: Snorkeling vs SNUBA', href: '/blog/snorkeling-vs-snuba' },
-    ]
-  },
-  {
-    label: 'Dining',
+    label: 'RESTAURANT',
     href: '/dining',
-    simple: true,
-    links: [
-      { label: 'Hungry Tarpon Restaurant', href: '/dining' },
-      { label: 'Thirsty Tarpon Bar', href: '/dining' },
-      { label: 'Cook Your Catch', href: '/dining' },
-      { label: 'Top 10 Places to Eat', href: '/blog/top-places-to-eat-islamorada' },
-    ]
+    image: 'https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=600&q=80&auto=format&fit=crop',
+    imageAlt: 'Hungry Tarpon Restaurant',
+    heading: 'HUNGRY TARPON RESTAURANT',
+    cols: [
+      [
+        { label: 'RESTAURANT OVERVIEW', href: '/dining' },
+        { label: 'BREAKFAST MENU', href: '/dining' },
+        { label: 'LUNCH & DINNER MENU', href: '/dining' },
+        { label: 'DRINK MENU', href: '/dining' },
+        { label: 'COOK YOUR CATCH', href: '/dining' },
+        { label: 'GIFT CARDS', href: 'https://311i00301793492.s4shops.com/giftcard.html' },
+      ],
+      [],
+    ],
   },
   {
-    label: 'Sunset Cruises',
-    href: '/sunset-cruises',
-    simple: true,
-    links: [
-      { label: 'Sundance Watersports (from $49)', href: '/sunset-cruises' },
-      { label: "KeyZ Charters (Private)", href: '/sunset-cruises' },
-      { label: 'Four Aces Luxury Yacht (from $1,000)', href: '/sunset-cruises' },
-      { label: 'Weddings & Private Events', href: '/weddings-events' },
-    ]
+    label: 'SHOP',
+    href: 'https://shop.robbies.com/',
+    image: 'https://images.unsplash.com/photo-1523381210434-271e8be1f52b?w=600&q=80&auto=format&fit=crop',
+    imageAlt: 'Robbie\'s Shop',
+    heading: 'SHOP',
+    cols: [
+      [
+        { label: 'MEN', href: 'https://shop.robbies.com/' },
+        { label: 'WOMEN', href: 'https://shop.robbies.com/' },
+        { label: 'KIDS', href: 'https://shop.robbies.com/' },
+        { label: 'TODDLERS', href: 'https://shop.robbies.com/' },
+        { label: 'HATS', href: 'https://shop.robbies.com/' },
+        { label: 'TIM RAHN', href: 'https://shop.robbies.com/' },
+      ],
+      [],
+    ],
   },
-  { label: 'Blog', href: '/blog' },
+  {
+    label: 'OPEN-AIR SHOPPING',
+    href: '/market',
+    simple: true,
+    image: 'https://images.unsplash.com/photo-1555529669-e69e7aa0ba9a?w=600&q=80&auto=format&fit=crop',
+    imageAlt: 'Open Air Market',
+    heading: 'OPEN-AIR SHOPPING',
+    cols: [
+      [
+        { label: 'TROPICAL OPEN AIR MARKET', href: '/market' },
+        { label: "BARBARA WEINGARDT ART", href: '/market' },
+        { label: 'TIM RAHN PHOTOGRAPHY', href: '/market' },
+        { label: 'NIKNAX', href: '/market' },
+        { label: 'BEAD SHACK', href: '/market' },
+        { label: 'GLASS SHACK', href: '/market' },
+      ],
+      [],
+    ],
+  },
+  { label: 'WEBCAM', href: 'https://www.robbies.com/livecam-from-islamorada.htm', external: true },
+  {
+    label: 'CONTACT US',
+    href: '/contact',
+    image: 'https://images.unsplash.com/photo-1548574505-5e239809ee19?w=600&q=80&auto=format&fit=crop',
+    imageAlt: "Robbie's Marina of Islamorada",
+    sections: [
+      {
+        heading: 'CONTACT US',
+        cols: [
+          [
+            { label: 'CONTACT US', href: '/contact' },
+            { label: 'DIRECTIONS', href: 'https://www.google.com/maps?q=77522+Overseas+Hwy+Islamorada+FL' },
+            { label: 'CAREERS', href: 'https://www.robbies.com/robbies-of-islamorada-careers.htm' },
+            { label: 'INFLUENCERS COLLABORATION', href: 'https://www.robbies.com/influencers-collaboration.htm' },
+            { label: 'ABOUT US', href: '/history' },
+            { label: 'LOCATION SHOOTS', href: 'https://robbies.com/islamorada-location-shoot.htm' },
+            { label: 'WEDDINGS AND EVENTS', href: '/weddings-events' },
+          ],
+          [],
+        ],
+      },
+      {
+        heading: "MORE FROM ROBBIE'S",
+        cols: [
+          [
+            { label: "ROBBIE'S OF KEY WEST", href: 'https://robbieskw.com' },
+            { label: 'HUNGRY TARPON', href: 'https://hungrytarpon.com' },
+            { label: 'CAPTAIN MICHAEL', href: 'https://captainmichaelfishing.com' },
+          ],
+          [],
+        ],
+      },
+    ],
+  },
+  {
+    label: "VISITOR'S CENTER",
+    href: '/blog',
+    image: 'https://images.unsplash.com/photo-1506953823976-52e1fdc0149a?w=600&q=80&auto=format&fit=crop',
+    imageAlt: 'Islamorada Florida Keys',
+    heading: "VISITOR'S CENTER",
+    cols: [
+      [
+        { label: "VISITOR'S CENTER", href: '/blog' },
+        { label: 'OUR HISTORY', href: '/history' },
+        { label: 'GIFT CARDS', href: 'https://311i00301793492.s4shops.com/giftcard.html' },
+        { label: 'FLORIDA KEYS TOP 10 THINGS TO DO', href: '/blog/budget-things-to-do-islamorada' },
+        { label: 'FEATURED IN', href: '/' },
+        { label: 'GUIDES', href: '/blog' },
+      ],
+      [],
+    ],
+  },
 ];
 ---
 
-<header id="site-header" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300">
-  <div class="max-w-7xl mx-auto px-6 py-3 flex items-center justify-between">
+<header id="site-header" class="sticky top-0 left-0 right-0 z-50 bg-white shadow-sm">
+  <div class="max-w-screen-xl mx-auto px-6 py-3 flex items-center justify-between">
     <!-- Logo -->
-    <a href="/" class="flex items-center gap-3 flex-shrink-0 z-10">
-      <img src="/robbies-logo.png" alt="Robbie's of Islamorada" class="h-10 w-auto" />
+    <a href="/" class="flex-shrink-0">
+      <img src="/robbies-logo.png" alt="Robbie's of Islamorada" class="h-12 w-auto" />
     </a>
 
     <!-- Desktop Nav -->
-    <nav class="hidden xl:flex items-center gap-1">
-      {menus.map(menu => (
-        <div class="relative group">
+    <nav class="hidden lg:flex items-center gap-0">
+      {navItems.map((item, idx) => (
+        <div class="nav-item relative group" data-idx={idx}>
           <a
-            href={menu.href}
-            class="text-white/90 hover:text-white text-sm font-medium px-3 py-2 rounded hover:bg-white/10 transition-colors whitespace-nowrap flex items-center gap-1"
+            href={item.href}
+            target={item.external ? '_blank' : undefined}
+            rel={item.external ? 'noopener' : undefined}
+            class="nav-trigger block px-3 py-4 text-xs font-semibold tracking-wide text-gray-700 hover:text-blue-700 transition-colors whitespace-nowrap uppercase"
+            style="font-family: 'Inter', sans-serif; letter-spacing: 0.05em;"
           >
-            {menu.label}
-            {(menu.cols || menu.simple) && (
-              <svg class="w-3 h-3 opacity-60 group-hover:opacity-100 transition-transform duration-200 group-hover:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
-              </svg>
-            )}
+            {item.label}
           </a>
+          {idx < navItems.length - 1 && !item.external && <span class="absolute right-0 top-1/2 -translate-y-1/2 text-gray-300 text-xs pointer-events-none">|</span>}
 
-          {/* Multi-column mega menu */}
-          {menu.cols && (
-            <div class="mega-menu absolute top-full left-1/2 -translate-x-1/2 mt-1 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 pointer-events-none group-hover:pointer-events-auto z-50"
-              style="min-width: 640px;">
-              <div class="bg-white rounded-xl shadow-2xl border border-gray-100 p-6 mt-2">
-                <div class={`grid grid-cols-${menu.cols.length} gap-8`}>
-                  {menu.cols.map(col => (
-                    <div>
-                      <p class="text-xs font-bold uppercase tracking-widest text-gray-400 mb-3">{col.heading}</p>
-                      <ul class="space-y-1">
-                        {col.links.map(link => (
-                          <li>
-                            <a href={link.href} class="text-gray-700 hover:text-amber-600 text-sm block py-1 transition-colors">
+          {/* Mega menu panel */}
+          {(item.cols || item.sections) && (
+            <div
+              class="mega-panel absolute top-full left-1/2 -translate-x-1/2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-150 z-50 pointer-events-none group-hover:pointer-events-auto"
+              style="min-width: 780px;"
+            >
+              <div class="flex shadow-2xl mt-0" style="background-color: #1a3a6e;">
+
+                {/* Left: links */}
+                <div class="flex-1 p-8">
+                  {item.heading && (
+                    <p class="text-white font-bold text-sm mb-5 uppercase tracking-widest">{item.heading}</p>
+                  )}
+
+                  {/* Simple 2-col */}
+                  {item.cols && (
+                    <div class="grid grid-cols-2 gap-x-8 gap-y-1">
+                      {item.cols.map(col => (
+                        <div>
+                          {col.map(link => (
+                            <a href={link.href} class="block text-white/80 hover:text-white text-xs py-1.5 uppercase tracking-wide transition-colors" style="font-size: 11px; letter-spacing: 0.08em;">
                               {link.label}
                             </a>
-                          </li>
+                          ))}
+                        </div>
+                      ))}
+                    </div>
+                  )}
+
+                  {/* Sectioned (fishing, contact) */}
+                  {item.sections && item.sections.map((section, si) => (
+                    <div class={si > 0 ? 'mt-6 pt-6 border-t border-white/20' : ''}>
+                      <p class="text-white font-bold text-xs mb-4 uppercase tracking-widest">{section.heading}</p>
+                      <div class="grid grid-cols-2 gap-x-8 gap-y-1">
+                        {section.cols.map(col => (
+                          <div>
+                            {col.map(link => (
+                              <a href={link.href} class="block text-white/80 hover:text-white text-xs py-1.5 uppercase tracking-wide transition-colors" style="font-size: 11px; letter-spacing: 0.08em;">
+                                {link.label}
+                              </a>
+                            ))}
+                          </div>
                         ))}
-                      </ul>
+                      </div>
                     </div>
                   ))}
                 </div>
-                <div class="border-t border-gray-100 mt-5 pt-4 flex justify-between items-center">
-                  <p class="text-xs text-gray-400">📍 77522 Overseas Hwy, Islamorada FL · Mon–Sun 7am–9pm</p>
-                  <a href="https://fareharbor.com/hungrytarpon/" target="_blank" rel="noopener"
-                    class="bg-amber-500 hover:bg-amber-400 text-white px-4 py-1.5 rounded text-xs font-semibold transition-colors">
-                    Book Now
-                  </a>
-                </div>
-              </div>
-            </div>
-          )}
 
-          {/* Simple dropdown */}
-          {menu.simple && menu.links && (
-            <div class="absolute top-full left-0 mt-1 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 pointer-events-none group-hover:pointer-events-auto z-50"
-              style="min-width: 280px;">
-              <div class="bg-white rounded-xl shadow-2xl border border-gray-100 p-4 mt-2">
-                <ul class="space-y-1">
-                  {menu.links.map(link => (
-                    <li>
-                      <a href={link.href} class="text-gray-700 hover:text-amber-600 text-sm block py-1.5 px-2 rounded hover:bg-amber-50 transition-colors">
-                        {link.label}
-                      </a>
-                    </li>
-                  ))}
-                </ul>
+                {/* Right: photo */}
+                {item.image && (
+                  <div class="w-72 flex-shrink-0 overflow-hidden">
+                    <img
+                      src={item.image}
+                      alt={item.imageAlt || ''}
+                      class="w-full h-full object-cover"
+                      loading="lazy"
+                    />
+                  </div>
+                )}
+
               </div>
             </div>
           )}
         </div>
       ))}
-
-      <a href="tel:3056648070" class="text-white/70 hover:text-white text-sm px-2 transition-colors whitespace-nowrap">
-        (305) 664-8070
-      </a>
-
-      <a href="https://fareharbor.com/hungrytarpon/" target="_blank" rel="noopener"
-        class="ml-2 bg-amber-500 hover:bg-amber-400 text-white px-5 py-2 rounded text-sm font-semibold tracking-wide transition-colors whitespace-nowrap">
-        Book Now
-      </a>
     </nav>
 
-    <!-- Mobile: phone + hamburger -->
-    <div class="xl:hidden flex items-center gap-4">
-      <a href="tel:3056648070" class="text-white/80 hover:text-white text-sm font-medium">
-        📞 305-664-8070
+    <!-- Right: cart, search, phone -->
+    <div class="hidden lg:flex items-center gap-4 flex-shrink-0">
+      <a href="https://shop.robbies.com/" target="_blank" rel="noopener" class="text-gray-600 hover:text-blue-700 transition-colors" aria-label="Shop">
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"/>
+        </svg>
       </a>
-      <button id="menu-toggle" class="text-white p-2" aria-label="Toggle menu">
-        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+      <button class="text-gray-600 hover:text-blue-700 transition-colors" aria-label="Search">
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
         </svg>
       </button>
+      <a href="tel:3056648070" class="flex items-center gap-1.5 text-gray-700 hover:text-blue-700 transition-colors text-sm font-semibold whitespace-nowrap">
+        <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+          <path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1-9.4 0-17-7.6-17-17 0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1L6.6 10.8z"/>
+        </svg>
+        (305) 664-8070
+      </a>
     </div>
+
+    <!-- Mobile hamburger -->
+    <button id="menu-toggle" class="lg:hidden text-gray-700 p-2" aria-label="Toggle menu">
+      <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+      </svg>
+    </button>
   </div>
 
   <!-- Mobile Menu -->
-  <div id="mobile-menu" class="hidden xl:hidden border-t border-white/10" style="background-color: #0a1628; max-height: 80vh; overflow-y: auto;">
-    <div class="px-6 py-4 flex flex-col gap-2">
-      {menus.map(menu => (
-        <a href={menu.href} class="text-white/90 hover:text-white text-sm font-medium py-2 border-b border-white/10 transition-colors">
-          {menu.label}
+  <div id="mobile-menu" class="hidden lg:hidden border-t border-gray-200 bg-white max-h-screen overflow-y-auto">
+    <div class="px-6 py-4 flex flex-col gap-1">
+      {navItems.map(item => (
+        <a
+          href={item.href}
+          target={item.external ? '_blank' : undefined}
+          rel={item.external ? 'noopener' : undefined}
+          class="text-gray-700 hover:text-blue-700 text-sm font-semibold uppercase tracking-wide py-2.5 border-b border-gray-100 transition-colors"
+        >
+          {item.label}
         </a>
       ))}
-      <a href="/history" class="text-white/90 hover:text-white text-sm font-medium py-2 border-b border-white/10 transition-colors">Our History</a>
-      <a href="/weddings-events" class="text-white/90 hover:text-white text-sm font-medium py-2 border-b border-white/10 transition-colors">Weddings & Events</a>
-      <a href="/market" class="text-white/90 hover:text-white text-sm font-medium py-2 border-b border-white/10 transition-colors">Open Air Market</a>
+      <a href="tel:3056648070" class="text-blue-700 font-semibold text-sm py-3 text-center">
+        📞 (305) 664-8070
+      </a>
       <a href="https://fareharbor.com/hungrytarpon/" target="_blank" rel="noopener"
-        class="bg-amber-500 text-white px-5 py-3 rounded text-sm font-semibold text-center mt-2">
+        class="bg-amber-500 text-white px-5 py-3 rounded text-sm font-semibold text-center mt-1">
         Book Now
       </a>
-      <div class="text-white/50 text-xs text-center pt-2">
-        📍 77522 Overseas Hwy, Islamorada FL 33036
-      </div>
     </div>
   </div>
 </header>
 
 <style>
-  #site-header.scrolled {
-    background-color: #0a1628;
-    box-shadow: 0 2px 20px rgba(0,0,0,0.3);
+  .mega-panel {
+    transform: translateX(-50%);
   }
-  .mega-menu { transform: translateX(-50%) translateY(-4px); }
-  .group:hover .mega-menu { transform: translateX(-50%) translateY(0); }
 </style>
 
 <script>
-  const header = document.getElementById('site-header');
   const menuToggle = document.getElementById('menu-toggle');
   const mobileMenu = document.getElementById('mobile-menu');
-
-  window.addEventListener('scroll', () => {
-    if (window.scrollY > 50) {
-      header?.classList.add('scrolled');
-    } else {
-      header?.classList.remove('scrolled');
-    }
-  });
 
   menuToggle?.addEventListener('click', () => {
     mobileMenu?.classList.toggle('hidden');
   });
 
   mobileMenu?.querySelectorAll('a').forEach(link => {
-    link.addEventListener('click', () => mobileMenu.classList.add('hidden'));
+    link.addEventListener('click', () => mobileMenu?.classList.add('hidden'));
   });
 </script>
