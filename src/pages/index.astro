@@ -22,12 +22,23 @@ const activities = [
 <Layout title="Home">
   <!-- Hero -->
   <section class="relative min-h-screen flex items-center justify-center overflow-hidden">
-    <img
-      src="https://images.unsplash.com/photo-1544551763-46a013bb70d5?w=1920&q=80&auto=format&fit=crop"
-      alt="Florida Keys turquoise waters"
-      class="absolute inset-0 w-full h-full object-cover"
-    />
-    <div class="absolute inset-0" style="background: linear-gradient(to bottom, rgba(10,22,40,0.65) 0%, rgba(10,22,40,0.5) 50%, rgba(10,22,40,0.75) 100%);"></div>
+    <!-- Desktop video -->
+    <video
+      class="hidden md:block absolute inset-0 w-full h-full object-cover"
+      autoplay muted loop playsinline preload="auto"
+      poster="https://images.unsplash.com/photo-1544551763-46a013bb70d5?w=1280&q=60&auto=format&fit=crop"
+    >
+      <source src="/hero-desktop.mp4" type="video/mp4" />
+    </video>
+    <!-- Mobile video -->
+    <video
+      class="md:hidden absolute inset-0 w-full h-full object-cover"
+      autoplay muted loop playsinline preload="auto"
+      poster="https://images.unsplash.com/photo-1544551763-46a013bb70d5?w=600&q=60&auto=format&fit=crop"
+    >
+      <source src="/hero-mobile.mp4" type="video/mp4" />
+    </video>
+    <div class="absolute inset-0" style="background: linear-gradient(to bottom, rgba(10,22,40,0.55) 0%, rgba(10,22,40,0.35) 50%, rgba(10,22,40,0.65) 100%);"></div>
 
     <div class="relative z-10 text-center px-6 max-w-4xl mx-auto">
       <p class="text-amber-400 text-sm font-semibold uppercase tracking-widest mb-6">Islamorada, Florida Keys</p>
