@@ -22,20 +22,22 @@ const activities = [
 <Layout title="Home">
   <!-- Hero -->
   <section class="relative min-h-screen flex items-center justify-center overflow-hidden">
-    <!-- Desktop video -->
+    <!-- Desktop video (WebM first for Chrome/Firefox, MP4 fallback for Safari) -->
     <video
       class="hidden md:block absolute inset-0 w-full h-full object-cover"
       autoplay muted loop playsinline preload="auto"
       poster="https://images.unsplash.com/photo-1544551763-46a013bb70d5?w=1280&q=60&auto=format&fit=crop"
     >
+      <source src="/hero-desktop.webm" type="video/webm" />
       <source src="/hero-desktop.mp4" type="video/mp4" />
     </video>
-    <!-- Mobile video -->
+    <!-- Mobile video (portrait) -->
     <video
       class="md:hidden absolute inset-0 w-full h-full object-cover"
       autoplay muted loop playsinline preload="auto"
       poster="https://images.unsplash.com/photo-1544551763-46a013bb70d5?w=600&q=60&auto=format&fit=crop"
     >
+      <source src="/hero-mobile.webm" type="video/webm" />
       <source src="/hero-mobile.mp4" type="video/mp4" />
     </video>
     <div class="absolute inset-0" style="background: linear-gradient(to bottom, rgba(10,22,40,0.55) 0%, rgba(10,22,40,0.35) 50%, rgba(10,22,40,0.65) 100%);"></div>
