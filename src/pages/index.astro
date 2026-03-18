@@ -2,6 +2,7 @@
 import Layout from '../layouts/Layout.astro';
 import ActivityCard from '../components/ActivityCard.astro';
 import BookingCTA from '../components/BookingCTA.astro';
+import WeatherWidget from '../components/WeatherWidget.astro';
 
 const activities = [
   { title: 'Tarpon Feeding', description: 'Hand-feed massive tarpon in the world-famous feeding frenzy at Robbie\'s dock.', href: '/activities', image: '/img/feed-tarpon2.webp' },
@@ -116,6 +117,8 @@ const activities = [
       </div>
     </div>
   </section>
+
+  <WeatherWidget />
 
   <!-- Activities -->
   <section id="activities" class="py-24 px-6 bg-gray-50">
