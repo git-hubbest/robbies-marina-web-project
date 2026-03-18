@@ -1,0 +1,38 @@
+---
+import Layout from '../layouts/Layout.astro';
+import ActivityCard from '../components/ActivityCard.astro';
+import BookingCTA from '../components/BookingCTA.astro';
+
+const activities = [
+  { title: 'Tarpon Feeding', description: 'Hand-feed massive tarpon at the world-famous Robbie\'s dock. The #1 bucket-list experience in the Florida Keys.', href: '/', emoji: '🐟', gradient: 'from-teal-800 to-teal-600' },
+  { title: 'Glass Bottom Boat', description: 'Explore Islamorada\'s stunning reefs aboard the Seakeeper-stabilized Transparensea — no snorkel needed.', href: '/glass-bottom-boat', emoji: '🪸', gradient: 'from-blue-800 to-cyan-600' },
+  { title: 'Snorkeling Tours', description: 'Dive into crystal-clear Florida Keys waters. Two trips daily at 10am & 1:30pm. Private charters available.', href: '/snorkeling', emoji: '🤿', gradient: 'from-cyan-800 to-blue-600' },
+  { title: 'Sport Fishing', description: 'Three party boat trips daily with Captain Michael. All bait & tackle included. $100/person.', href: '/fishing', emoji: '🎣', gradient: 'from-slate-800 to-blue-800' },
+  { title: 'Kayak & Paddleboard', description: 'Explore mangrove eco-systems and two Florida state parks with The Kayak Shack.', href: '/kayak-paddleboard', emoji: '🚣', gradient: 'from-green-800 to-teal-700' },
+  { title: 'Jet Ski Tours', description: '14–22 mile tours through turquoise bays. Spot dolphins and manatees in the wild.', href: '/kayak-paddleboard', emoji: '💨', gradient: 'from-blue-700 to-indigo-700' },
+  { title: 'Sunset Cruises', description: 'Three options — catamaran, private deck boat, or luxury 55ft yacht. Perfect endings to perfect days.', href: '/sunset-cruises', emoji: '🌅', gradient: 'from-orange-700 to-rose-700' },
+  { title: 'Eco Tours', description: '2-hour Florida Bay expeditions through mangrove islands, sea grass beds, and extraordinary wildlife.', href: '/eco-tours', emoji: '🌿', gradient: 'from-green-700 to-emerald-600' },
+  { title: 'Boat Rentals', description: 'Set your own course. Prime access to Atlantic Ocean, Florida Bay, top reefs, and the San Pedro Galleon.', href: '/boat-rentals', emoji: '⛵', gradient: 'from-sky-800 to-blue-700' },
+  { title: 'SNUBA Diving', description: 'Deeper than snorkeling, no certification required. Guided underwater adventures for all skill levels.', href: '/', emoji: '🌊', gradient: 'from-indigo-800 to-blue-700' },
+  { title: 'Four Aces Yacht', description: 'Luxury 55-foot Hatteras charter. Fish Islamorada or cruise to the Bahamas. Up to 6 guests.', href: '/four-aces', emoji: '🛥️', gradient: 'from-amber-800 to-yellow-700' },
+  { title: 'History Tours', description: 'Brad Bertelli\'s signature experience — rumrunner, conch chowder, and Key lime pie. Mon & Thu only.', href: '/history-tours', emoji: '📜', gradient: 'from-stone-700 to-amber-700' },
+];
+---
+
+<Layout title="Activities" description="All activities at Robbie's Marina of Islamorada — tarpon feeding, fishing, snorkeling, kayaking, jet ski, sunset cruises & more.">
+  <section class="pt-32 pb-20 px-6 text-center text-white" style="background: linear-gradient(135deg, #0a1628, #1a3a5c);">
+    <p class="text-amber-400 text-sm font-semibold uppercase tracking-widest mb-4">Everything in One Place</p>
+    <h1 class="text-4xl md:text-5xl font-bold mb-6" style="font-family: 'Playfair Display', serif;">All Activities</h1>
+    <p class="text-white/70 text-lg max-w-2xl mx-auto">The best of the Florida Keys, all at Robbie's Marina of Islamorada. Something for everyone.</p>
+  </section>
+
+  <section class="py-20 px-6">
+    <div class="max-w-7xl mx-auto grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+      {activities.map(activity => (
+        <ActivityCard {...activity} />
+      ))}
+    </div>
+  </section>
+
+  <BookingCTA />
+</Layout>

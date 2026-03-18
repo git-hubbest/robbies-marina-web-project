@@ -1,0 +1,47 @@
+---
+import Layout from '../layouts/Layout.astro';
+import BookingCTA from '../components/BookingCTA.astro';
+---
+
+<Layout title="Four Aces Luxury Yacht" description="Luxury 55-foot Hatteras yacht charter at Robbie's Marina. Fish Islamorada or cruise to the Bahamas.">
+  <section class="pt-32 pb-20 px-6 text-center text-white" style="background: linear-gradient(135deg, #0a1628, #0d2a4a, #1a3a5c);">
+    <p class="text-amber-400 text-sm font-semibold uppercase tracking-widest mb-4">Luxury Charter</p>
+    <h1 class="text-4xl md:text-5xl font-bold mb-6" style="font-family: 'Playfair Display', serif;">Four Aces Yacht</h1>
+    <p class="text-white/70 text-lg max-w-2xl mx-auto">A 55-foot Hatteras waiting to take you on any adventure you can imagine — from a day of fishing to cruising to the Bahamas.</p>
+  </section>
+
+  <section class="py-20 px-6">
+    <div class="max-w-4xl mx-auto">
+      <div class="grid md:grid-cols-2 gap-12 items-center mb-16">
+        <div>
+          <h2 class="text-3xl font-bold text-gray-900 mb-6" style="font-family: 'Playfair Display', serif;">The Ultimate Florida Keys Experience</h2>
+          <p class="text-gray-600 leading-relaxed mb-4">Four Aces is not just a day boat — it was designed to travel and live aboard. Fully air-conditioned and loaded with all the modern amenities of a high-end sportfishing and recreation yacht.</p>
+          <p class="text-gray-600 leading-relaxed mb-4">The customer-focused captain and crew are ready and able to make your dreams a reality. Stay local for world-class fishing off Islamorada, or set a course for the Dry Tortugas, Key West, or the Bahamas.</p>
+          <p class="text-gray-600 leading-relaxed">She has space and comfort for 2 couples or a traveling group of up to 6 (USCG Coast Guard passenger limit). We also package larger groups with luxury shore accommodations.</p>
+        </div>
+        <div class="bg-gradient-to-br from-slate-800 to-blue-900 rounded-2xl p-12 text-center text-white">
+          <span class="text-7xl mb-6 block">🛥️</span>
+          <p class="text-3xl font-bold mb-2">55 Feet</p>
+          <p class="text-white/60">Hatteras Luxury Yacht</p>
+        </div>
+      </div>
+
+      <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        {[
+          { emoji: '❄️', label: 'Fully A/C', desc: 'Climate-controlled throughout' },
+          { emoji: '👥', label: 'Up to 6 Guests', desc: 'USCG Coast Guard certified' },
+          { emoji: '🎣', label: 'World-Class Fishing', desc: 'Islamorada\'s best waters' },
+          { emoji: '🏝️', label: 'Bahamas Capable', desc: 'Multi-day excursions available' },
+        ].map(feat => (
+          <div class="bg-gray-50 rounded-xl p-6 text-center">
+            <span class="text-3xl mb-3 block">{feat.emoji}</span>
+            <p class="font-semibold text-gray-900 mb-1">{feat.label}</p>
+            <p class="text-gray-600 text-sm">{feat.desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <BookingCTA headline="Your Luxury Adventure Awaits" subtext="Book the Four Aces for your next Florida Keys escape." />
+</Layout>

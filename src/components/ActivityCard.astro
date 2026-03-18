@@ -1,0 +1,22 @@
+---
+interface Props {
+  title: string;
+  description: string;
+  href: string;
+  emoji: string;
+  gradient?: string;
+}
+
+const { title, description, href, emoji, gradient = 'from-blue-900 to-blue-700' } = Astro.props;
+---
+
+<a href={href} class="group block rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-1">
+  <div class={`bg-gradient-to-br ${gradient} h-40 flex items-center justify-center text-6xl`}>
+    {emoji}
+  </div>
+  <div class="p-6 bg-white border border-gray-100">
+    <h3 class="text-lg font-bold text-gray-900 mb-2 group-hover:text-amber-600 transition-colors">{title}</h3>
+    <p class="text-gray-600 text-sm leading-relaxed mb-4">{description}</p>
+    <span class="text-amber-600 text-sm font-semibold">Learn More →</span>
+  </div>
+</a>

@@ -1,0 +1,34 @@
+---
+import Layout from '../layouts/Layout.astro';
+import BookingCTA from '../components/BookingCTA.astro';
+---
+
+<Layout title="Boat Rentals" description="Boat rentals at Robbie's Marina in Islamorada. Prime access to Atlantic Ocean, Florida Bay, top reefs and the San Pedro Spanish Galleon.">
+  <section class="pt-32 pb-20 px-6 text-center text-white" style="background: linear-gradient(135deg, #0a1a2a, #0d2a4a, #0a2a3a);">
+    <p class="text-amber-400 text-sm font-semibold uppercase tracking-widest mb-4">Set Your Own Course</p>
+    <h1 class="text-4xl md:text-5xl font-bold mb-6" style="font-family: 'Playfair Display', serif;">Boat Rentals</h1>
+    <p class="text-white/70 text-lg max-w-2xl mx-auto">Robbie's is the perfect launching point for your Florida Keys adventure. Prime access to the Atlantic and Florida Bay.</p>
+  </section>
+
+  <section class="py-20 px-6">
+    <div class="max-w-4xl mx-auto">
+      <p class="text-gray-600 text-lg leading-relaxed text-center mb-16">Our prime location provides quick access to popular attractions including top fishing spots, tranquil mangrove channels, and some of the best reefs in the Keys — all within easy reach.</p>
+      <div class="grid md:grid-cols-2 gap-8">
+        {[
+          { emoji: '🪸', title: 'Alligator Lighthouse', desc: 'One of the most famous shallow water reefs in the Keys. Snorkel or dive in depths from 6 to 100 feet, with coral heads just 3 feet below the surface.' },
+          { emoji: '🐠', title: 'Cheeca Rocks', desc: 'A renowned shallow reef within easy reach. Excellent for snorkeling, diving, and exploring diverse marine life in the protected waters.' },
+          { emoji: '⚓', title: 'San Pedro Spanish Galleon', desc: 'Within 1 mile of Robbie\'s — explore the historic San Pedro, a Spanish galleon with visible cannons, ballast stones, and timbers from the deep.' },
+          { emoji: '🌿', title: 'Mangrove Channels', desc: 'Tranquil bird-watching passages through mangrove-lined channels. A serene alternative to open water exploration.' },
+        ].map(spot => (
+          <div class="bg-white rounded-xl p-8 shadow-sm border border-gray-100">
+            <span class="text-4xl mb-4 block">{spot.emoji}</span>
+            <h3 class="text-xl font-bold text-gray-900 mb-3">{spot.title}</h3>
+            <p class="text-gray-600 text-sm leading-relaxed">{spot.desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <BookingCTA headline="Chart Your Own Adventure" subtext="Rent a boat and explore the Florida Keys on your terms." />
+</Layout>

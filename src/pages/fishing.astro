@@ -1,0 +1,68 @@
+---
+import Layout from '../layouts/Layout.astro';
+import BookingCTA from '../components/BookingCTA.astro';
+
+const fishingTypes = [
+  { title: 'Tarpon & Shark Fishing', emoji: '🦈', desc: 'Islamorada offers some of the best Tarpon Fishing in the Florida Keys. Active months: March through September.' },
+  { title: 'Offshore Fishing', emoji: '🌊', desc: 'Sport-fishing is one of the things Islamorada is famous for and Robbie\'s has been doing it for more than 30 years.' },
+  { title: 'Swordfish Fishing', emoji: '⚔️', desc: 'Seek the mighty swordfish, known for their strength and tenacity. Experience the thrill of an unforgettable deep-sea adventure.' },
+  { title: 'Split (Shared) Charters', emoji: '🤝', desc: 'Catch the big ones without spending the big bucks! Share the expense of a private fishing charter with other anglers.' },
+  { title: 'Backcountry Fishing', emoji: '🌿', desc: 'Located in the most ideal spot in the Keys — the Everglades National Park is just a short boat ride away.' },
+  { title: 'Reef & Wreck Fishing', emoji: '🪸', desc: 'Some of the best fishing in the Florida Keys lies only a few miles from shore, atop stunning reefs and sunken wrecks.' },
+];
+---
+
+<Layout title="Fishing" description="Best fishing in Islamorada at Robbie's Marina. Party boat trips daily with Captain Michael. Tarpon, offshore, swordfish & more.">
+  <!-- Hero -->
+  <section class="pt-32 pb-20 px-6 text-center text-white" style="background: linear-gradient(135deg, #0a1628, #1a3a5c);">
+    <p class="text-amber-400 text-sm font-semibold uppercase tracking-widest mb-4">Islamorada's Best</p>
+    <h1 class="text-4xl md:text-5xl font-bold mb-6" style="font-family: 'Playfair Display', serif;">Fishing at Robbie's</h1>
+    <p class="text-white/70 text-lg max-w-2xl mx-auto">World-class fishing on the waters of Islamorada. Three party boat trips daily, plus private and specialty charters.</p>
+  </section>
+
+  <!-- Captain Michael Party Boat -->
+  <section class="py-20 px-6">
+    <div class="max-w-4xl mx-auto text-center">
+      <h2 class="text-3xl font-bold text-gray-900 mb-4" style="font-family: 'Playfair Display', serif;">Captain Michael Party Boat</h2>
+      <p class="text-gray-600 mb-12 text-lg">Three trips per day — early bird to night owl, we have the perfect fishing experience waiting for you.</p>
+
+      <div class="grid md:grid-cols-3 gap-6 mb-12">
+        {[
+          { time: 'Morning Trip', hours: '9:00am – 2:00pm', price: '$100', note: 'per person' },
+          { time: 'Afternoon Trip', hours: '3:00pm – 8:00pm', price: '$100', note: 'per person' },
+          { time: 'Night Trip', hours: '9:00pm – 1:00am', price: '$100', note: 'per person' },
+        ].map(trip => (
+          <div class="border-2 border-amber-100 rounded-xl p-8 text-center hover:border-amber-400 transition-colors">
+            <p class="text-amber-600 font-semibold uppercase text-sm tracking-widest mb-3">{trip.time}</p>
+            <p class="text-gray-900 font-bold text-lg mb-2">{trip.hours}</p>
+            <p class="text-3xl font-bold text-gray-900 mb-1">{trip.price}</p>
+            <p class="text-gray-500 text-sm">{trip.note}</p>
+          </div>
+        ))}
+      </div>
+
+      <div class="bg-gray-50 rounded-xl p-6 text-left text-sm text-gray-600">
+        <p class="font-semibold text-gray-800 mb-2">What's Included:</p>
+        <p>All bait, tackle, and rods. If you bring your own rod, please no braided line. Rotation of the stern. Bathrooms and shaded cabin available. Check in 30 minutes before departure.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Fishing Types -->
+  <section class="py-20 px-6 bg-gray-50">
+    <div class="max-w-6xl mx-auto">
+      <h2 class="text-center text-3xl font-bold text-gray-900 mb-16" style="font-family: 'Playfair Display', serif;">All Fishing Experiences</h2>
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {fishingTypes.map(type => (
+          <div class="bg-white rounded-xl p-8 shadow-sm hover:shadow-md transition-shadow border border-gray-100">
+            <span class="text-4xl mb-4 block">{type.emoji}</span>
+            <h3 class="text-xl font-bold text-gray-900 mb-3">{type.title}</h3>
+            <p class="text-gray-600 text-sm leading-relaxed">{type.desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <BookingCTA headline="Ready to Reel in the Big One?" subtext="Book your fishing trip with Captain Michael today." />
+</Layout>

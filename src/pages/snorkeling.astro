@@ -1,0 +1,57 @@
+---
+import Layout from '../layouts/Layout.astro';
+import BookingCTA from '../components/BookingCTA.astro';
+---
+
+<Layout title="Snorkeling" description="Best snorkeling in Islamorada at Robbie's Marina. Daily trips at 10am & 1:30pm. Private charters available.">
+  <section class="pt-32 pb-20 px-6 text-center text-white" style="background: linear-gradient(135deg, #0a2a3a, #0d4a6b);">
+    <p class="text-amber-400 text-sm font-semibold uppercase tracking-widest mb-4">Florida Keys</p>
+    <h1 class="text-4xl md:text-5xl font-bold mb-6" style="font-family: 'Playfair Display', serif;">Snorkeling Tours</h1>
+    <p class="text-white/70 text-lg max-w-2xl mx-auto">Dive into the stunning underwater world of the Florida Keys. Unforgettable adventures for all ages and skill levels.</p>
+  </section>
+
+  <section class="py-20 px-6">
+    <div class="max-w-5xl mx-auto grid md:grid-cols-2 gap-12">
+      <div class="bg-white border border-gray-100 rounded-2xl p-10 shadow-sm">
+        <span class="text-5xl mb-6 block">🚢</span>
+        <h2 class="text-2xl font-bold text-gray-900 mb-4" style="font-family: 'Playfair Display', serif;">Vessel Blue</h2>
+        <p class="text-gray-600 mb-6 leading-relaxed">Our flagship snorkel vessel departs twice daily. Explore the vibrant reefs of Islamorada with our experienced guides. Also offers Wednesday, Friday, and Saturday sunset cruises.</p>
+        <div class="bg-amber-50 rounded-lg p-4">
+          <p class="font-semibold text-amber-800 mb-1">Daily Departure Times</p>
+          <p class="text-amber-700">10:00am & 1:30pm</p>
+        </div>
+      </div>
+
+      <div class="bg-white border border-gray-100 rounded-2xl p-10 shadow-sm">
+        <span class="text-5xl mb-6 block">⛵</span>
+        <h2 class="text-2xl font-bold text-gray-900 mb-4" style="font-family: 'Playfair Display', serif;">KeyZ Charters</h2>
+        <p class="text-gray-600 mb-6 leading-relaxed">Perfect for families and small groups seeking a more private experience. Captain Sam and crew provide a personalized snorkeling adventure tailored to your group.</p>
+        <div class="bg-blue-50 rounded-lg p-4">
+          <p class="font-semibold text-blue-800 mb-1">Private Charters</p>
+          <p class="text-blue-700">Groups of 6 or fewer</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-16 px-6 bg-gray-50">
+    <div class="max-w-3xl mx-auto text-center">
+      <h2 class="text-2xl font-bold text-gray-900 mb-6" style="font-family: 'Playfair Display', serif;">What to Expect</h2>
+      <div class="grid sm:grid-cols-3 gap-6">
+        {[
+          { emoji: '🐠', label: 'Vibrant Reefs', desc: 'Explore Cheeca Rocks, Alligator Reef and more' },
+          { emoji: '👨‍👩‍👧', label: 'All Ages Welcome', desc: 'Perfect for families, couples, and solo adventurers' },
+          { emoji: '🎓', label: 'Expert Guides', desc: 'Educated naturalist guides explain the underwater world' },
+        ].map(item => (
+          <div class="text-center">
+            <span class="text-4xl mb-3 block">{item.emoji}</span>
+            <p class="font-semibold text-gray-900 mb-1">{item.label}</p>
+            <p class="text-gray-600 text-sm">{item.desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <BookingCTA headline="Dive Into the Florida Keys" subtext="Book your snorkel tour at Robbie's Marina today." />
+</Layout>

@@ -1,0 +1,56 @@
+---
+import Layout from '../layouts/Layout.astro';
+import BookingCTA from '../components/BookingCTA.astro';
+---
+
+<Layout title="Dining" description="Hungry Tarpon Restaurant & Thirsty Tarpon Bar at Robbie's Marina. Fresh seafood, signature cocktails, waterfront dining in Islamorada.">
+  <section class="pt-32 pb-20 px-6 text-center text-white" style="background: linear-gradient(135deg, #1a0a00, #3a1a00, #5a2a00);">
+    <p class="text-amber-400 text-sm font-semibold uppercase tracking-widest mb-4">Waterfront Dining</p>
+    <h1 class="text-4xl md:text-5xl font-bold mb-6" style="font-family: 'Playfair Display', serif;">Hungry Tarpon Restaurant</h1>
+    <p class="text-white/70 text-lg max-w-2xl mx-auto">Fresh Florida Keys seafood, signature cocktails, and the famous Trailer Trash Bloody Mary — all on the waterfront deck.</p>
+  </section>
+
+  <section class="py-20 px-6">
+    <div class="max-w-5xl mx-auto grid md:grid-cols-2 gap-12">
+      <div>
+        <h2 class="text-2xl font-bold text-gray-900 mb-4" style="font-family: 'Playfair Display', serif;">The Restaurant</h2>
+        <p class="text-gray-600 leading-relaxed mb-4">Gorge on fresh, delicious seafood while sitting on the waterfront deck and watching the tarpon feeding frenzy below. The Hungry Tarpon offers a large menu that will make the entire family happy.</p>
+        <p class="text-gray-600 leading-relaxed mb-6">Open daily from 6:30am to 9:00pm — catch sunrise over the water with breakfast or end your day of adventure with a sunset dinner.</p>
+        <div class="bg-amber-50 rounded-xl p-5">
+          <p class="font-semibold text-amber-800 mb-1">🕰 Hours</p>
+          <p class="text-amber-700">Mon–Sun: 6:30am – 9:00pm</p>
+        </div>
+      </div>
+
+      <div>
+        <h2 class="text-2xl font-bold text-gray-900 mb-4" style="font-family: 'Playfair Display', serif;">Thirsty Tarpon Bar</h2>
+        <p class="text-gray-600 leading-relaxed mb-6">Relax on the deck with one of our signature cocktails, local draft beers, or our world-famous loaded Trailer Trash Bloody Mary. The perfect way to toast another perfect day in the Keys.</p>
+        <div class="bg-red-50 rounded-xl p-5 border border-red-100">
+          <p class="font-bold text-red-800 mb-2">🍹 The Trailer Trash Bloody Mary</p>
+          <p class="text-red-700 text-sm">Our legendary loaded Bloody Mary — piled high and absolutely unforgettable. Order one. You'll understand immediately.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-16 px-6 bg-gray-50">
+    <div class="max-w-3xl mx-auto text-center">
+      <h2 class="text-2xl font-bold text-gray-900 mb-10" style="font-family: 'Playfair Display', serif;">The Full Experience</h2>
+      <div class="grid sm:grid-cols-3 gap-6">
+        {[
+          { emoji: '🦐', label: 'Fresh Seafood', desc: 'Caught local, served fresh' },
+          { emoji: '🌊', label: 'Waterfront Deck', desc: 'Watch the tarpon feeding while you eat' },
+          { emoji: '🍹', label: 'Craft Cocktails', desc: 'Signature drinks & local drafts' },
+        ].map(item => (
+          <div>
+            <span class="text-4xl mb-3 block">{item.emoji}</span>
+            <p class="font-semibold text-gray-900 mb-1">{item.label}</p>
+            <p class="text-gray-600 text-sm">{item.desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <BookingCTA headline="Dine on the Water" subtext="Come hungry. Leave happy." />
+</Layout>

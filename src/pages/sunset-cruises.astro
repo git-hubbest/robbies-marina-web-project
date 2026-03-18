@@ -1,0 +1,65 @@
+---
+import Layout from '../layouts/Layout.astro';
+import BookingCTA from '../components/BookingCTA.astro';
+
+const cruises = [
+  {
+    name: 'Sundance Watersports',
+    vessel: '100+ passenger catamaran',
+    emoji: '⛵',
+    gradient: 'from-orange-700 to-rose-700',
+    features: ['Complimentary champagne', 'Beer & wine available', 'Florida Bay cruise', 'Private charters for weddings & large events'],
+    desc: 'The largest sunset cruise experience in Islamorada. Perfect for groups, celebrations, and anyone who wants to share a stunning Keys sunset with a crowd.',
+  },
+  {
+    name: 'KeyZ Charters',
+    vessel: "Captain Sam's 21' deck boat",
+    emoji: '🌅',
+    gradient: 'from-amber-700 to-orange-600',
+    features: ['Fully private', 'Customizable destination', 'Catered picnic option', 'Birthday & anniversary packages'],
+    desc: 'An intimate private cruise with Captain Sam. Set your own destination, bring a picnic, or celebrate a special occasion on the open water.',
+  },
+  {
+    name: 'Four Aces',
+    vessel: "55' Hatteras luxury yacht",
+    emoji: '🛥️',
+    gradient: 'from-slate-800 to-blue-800',
+    features: ['Fully air-conditioned', 'Up to 6 passengers (USCG)', 'Dry Tortugas / Key West routes', 'Bahamas multi-day excursions'],
+    desc: 'The pinnacle of Florida Keys luxury. Go local for sunset or set sail for the Bahamas. The Four Aces is built to live aboard and built to impress.',
+  },
+];
+---
+
+<Layout title="Sunset Cruises" description="Best sunset cruises in Islamorada at Robbie's Marina. Three options from catamaran to luxury yacht.">
+  <section class="pt-32 pb-20 px-6 text-center text-white" style="background: linear-gradient(135deg, #3a0a00, #7a2a00, #c05000);">
+    <p class="text-amber-300 text-sm font-semibold uppercase tracking-widest mb-4">Islamorada</p>
+    <h1 class="text-4xl md:text-5xl font-bold mb-6" style="font-family: 'Playfair Display', serif;">Sunset Cruises</h1>
+    <p class="text-white/70 text-lg max-w-2xl mx-auto">Three extraordinary ways to end your Florida Keys day. From grand catamaran to private luxury yacht — the perfect sunset awaits.</p>
+  </section>
+
+  <section class="py-20 px-6">
+    <div class="max-w-6xl mx-auto grid md:grid-cols-3 gap-8">
+      {cruises.map(cruise => (
+        <div class="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow border border-gray-100">
+          <div class={`bg-gradient-to-br ${cruise.gradient} h-40 flex items-center justify-center text-6xl`}>
+            {cruise.emoji}
+          </div>
+          <div class="p-8">
+            <h2 class="text-xl font-bold text-gray-900 mb-1" style="font-family: 'Playfair Display', serif;">{cruise.name}</h2>
+            <p class="text-amber-600 text-sm font-medium mb-4">{cruise.vessel}</p>
+            <p class="text-gray-600 text-sm leading-relaxed mb-6">{cruise.desc}</p>
+            <ul class="space-y-2">
+              {cruise.features.map(f => (
+                <li class="flex items-center gap-2 text-sm text-gray-700">
+                  <span class="text-amber-500">✓</span> {f}
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <BookingCTA headline="Watch the Sun Sink into the Keys" subtext="Book your sunset cruise at Robbie's Marina." />
+</Layout>

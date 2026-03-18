@@ -1,0 +1,45 @@
+---
+import Layout from '../layouts/Layout.astro';
+import BookingCTA from '../components/BookingCTA.astro';
+---
+
+<Layout title="Kayak, Paddleboard & Jet Ski" description="The Kayak Shack at Robbie's Marina — best kayaking in the Florida Keys. Jet ski tours, paddleboards, state park exploration.">
+  <section class="pt-32 pb-20 px-6 text-center text-white" style="background: linear-gradient(135deg, #0a2a1a, #0d4a2a, #1a6a3a);">
+    <p class="text-amber-400 text-sm font-semibold uppercase tracking-widest mb-4">The Kayak Shack</p>
+    <h1 class="text-4xl md:text-5xl font-bold mb-6" style="font-family: 'Playfair Display', serif;">Kayak, Paddleboard & Jet Ski</h1>
+    <p class="text-white/70 text-lg max-w-2xl mx-auto">Explore mangrove eco-systems, state parks, and turquoise waters of Islamorada at your own pace — or wide open throttle.</p>
+  </section>
+
+  <section class="py-20 px-6">
+    <div class="max-w-5xl mx-auto grid md:grid-cols-2 gap-12">
+      <div class="bg-white rounded-2xl p-10 shadow-sm border border-gray-100">
+        <span class="text-5xl mb-6 block">🚣</span>
+        <h2 class="text-2xl font-bold text-gray-900 mb-4" style="font-family: 'Playfair Display', serif;">Kayak & Paddleboard</h2>
+        <p class="text-gray-600 leading-relaxed mb-4">The Kayak Shack offers the best kayaking in the Florida Keys. Explore two Florida state parks — Indian Key and Lignumvitae Key — and discover mangrove eco-systems and pristine island coastlines.</p>
+        <ul class="space-y-2 text-sm text-gray-700">
+          {['Indian Key State Park', 'Lignumvitae Key State Park', 'Mangrove eco-system tours', 'Island exploration', 'Snorkeling in turquoise waters'].map(item => (
+            <li class="flex items-center gap-2"><span class="text-green-500">✓</span> {item}</li>
+          ))}
+        </ul>
+      </div>
+
+      <div class="bg-white rounded-2xl p-10 shadow-sm border border-gray-100">
+        <span class="text-5xl mb-6 block">💨</span>
+        <h2 class="text-2xl font-bold text-gray-900 mb-4" style="font-family: 'Playfair Display', serif;">Jet Ski Adventures</h2>
+        <p class="text-gray-600 leading-relaxed mb-4">14–22 mile tours through beautiful bays, basins, and mangrove tunnels. Spot dolphins and manatees playing in their natural habitats on new Yamaha jet skis with reverse and step-up ladders.</p>
+        <div class="grid grid-cols-2 gap-4 mt-6">
+          <div class="bg-blue-50 rounded-lg p-4 text-center">
+            <p class="font-bold text-blue-900">1 Hour Tour</p>
+            <p class="text-blue-700 text-sm">~14 miles of Keys waters</p>
+          </div>
+          <div class="bg-blue-50 rounded-lg p-4 text-center">
+            <p class="font-bold text-blue-900">2 Hour Tour</p>
+            <p class="text-blue-700 text-sm">~22 miles, dolphins & manatees</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <BookingCTA headline="Get Out on the Water" subtext="Book your kayak, paddleboard, or jet ski adventure today." />
+</Layout>
