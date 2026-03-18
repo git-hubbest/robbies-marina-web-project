@@ -4,18 +4,18 @@ import ActivityCard from '../components/ActivityCard.astro';
 import BookingCTA from '../components/BookingCTA.astro';
 
 const activities = [
-  { title: 'Tarpon Feeding', description: 'Hand-feed massive tarpon in the world-famous feeding frenzy at Robbie\'s dock.', href: '/activities', image: 'https://images.unsplash.com/photo-1559827260-dc66d52bef19?w=600&q=80&auto=format&fit=crop' },
-  { title: 'Glass Bottom Boat', description: 'Explore Islamorada\'s stunning reefs aboard the Seakeeper-stabilized Transparensea.', href: '/glass-bottom-boat', image: 'https://images.unsplash.com/photo-1583212292454-1fe6229603b7?w=600&q=80&auto=format&fit=crop' },
-  { title: 'Snorkeling Tours', description: 'Dive into crystal-clear Florida Keys waters. Two trips daily at 10am & 1:30pm. Adults $65.', href: '/snorkeling', image: 'https://images.unsplash.com/photo-1544551763-77ef2d0cfc6c?w=600&q=80&auto=format&fit=crop' },
-  { title: 'Sport Fishing', description: 'Three party boat trips daily with Captain Michael. All bait & tackle included. $100/person.', href: '/fishing', image: 'https://images.unsplash.com/photo-1501949087-cb1dc00eada1?w=600&q=80&auto=format&fit=crop' },
-  { title: 'Kayak & Paddleboard', description: 'Explore mangrove eco-systems and two Florida state parks from The Kayak Shack.', href: '/kayak-paddleboard', image: 'https://images.unsplash.com/photo-1506953823976-52e1fdc0149a?w=600&q=80&auto=format&fit=crop' },
-  { title: 'Jet Ski Tours', description: '14–22 mile tours through turquoise bays. Spot dolphins and manatees in the wild.', href: '/kayak-paddleboard', image: 'https://images.unsplash.com/photo-1590523741831-ab7e8b8f9c7f?w=600&q=80&auto=format&fit=crop' },
-  { title: 'Sunset Cruises', description: 'Three options from $49 — catamaran with champagne, private deck boat, or luxury yacht.', href: '/sunset-cruises', image: 'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=600&q=80&auto=format&fit=crop' },
-  { title: 'Eco Tours', description: '2-hour Florida Bay expeditions through mangrove islands and sea grass beds.', href: '/eco-tours', image: 'https://images.unsplash.com/photo-1518623489648-a173ef7824f3?w=600&q=80&auto=format&fit=crop' },
-  { title: 'Boat Rentals', description: 'Set your own course across Florida Bay and the Atlantic. Prime Islamorada access.', href: '/boat-rentals', image: 'https://images.unsplash.com/photo-1567899378494-47b22a2ae96a?w=600&q=80&auto=format&fit=crop' },
-  { title: 'SNUBA Diving', description: 'Guided underwater adventures — deeper than snorkeling, no certification required.', href: '/activities', image: 'https://images.unsplash.com/photo-1682687982501-1e58ab814714?w=600&q=80&auto=format&fit=crop' },
-  { title: 'Four Aces Yacht', description: 'Luxury 55-foot Hatteras yacht charter. Fish Islamorada or cruise to the Bahamas.', href: '/four-aces', image: 'https://images.unsplash.com/photo-1605281317010-fe5ffe798166?w=600&q=80&auto=format&fit=crop' },
-  { title: 'History Tours', description: 'Brad Bertelli\'s Keys history experience — conch chowder, rumrunner & Key lime pie.', href: '/history-tours', image: 'https://images.unsplash.com/photo-1569949380986-1fce16d84f56?w=600&q=80&auto=format&fit=crop' },
+  { title: 'Tarpon Feeding', description: 'Hand-feed massive tarpon in the world-famous feeding frenzy at Robbie\'s dock.', href: '/activities', image: '/img/feed-tarpon2.webp' },
+  { title: 'Glass Bottom Boat', description: 'Explore Islamorada\'s stunning reefs aboard the Seakeeper-stabilized Transparensea.', href: '/glass-bottom-boat', image: '/img/glass-bottom-boat.webp' },
+  { title: 'Snorkeling Tours', description: 'Dive into crystal-clear Florida Keys waters. Two trips daily at 10am & 1:30pm. Adults $65.', href: '/snorkeling', image: '/img/snorkeling-keys.webp' },
+  { title: 'Sport Fishing', description: 'Three party boat trips daily with Captain Michael. All bait & tackle included. $100/person.', href: '/fishing', image: '/img/captain-michael-fishing.webp' },
+  { title: 'Kayak & Paddleboard', description: 'Explore mangrove eco-systems and two Florida state parks from The Kayak Shack.', href: '/kayak-paddleboard', image: '/img/kayak-paddle.webp' },
+  { title: 'Jet Ski Tours', description: '14–22 mile tours through turquoise bays. Spot dolphins and manatees in the wild.', href: '/kayak-paddleboard', image: '/img/beach.webp' },
+  { title: 'Sunset Cruises', description: 'Three options from $49 — catamaran with champagne, private deck boat, or luxury yacht.', href: '/sunset-cruises', image: '/img/sunset-cruise.webp' },
+  { title: 'Eco Tours', description: '2-hour Florida Bay expeditions through mangrove islands and sea grass beds.', href: '/eco-tours', image: '/img/islamorada.webp' },
+  { title: 'Boat Rentals', description: 'Set your own course across Florida Bay and the Atlantic. Prime Islamorada access.', href: '/boat-rentals', image: '/img/beach.webp' },
+  { title: 'SNUBA Diving', description: 'Guided underwater adventures — deeper than snorkeling, no certification required.', href: '/activities', image: '/img/snorkeling.webp' },
+  { title: 'Four Aces Yacht', description: 'Luxury 55-foot Hatteras yacht charter. Fish Islamorada or cruise to the Bahamas.', href: '/four-aces', image: '/img/four-aces-boat.webp' },
+  { title: 'History Tours', description: 'Brad Bertelli\'s Keys history experience — conch chowder, rumrunner & Key lime pie.', href: '/history-tours', image: '/img/history-brad.webp' },
 ];
 ---
 
@@ -26,7 +26,7 @@ const activities = [
     <video
       class="hidden md:block absolute inset-0 w-full h-full object-cover"
       autoplay muted loop playsinline preload="auto"
-      poster="https://images.unsplash.com/photo-1544551763-46a013bb70d5?w=1280&q=60&auto=format&fit=crop"
+      poster="/img/robbies-aerial.webp"
     >
       <source src="/hero-desktop.webm" type="video/webm" />
       <source src="/hero-desktop.mp4" type="video/mp4" />
@@ -35,7 +35,7 @@ const activities = [
     <video
       class="md:hidden absolute inset-0 w-full h-full object-cover"
       autoplay muted loop playsinline preload="auto"
-      poster="https://images.unsplash.com/photo-1544551763-46a013bb70d5?w=600&q=60&auto=format&fit=crop"
+      poster="/img/feed-tarpon.webp"
     >
       <source src="/hero-mobile.webm" type="video/webm" />
       <source src="/hero-mobile.mp4" type="video/mp4" />
