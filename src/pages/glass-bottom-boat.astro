@@ -2,51 +2,77 @@
 import Layout from '../layouts/Layout.astro';
 import BookingCTA from '../components/BookingCTA.astro';
 
-const reefs = ['Cheeca Rocks', 'Alligator Reef', 'Caloosa Rocks', 'Islamorada Reef System'];
+const departures = [
+  { time: '9:30am', label: 'Morning' },
+  { time: '12:00pm', label: 'Midday' },
+  { time: '3:00pm', label: 'Afternoon' },
+  { time: '20 min after sunset', label: 'Night Tour 🌙' },
+];
 ---
 
-<Layout title="Glass Bottom Boat" description="Best glass bottom boat tour in Islamorada. The 46-foot Transparensea with Seakeeper stabilization. Explore Florida Keys reefs without getting wet.">
+<Layout title="Glass Bottom Boat" description="Best glass bottom boat tour in Islamorada. The 46-foot Transparensea — only Seakeeper-stabilized glass bottom boat in Florida. 4 daily departures.">
   <section class="pt-32 pb-20 px-6 text-center text-white" style="background: linear-gradient(135deg, #0a1a3a, #0d2a5a, #0a3a6a);">
-    <p class="text-amber-400 text-sm font-semibold uppercase tracking-widest mb-4">No Snorkel Required</p>
+    <p class="text-amber-400 text-sm font-semibold uppercase tracking-widest mb-4">Only One in Florida</p>
     <h1 class="text-4xl md:text-5xl font-bold mb-6" style="font-family: 'Playfair Display', serif;">Glass Bottom Boat Tours</h1>
-    <p class="text-white/70 text-lg max-w-2xl mx-auto">Explore the living reefs of the Florida Keys from the comfort of our stunning 46-foot glass bottom vessel.</p>
+    <p class="text-white/70 text-lg max-w-2xl mx-auto">The Transparensea — the only Seakeeper-stabilized glass bottom boat in the state of Florida. See the reef without getting wet.</p>
+  </section>
+
+  <!-- Departures -->
+  <section class="py-10 px-6" style="background-color: #0a1628;">
+    <div class="max-w-4xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-4">
+      {departures.map(d => (
+        <div class="border border-white/20 rounded-lg p-4 text-center">
+          <p class="text-amber-400 text-xs font-semibold uppercase tracking-widest mb-1">{d.label}</p>
+          <p class="text-white font-bold">{d.time}</p>
+        </div>
+      ))}
+    </div>
+    <p class="text-center text-white/40 text-sm mt-4">Check in 30 minutes prior to departure · Duration: ~2 hours</p>
   </section>
 
   <section class="py-20 px-6">
     <div class="max-w-4xl mx-auto">
-      <div class="grid md:grid-cols-2 gap-12 items-center mb-16">
+      <div class="grid md:grid-cols-2 gap-12 items-start mb-16">
         <div>
           <h2 class="text-3xl font-bold text-gray-900 mb-6" style="font-family: 'Playfair Display', serif;">The Transparensea</h2>
-          <p class="text-gray-600 leading-relaxed mb-4">A brand new, Seakeeper-stabilized 46-foot glass bottom boat. The smoothest, most stable reef viewing experience in the Florida Keys — perfect for all ages, including those prone to seasickness.</p>
-          <p class="text-gray-600 leading-relaxed mb-6">Our educated naturalist guides will narrate everything you see beneath your feet — coral formations, tropical fish, sea turtles, and more.</p>
-          <div class="flex flex-wrap gap-3">
-            {reefs.map(reef => (
-              <span class="bg-blue-50 text-blue-800 px-3 py-1 rounded-full text-sm font-medium">{reef}</span>
-            ))}
-          </div>
+          <p class="text-gray-600 leading-relaxed mb-4">Built in 2023, the Transparensea features 16 glass viewing windows beneath your feet and is stabilized by Seakeeper — eliminating the rocking and rolling that plagues other boat tours. The only boat of its kind in Florida.</p>
+          <p class="text-gray-600 leading-relaxed mb-6">Our marine science-educated guides narrate everything below — coral formations, tropical fish, eels, sharks, sea fans, turtles, and marine mammals. On windy days when reef visits aren't possible, we cruise the shallow waters of Florida Bay.</p>
+          <p class="text-gray-600 leading-relaxed font-medium">Don't miss the night tour — 20 minutes after sunset, the reef comes alive under underwater lights. Absolutely unforgettable.</p>
         </div>
-        <div class="bg-gradient-to-br from-blue-800 to-cyan-700 rounded-2xl p-12 text-center text-white">
-          <span class="text-7xl mb-6 block">🪸</span>
-          <p class="text-2xl font-bold mb-2">46 Feet</p>
-          <p class="text-white/60">Seakeeper-Stabilized</p>
+        <div>
+          <div class="bg-gradient-to-br from-blue-800 to-cyan-700 rounded-2xl p-10 text-center text-white mb-6">
+            <span class="text-6xl mb-4 block">🪸</span>
+            <p class="text-xl font-bold mb-1">46-Foot · Built 2023</p>
+            <p class="text-white/60 text-sm">Seakeeper-Stabilized · 16 Glass Windows</p>
+          </div>
+          <a href="https://glassbottomtour.com/" target="_blank" rel="noopener"
+            class="block w-full bg-amber-500 hover:bg-amber-400 text-white text-center px-6 py-4 rounded-xl font-bold text-lg transition-colors shadow-lg">
+            Book at glassbottomtour.com
+          </a>
         </div>
       </div>
 
-      <div class="grid sm:grid-cols-3 gap-6">
+      <!-- Features -->
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
         {[
-          { emoji: '🔭', label: 'Guided Narration', desc: 'Expert naturalists explain every creature and coral' },
-          { emoji: '🌊', label: 'Stay Dry', desc: 'Experience the reef without getting in the water' },
-          { emoji: '👨‍👩‍👧‍👦', label: 'Family-Friendly', desc: 'Perfect for all ages — no swimming required' },
+          { emoji: '🔭', label: 'Marine Science Guides', desc: 'Educated naturalists explain every creature' },
+          { emoji: '🌊', label: 'Stay Completely Dry', desc: 'Experience the reef from above the water' },
+          { emoji: '🌙', label: 'Night Tours', desc: '20 min after sunset with underwater lights' },
+          { emoji: '💨', label: 'Seakeeper Stabilized', desc: 'Smooth ride even on choppy days' },
+          { emoji: '👨‍👩‍👧‍👦', label: 'Family Friendly', desc: 'All ages — no swimming required' },
+          { emoji: '🌿', label: 'Open Air Design', desc: 'Full shade, clean restroom, quiet engines' },
         ].map(item => (
-          <div class="bg-gray-50 rounded-xl p-6 text-center">
-            <span class="text-3xl mb-3 block">{item.emoji}</span>
-            <p class="font-semibold text-gray-900 mb-1">{item.label}</p>
-            <p class="text-gray-600 text-sm">{item.desc}</p>
+          <div class="bg-gray-50 rounded-xl p-5 flex gap-4">
+            <span class="text-2xl">{item.emoji}</span>
+            <div>
+              <p class="font-semibold text-gray-900 text-sm mb-1">{item.label}</p>
+              <p class="text-gray-500 text-xs">{item.desc}</p>
+            </div>
           </div>
         ))}
       </div>
     </div>
   </section>
 
-  <BookingCTA headline="See the Reef Without Getting Wet" subtext="Book your glass bottom boat tour at Robbie's Marina." />
+  <BookingCTA headline="See the Reef Without Getting Wet" subtext="Book your glass bottom boat tour — 4 daily departures including a night tour." />
 </Layout>

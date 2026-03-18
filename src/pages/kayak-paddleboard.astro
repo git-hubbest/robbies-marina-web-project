@@ -3,41 +3,92 @@ import Layout from '../layouts/Layout.astro';
 import BookingCTA from '../components/BookingCTA.astro';
 ---
 
-<Layout title="Kayak, Paddleboard & Jet Ski" description="The Kayak Shack at Robbie's Marina — best kayaking in the Florida Keys. Jet ski tours, paddleboards, state park exploration.">
+<Layout title="Kayak, Paddleboard & Jet Ski" description="The Kayak Shack at Robbie's Marina — best kayaking in the Florida Keys. Backcountry tours, Indian Key, sunset paddles, jet ski tours.">
   <section class="pt-32 pb-20 px-6 text-center text-white" style="background: linear-gradient(135deg, #0a2a1a, #0d4a2a, #1a6a3a);">
     <p class="text-amber-400 text-sm font-semibold uppercase tracking-widest mb-4">The Kayak Shack</p>
     <h1 class="text-4xl md:text-5xl font-bold mb-6" style="font-family: 'Playfair Display', serif;">Kayak, Paddleboard & Jet Ski</h1>
-    <p class="text-white/70 text-lg max-w-2xl mx-auto">Explore mangrove eco-systems, state parks, and turquoise waters of Islamorada at your own pace — or wide open throttle.</p>
+    <p class="text-white/70 text-lg max-w-2xl mx-auto">Explore mangrove tunnels, state parks, and turquoise waters at your own pace — or wide open throttle.</p>
   </section>
 
   <section class="py-20 px-6">
-    <div class="max-w-5xl mx-auto grid md:grid-cols-2 gap-12">
+    <div class="max-w-6xl mx-auto grid md:grid-cols-2 gap-8">
+
+      <!-- Backcountry Tour -->
       <div class="bg-white rounded-2xl p-10 shadow-sm border border-gray-100">
-        <span class="text-5xl mb-6 block">🚣</span>
-        <h2 class="text-2xl font-bold text-gray-900 mb-4" style="font-family: 'Playfair Display', serif;">Kayak & Paddleboard</h2>
-        <p class="text-gray-600 leading-relaxed mb-4">The Kayak Shack offers the best kayaking in the Florida Keys. Explore two Florida state parks — Indian Key and Lignumvitae Key — and discover mangrove eco-systems and pristine island coastlines.</p>
-        <ul class="space-y-2 text-sm text-gray-700">
-          {['Indian Key State Park', 'Lignumvitae Key State Park', 'Mangrove eco-system tours', 'Island exploration', 'Snorkeling in turquoise waters'].map(item => (
-            <li class="flex items-center gap-2"><span class="text-green-500">✓</span> {item}</li>
-          ))}
-        </ul>
+        <span class="text-5xl mb-4 block">🚣</span>
+        <h2 class="text-2xl font-bold text-gray-900 mb-2" style="font-family: 'Playfair Display', serif;">Backcountry Kayak Tour</h2>
+        <p class="text-amber-600 text-sm font-semibold mb-4">Most Popular · ~2 Hours</p>
+        <p class="text-gray-600 leading-relaxed mb-6">Paddle through pristine mangrove tunnels and encounter spectacular flora and fauna of the Keys eco-system. See manatees, bald eagles, egrets, nurse sharks, stingrays, and more. Maps provided for easy navigation.</p>
+        <a href="https://kayakthefloridakeys.com/" target="_blank" rel="noopener"
+          class="block w-full bg-amber-500 hover:bg-amber-400 text-white text-center px-6 py-3 rounded font-semibold transition-colors mb-3">
+          Book Backcountry Tour
+        </a>
       </div>
 
+      <!-- Sunset Paddle -->
       <div class="bg-white rounded-2xl p-10 shadow-sm border border-gray-100">
-        <span class="text-5xl mb-6 block">💨</span>
-        <h2 class="text-2xl font-bold text-gray-900 mb-4" style="font-family: 'Playfair Display', serif;">Jet Ski Adventures</h2>
-        <p class="text-gray-600 leading-relaxed mb-4">14–22 mile tours through beautiful bays, basins, and mangrove tunnels. Spot dolphins and manatees playing in their natural habitats on new Yamaha jet skis with reverse and step-up ladders.</p>
-        <div class="grid grid-cols-2 gap-4 mt-6">
-          <div class="bg-blue-50 rounded-lg p-4 text-center">
-            <p class="font-bold text-blue-900">1 Hour Tour</p>
-            <p class="text-blue-700 text-sm">~14 miles of Keys waters</p>
+        <span class="text-5xl mb-4 block">🌅</span>
+        <h2 class="text-2xl font-bold text-gray-900 mb-2" style="font-family: 'Playfair Display', serif;">Sunset Kayak Tour</h2>
+        <p class="text-amber-600 text-sm font-semibold mb-4">2–3 Hours Before Sunset · Call Ahead</p>
+        <p class="text-gray-600 leading-relaxed mb-6">A beautiful, relaxing paddle through mangrove tunnels and saltwater flats as the sun dips below the horizon. Watch for the fabled Green Flash. Breathtaking and unforgettable.</p>
+        <a href="https://kayakthefloridakeys.com/" target="_blank" rel="noopener"
+          class="block w-full bg-amber-500 hover:bg-amber-400 text-white text-center px-6 py-3 rounded font-semibold transition-colors mb-3">
+          Book Sunset Tour
+        </a>
+        <p class="text-gray-400 text-xs text-center">Call ahead for availability</p>
+      </div>
+
+      <!-- Indian Key -->
+      <div class="bg-white rounded-2xl p-10 shadow-sm border border-gray-100">
+        <span class="text-5xl mb-4 block">🏝️</span>
+        <h2 class="text-2xl font-bold text-gray-900 mb-2" style="font-family: 'Playfair Display', serif;">Indian Key State Park</h2>
+        <p class="text-amber-600 text-sm font-semibold mb-4">20-Minute Paddle · Bring Snorkel Gear</p>
+        <p class="text-gray-600 leading-relaxed mb-6">Pack your snorkel gear and cooler for an easy 20-minute paddle to Indian Key State Park. Explore remnants of an old wrecking colony destroyed in a historic Indian attack. Self-guided walking tour and snorkeling at the island.</p>
+        <a href="https://kayakthefloridakeys.com/" target="_blank" rel="noopener"
+          class="block w-full bg-amber-500 hover:bg-amber-400 text-white text-center px-6 py-3 rounded font-semibold transition-colors">
+          Book Now
+        </a>
+      </div>
+
+      <!-- Jet Ski -->
+      <div class="bg-white rounded-2xl p-10 shadow-sm border border-gray-100">
+        <span class="text-5xl mb-4 block">💨</span>
+        <h2 class="text-2xl font-bold text-gray-900 mb-2" style="font-family: 'Playfair Display', serif;">Jet Ski Adventures</h2>
+        <p class="text-amber-600 text-sm font-semibold mb-4">14–22 Mile Tours</p>
+        <p class="text-gray-600 leading-relaxed mb-4">New Yamaha jet skis with reverse and step-up ladders. Explore beautiful bays, basins, and mangrove tunnels. Spot dolphins and manatees playing in their natural habitat.</p>
+        <div class="grid grid-cols-2 gap-3 mb-6">
+          <div class="bg-blue-50 rounded-lg p-3 text-center">
+            <p class="font-bold text-blue-900 text-sm">1 Hour Tour</p>
+            <p class="text-blue-700 text-xs">~14 miles</p>
           </div>
-          <div class="bg-blue-50 rounded-lg p-4 text-center">
-            <p class="font-bold text-blue-900">2 Hour Tour</p>
-            <p class="text-blue-700 text-sm">~22 miles, dolphins & manatees</p>
+          <div class="bg-blue-50 rounded-lg p-3 text-center">
+            <p class="font-bold text-blue-900 text-sm">2 Hour Tour</p>
+            <p class="text-blue-700 text-xs">~22 miles</p>
           </div>
         </div>
+        <a href="https://fareharbor.com/hungrytarpon/" target="_blank" rel="noopener"
+          class="block w-full bg-amber-500 hover:bg-amber-400 text-white text-center px-6 py-3 rounded font-semibold transition-colors">
+          Book Jet Ski Tour
+        </a>
       </div>
+
+    </div>
+  </section>
+
+  <!-- Rentals -->
+  <section class="py-16 px-6 bg-gray-50">
+    <div class="max-w-3xl mx-auto text-center">
+      <h2 class="text-2xl font-bold text-gray-900 mb-4" style="font-family: 'Playfair Display', serif;">Self-Guided Rentals</h2>
+      <p class="text-gray-600 mb-8">No reservation needed. Grab a kayak, paddleboard, or double kayak and explore at your own pace. Day, weekly, and monthly rates available.</p>
+      <div class="flex flex-wrap justify-center gap-3 mb-8">
+        {['Single Kayak', 'Double Kayak', 'Stand Up Paddleboard', 'All Day · Weekly · Monthly'].map(r => (
+          <span class="bg-white border border-gray-200 text-gray-700 px-4 py-2 rounded-full text-sm font-medium shadow-sm">{r}</span>
+        ))}
+      </div>
+      <a href="https://kayakthefloridakeys.com/" target="_blank" rel="noopener"
+        class="inline-block bg-amber-500 hover:bg-amber-400 text-white px-8 py-3 rounded font-semibold transition-colors">
+        View Rental Rates
+      </a>
     </div>
   </section>
 

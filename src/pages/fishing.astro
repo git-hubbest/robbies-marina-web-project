@@ -3,53 +3,70 @@ import Layout from '../layouts/Layout.astro';
 import BookingCTA from '../components/BookingCTA.astro';
 
 const fishingTypes = [
-  { title: 'Tarpon & Shark Fishing', emoji: '🦈', desc: 'Islamorada offers some of the best Tarpon Fishing in the Florida Keys. Active months: March through September.' },
-  { title: 'Offshore Fishing', emoji: '🌊', desc: 'Sport-fishing is one of the things Islamorada is famous for and Robbie\'s has been doing it for more than 30 years.' },
-  { title: 'Swordfish Fishing', emoji: '⚔️', desc: 'Seek the mighty swordfish, known for their strength and tenacity. Experience the thrill of an unforgettable deep-sea adventure.' },
-  { title: 'Split (Shared) Charters', emoji: '🤝', desc: 'Catch the big ones without spending the big bucks! Share the expense of a private fishing charter with other anglers.' },
-  { title: 'Backcountry Fishing', emoji: '🌿', desc: 'Located in the most ideal spot in the Keys — the Everglades National Park is just a short boat ride away.' },
-  { title: 'Reef & Wreck Fishing', emoji: '🪸', desc: 'Some of the best fishing in the Florida Keys lies only a few miles from shore, atop stunning reefs and sunken wrecks.' },
+  { title: 'Tarpon & Shark Fishing', emoji: '🦈', desc: 'Islamorada offers some of the best Tarpon Fishing in the Florida Keys. Active months: March through September. World-record tarpon have been caught in these very waters.' },
+  { title: 'Offshore Fishing', emoji: '🌊', desc: 'Sport-fishing is one of the things Islamorada is famous for. Our guides have more than 250 years of combined experience. Fish the same seas that Ernest Hemingway and Zane Grey made famous.' },
+  { title: 'Swordfish Fishing', emoji: '⚔️', desc: 'Seek the mighty swordfish, known for their strength and tenacity. One of the most thrilling deep-sea challenges available in the Florida Keys.' },
+  { title: 'Split (Shared) Charters', emoji: '🤝', desc: 'The highest success rate for putting together split charters in Islamorada. Catch the big ones without the big price tag — share a private charter with other anglers.' },
+  { title: 'Backcountry Fishing', emoji: '🌿', desc: 'Located in the ideal spot — the Everglades National Park is a short boat ride away. Flats fishing and backcountry exploration at its finest.' },
+  { title: 'Reef & Wreck Fishing', emoji: '🪸', desc: 'Some of the best fishing in the Keys lies only miles from shore. Historic wrecks and stunning reefs teeming with trophy fish, just waiting to be discovered.' },
 ];
 ---
 
-<Layout title="Fishing" description="Best fishing in Islamorada at Robbie's Marina. Party boat trips daily with Captain Michael. Tarpon, offshore, swordfish & more.">
-  <!-- Hero -->
+<Layout title="Fishing" description="Best fishing in Islamorada at Robbie's Marina. Party boat $100/person. Expert guides with 250+ years combined experience. Tarpon, offshore, swordfish & more.">
   <section class="pt-32 pb-20 px-6 text-center text-white" style="background: linear-gradient(135deg, #0a1628, #1a3a5c);">
-    <p class="text-amber-400 text-sm font-semibold uppercase tracking-widest mb-4">Islamorada's Best</p>
+    <p class="text-amber-400 text-sm font-semibold uppercase tracking-widest mb-4">Sport Fishing Capital of the World</p>
     <h1 class="text-4xl md:text-5xl font-bold mb-6" style="font-family: 'Playfair Display', serif;">Fishing at Robbie's</h1>
-    <p class="text-white/70 text-lg max-w-2xl mx-auto">World-class fishing on the waters of Islamorada. Three party boat trips daily, plus private and specialty charters.</p>
+    <p class="text-white/70 text-lg max-w-2xl mx-auto">From novice to expert, Robbie's Marina offers the best fishing in Islamorada. Our guides have 250+ years of combined experience on these waters.</p>
   </section>
 
   <!-- Captain Michael Party Boat -->
   <section class="py-20 px-6">
     <div class="max-w-4xl mx-auto text-center">
-      <h2 class="text-3xl font-bold text-gray-900 mb-4" style="font-family: 'Playfair Display', serif;">Captain Michael Party Boat</h2>
-      <p class="text-gray-600 mb-12 text-lg">Three trips per day — early bird to night owl, we have the perfect fishing experience waiting for you.</p>
+      <p class="text-amber-600 text-sm font-semibold uppercase tracking-widest mb-2">Captain Michael Party Boat</p>
+      <h2 class="text-3xl font-bold text-gray-900 mb-4" style="font-family: 'Playfair Display', serif;">Three Trips Per Day</h2>
+      <p class="text-gray-600 mb-12 text-lg max-w-2xl mx-auto">Whether you're an early bird or a night owl, we have the perfect fishing experience waiting. All bait, tackle, and rods included.</p>
 
       <div class="grid md:grid-cols-3 gap-6 mb-12">
         {[
-          { time: 'Morning Trip', hours: '9:00am – 2:00pm', price: '$100', note: 'per person' },
-          { time: 'Afternoon Trip', hours: '3:00pm – 8:00pm', price: '$100', note: 'per person' },
-          { time: 'Night Trip', hours: '9:00pm – 1:00am', price: '$100', note: 'per person' },
+          { time: 'Morning Trip', hours: '9:00am – 2:00pm', price: '$100' },
+          { time: 'Afternoon Trip', hours: '3:00pm – 8:00pm', price: '$100' },
+          { time: 'Night Trip', hours: '9:00pm – 1:00am', price: '$100' },
         ].map(trip => (
-          <div class="border-2 border-amber-100 rounded-xl p-8 text-center hover:border-amber-400 transition-colors">
+          <div class="border-2 border-amber-100 hover:border-amber-400 rounded-xl p-8 text-center transition-colors">
             <p class="text-amber-600 font-semibold uppercase text-sm tracking-widest mb-3">{trip.time}</p>
-            <p class="text-gray-900 font-bold text-lg mb-2">{trip.hours}</p>
-            <p class="text-3xl font-bold text-gray-900 mb-1">{trip.price}</p>
-            <p class="text-gray-500 text-sm">{trip.note}</p>
+            <p class="text-gray-900 font-bold text-lg mb-3">{trip.hours}</p>
+            <p class="text-4xl font-bold text-gray-900 mb-1">{trip.price}</p>
+            <p class="text-gray-500 text-sm">per person</p>
           </div>
         ))}
       </div>
 
-      <div class="bg-gray-50 rounded-xl p-6 text-left text-sm text-gray-600">
-        <p class="font-semibold text-gray-800 mb-2">What's Included:</p>
-        <p>All bait, tackle, and rods. If you bring your own rod, please no braided line. Rotation of the stern. Bathrooms and shaded cabin available. Check in 30 minutes before departure.</p>
+      <div class="bg-gray-50 rounded-xl p-6 text-left text-sm text-gray-600 mb-8">
+        <p class="font-semibold text-gray-800 mb-2">✅ What's Included</p>
+        <p>All bait, tackle, and rods. No braided line if bringing your own rod. Rotation of the stern. Bathrooms and shaded cabin available. Check in 30 minutes before departure. Your captain will clean your catch — the Hungry Tarpon Restaurant will cook it for your meal!</p>
       </div>
+
+      <a href="https://fareharbor.com/hungrytarpon/" target="_blank" rel="noopener"
+        class="inline-block bg-amber-500 hover:bg-amber-400 text-white px-10 py-4 rounded font-bold text-lg transition-colors shadow-lg">
+        Book Captain Michael Party Boat
+      </a>
+      <p class="text-gray-400 text-sm mt-3">Questions? Call <a href="tel:3056648070" class="underline text-gray-500">305-664-8070</a></p>
+    </div>
+  </section>
+
+  <!-- Charter Fishing -->
+  <section class="py-16 px-6 bg-gray-50">
+    <div class="max-w-4xl mx-auto text-center mb-12">
+      <h2 class="text-2xl font-bold text-gray-900 mb-4" style="font-family: 'Playfair Display', serif;">Book a Private Fishing Charter</h2>
+      <p class="text-gray-600 leading-relaxed">Call our booking agents and tell them what you want to do — they'll arrange the trip of a lifetime. Back-country, flats, offshore, reef, or wreck fishing. We'll even arrange breakfast and lunch!</p>
+      <a href="tel:3056648070" class="inline-block mt-6 bg-gray-900 hover:bg-gray-800 text-white px-8 py-3 rounded font-semibold transition-colors">
+        📞 Call 305-664-8070
+      </a>
     </div>
   </section>
 
   <!-- Fishing Types -->
-  <section class="py-20 px-6 bg-gray-50">
+  <section class="py-20 px-6">
     <div class="max-w-6xl mx-auto">
       <h2 class="text-center text-3xl font-bold text-gray-900 mb-16" style="font-family: 'Playfair Display', serif;">All Fishing Experiences</h2>
       <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -64,5 +81,5 @@ const fishingTypes = [
     </div>
   </section>
 
-  <BookingCTA headline="Ready to Reel in the Big One?" subtext="Book your fishing trip with Captain Michael today." />
+  <BookingCTA headline="Ready to Reel in the Big One?" subtext="Book your fishing trip with Captain Michael — 3 trips daily." />
 </Layout>

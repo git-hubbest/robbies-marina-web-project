@@ -4,25 +4,30 @@ import ActivityCard from '../components/ActivityCard.astro';
 import BookingCTA from '../components/BookingCTA.astro';
 
 const activities = [
-  { title: 'Tarpon Feeding', description: 'Hand-feed massive tarpon in the world-famous feeding frenzy at Robbie\'s dock.', href: '/activities', emoji: '🐟', gradient: 'from-teal-800 to-teal-600' },
-  { title: 'Glass Bottom Boat', description: 'Explore Islamorada\'s stunning reefs aboard the Seakeeper-stabilized Transparensea.', href: '/glass-bottom-boat', emoji: '🪸', gradient: 'from-blue-800 to-cyan-600' },
-  { title: 'Snorkeling Tours', description: 'Dive into crystal-clear Florida Keys waters. Two trips daily at 10am & 1:30pm.', href: '/snorkeling', emoji: '🤿', gradient: 'from-cyan-800 to-blue-600' },
-  { title: 'Sport Fishing', description: 'Three party boat trips daily with Captain Michael. All bait & tackle included.', href: '/fishing', emoji: '🎣', gradient: 'from-slate-800 to-blue-800' },
-  { title: 'Kayak & Paddleboard', description: 'Explore mangrove eco-systems and two Florida state parks from The Kayak Shack.', href: '/kayak-paddleboard', emoji: '🚣', gradient: 'from-green-800 to-teal-700' },
-  { title: 'Jet Ski Tours', description: '14–22 mile tours through turquoise bays. Spot dolphins and manatees in the wild.', href: '/kayak-paddleboard', emoji: '💨', gradient: 'from-blue-700 to-indigo-700' },
-  { title: 'Sunset Cruises', description: 'Three options from intimate to grand — catamaran, private deck boat, or luxury yacht.', href: '/sunset-cruises', emoji: '🌅', gradient: 'from-orange-700 to-rose-700' },
-  { title: 'Eco Tours', description: '2-hour Florida Bay expeditions through mangrove islands and sea grass beds.', href: '/eco-tours', emoji: '🌿', gradient: 'from-green-700 to-emerald-600' },
-  { title: 'Boat Rentals', description: 'Set your own course across Florida Bay and the Atlantic. Prime Islamorada access.', href: '/boat-rentals', emoji: '⛵', gradient: 'from-sky-800 to-blue-700' },
-  { title: 'SNUBA Diving', description: 'Guided underwater adventures — deeper than snorkeling, no certification required.', href: '/activities', emoji: '🌊', gradient: 'from-indigo-800 to-blue-700' },
-  { title: 'Four Aces Yacht', description: 'Luxury 55-foot Hatteras yacht charter. Fish Islamorada or cruise to the Bahamas.', href: '/four-aces', emoji: '🛥️', gradient: 'from-amber-800 to-yellow-700' },
-  { title: 'History Tours', description: 'Brad Bertelli\'s Keys history experience — conch chowder, rumrunner & Key lime pie.', href: '/history-tours', emoji: '📜', gradient: 'from-stone-700 to-amber-700' },
+  { title: 'Tarpon Feeding', description: 'Hand-feed massive tarpon in the world-famous feeding frenzy at Robbie\'s dock.', href: '/activities', image: 'https://images.unsplash.com/photo-1559827260-dc66d52bef19?w=600&q=80&auto=format&fit=crop' },
+  { title: 'Glass Bottom Boat', description: 'Explore Islamorada\'s stunning reefs aboard the Seakeeper-stabilized Transparensea.', href: '/glass-bottom-boat', image: 'https://images.unsplash.com/photo-1583212292454-1fe6229603b7?w=600&q=80&auto=format&fit=crop' },
+  { title: 'Snorkeling Tours', description: 'Dive into crystal-clear Florida Keys waters. Two trips daily at 10am & 1:30pm. Adults $65.', href: '/snorkeling', image: 'https://images.unsplash.com/photo-1544551763-77ef2d0cfc6c?w=600&q=80&auto=format&fit=crop' },
+  { title: 'Sport Fishing', description: 'Three party boat trips daily with Captain Michael. All bait & tackle included. $100/person.', href: '/fishing', image: 'https://images.unsplash.com/photo-1501949087-cb1dc00eada1?w=600&q=80&auto=format&fit=crop' },
+  { title: 'Kayak & Paddleboard', description: 'Explore mangrove eco-systems and two Florida state parks from The Kayak Shack.', href: '/kayak-paddleboard', image: 'https://images.unsplash.com/photo-1506953823976-52e1fdc0149a?w=600&q=80&auto=format&fit=crop' },
+  { title: 'Jet Ski Tours', description: '14–22 mile tours through turquoise bays. Spot dolphins and manatees in the wild.', href: '/kayak-paddleboard', image: 'https://images.unsplash.com/photo-1590523741831-ab7e8b8f9c7f?w=600&q=80&auto=format&fit=crop' },
+  { title: 'Sunset Cruises', description: 'Three options from $49 — catamaran with champagne, private deck boat, or luxury yacht.', href: '/sunset-cruises', image: 'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=600&q=80&auto=format&fit=crop' },
+  { title: 'Eco Tours', description: '2-hour Florida Bay expeditions through mangrove islands and sea grass beds.', href: '/eco-tours', image: 'https://images.unsplash.com/photo-1518623489648-a173ef7824f3?w=600&q=80&auto=format&fit=crop' },
+  { title: 'Boat Rentals', description: 'Set your own course across Florida Bay and the Atlantic. Prime Islamorada access.', href: '/boat-rentals', image: 'https://images.unsplash.com/photo-1567899378494-47b22a2ae96a?w=600&q=80&auto=format&fit=crop' },
+  { title: 'SNUBA Diving', description: 'Guided underwater adventures — deeper than snorkeling, no certification required.', href: '/activities', image: 'https://images.unsplash.com/photo-1682687982501-1e58ab814714?w=600&q=80&auto=format&fit=crop' },
+  { title: 'Four Aces Yacht', description: 'Luxury 55-foot Hatteras yacht charter. Fish Islamorada or cruise to the Bahamas.', href: '/four-aces', image: 'https://images.unsplash.com/photo-1605281317010-fe5ffe798166?w=600&q=80&auto=format&fit=crop' },
+  { title: 'History Tours', description: 'Brad Bertelli\'s Keys history experience — conch chowder, rumrunner & Key lime pie.', href: '/history-tours', image: 'https://images.unsplash.com/photo-1569949380986-1fce16d84f56?w=600&q=80&auto=format&fit=crop' },
 ];
 ---
 
 <Layout title="Home">
   <!-- Hero -->
-  <section class="relative min-h-screen flex items-center justify-center overflow-hidden" style="background: linear-gradient(135deg, #0a1628 0%, #1a3a5c 50%, #0d2137 100%);">
-    <div class="absolute inset-0 opacity-20" style="background-image: url('data:image/svg+xml,%3Csvg width=%2260%22 height=%2260%22 viewBox=%220 0 60 60%22 xmlns=%22http://www.w3.org/2000/svg%22%3E%3Cg fill=%22none%22 fill-rule=%22evenodd%22%3E%3Cg fill=%22%23ffffff%22 fill-opacity=%220.05%22%3E%3Cpath d=%22M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z%22/%3E%3C/g%3E%3C/g%3E%3C/svg%3E');"></div>
+  <section class="relative min-h-screen flex items-center justify-center overflow-hidden">
+    <img
+      src="https://images.unsplash.com/photo-1544551763-46a013bb70d5?w=1920&q=80&auto=format&fit=crop"
+      alt="Florida Keys turquoise waters"
+      class="absolute inset-0 w-full h-full object-cover"
+    />
+    <div class="absolute inset-0" style="background: linear-gradient(to bottom, rgba(10,22,40,0.65) 0%, rgba(10,22,40,0.5) 50%, rgba(10,22,40,0.75) 100%);"></div>
 
     <div class="relative z-10 text-center px-6 max-w-4xl mx-auto">
       <p class="text-amber-400 text-sm font-semibold uppercase tracking-widest mb-6">Islamorada, Florida Keys</p>

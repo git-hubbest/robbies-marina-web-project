@@ -3,16 +3,22 @@ interface Props {
   title: string;
   description: string;
   href: string;
-  emoji: string;
+  emoji?: string;
   gradient?: string;
+  image?: string;
 }
 
-const { title, description, href, emoji, gradient = 'from-blue-900 to-blue-700' } = Astro.props;
+const { title, description, href, emoji, gradient = 'from-blue-900 to-blue-700', image } = Astro.props;
 ---
 
 <a href={href} class="group block rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-1">
-  <div class={`bg-gradient-to-br ${gradient} h-40 flex items-center justify-center text-6xl`}>
-    {emoji}
+  <div class={`relative h-44 flex items-center justify-center ${!image ? `bg-gradient-to-br ${gradient}` : ''} overflow-hidden`}>
+    {image ? (
+      <img src={image} alt={title} class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy" />
+    ) : (
+      <span class="text-6xl">{emoji}</span>
+    )}
+    {image && <div class="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors"></div>}
   </div>
   <div class="p-6 bg-white border border-gray-100">
     <h3 class="text-lg font-bold text-gray-900 mb-2 group-hover:text-amber-600 transition-colors">{title}</h3>
