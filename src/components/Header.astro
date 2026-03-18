@@ -6,55 +6,67 @@ const navLinks = [
   { label: 'Dining', href: '/dining' },
   { label: 'Sunset Cruises', href: '/sunset-cruises' },
   { label: 'Four Aces Yacht', href: '/four-aces' },
+  { label: 'Glass Bottom Boat', href: '/glass-bottom-boat' },
 ];
 ---
 
 <header id="site-header" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300">
   <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
-    <a href="/" class="text-white font-playfair text-2xl font-bold tracking-wide">
-      Robbie's Marina
+    <!-- Logo -->
+    <a href="/" class="flex items-center gap-3 flex-shrink-0">
+      <img src="/robbies-logo.png" alt="Robbie's of Islamorada" class="h-10 w-auto" />
     </a>
 
     <!-- Desktop Nav -->
-    <nav class="hidden lg:flex items-center gap-8">
+    <nav class="hidden xl:flex items-center gap-6">
       {navLinks.map(link => (
-        <a href={link.href} class="text-white/90 hover:text-white text-sm font-medium tracking-wide transition-colors">
+        <a href={link.href} class="text-white/90 hover:text-white text-sm font-medium tracking-wide transition-colors whitespace-nowrap">
           {link.label}
         </a>
       ))}
       <a href="https://fareharbor.com/hungrytarpon/" target="_blank" rel="noopener"
-        class="bg-amber-500 hover:bg-amber-400 text-white px-5 py-2 rounded text-sm font-semibold tracking-wide transition-colors">
+        class="bg-amber-500 hover:bg-amber-400 text-white px-5 py-2 rounded text-sm font-semibold tracking-wide transition-colors whitespace-nowrap">
         Book Now
       </a>
     </nav>
 
-    <!-- Mobile Hamburger -->
-    <button id="menu-toggle" class="lg:hidden text-white p-2" aria-label="Toggle menu">
-      <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path id="hamburger-icon" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
-      </svg>
-    </button>
+    <!-- Mobile: phone + hamburger -->
+    <div class="xl:hidden flex items-center gap-4">
+      <a href="tel:3056648070" class="text-white/80 hover:text-white text-sm font-medium">
+        📞 305-664-8070
+      </a>
+      <button id="menu-toggle" class="text-white p-2" aria-label="Toggle menu">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+        </svg>
+      </button>
+    </div>
   </div>
 
   <!-- Mobile Menu -->
-  <div id="mobile-menu" class="hidden lg:hidden bg-navy-900 border-t border-white/10">
-    <div class="px-6 py-4 flex flex-col gap-4">
+  <div id="mobile-menu" class="hidden xl:hidden border-t border-white/10" style="background-color: #0a1628;">
+    <div class="px-6 py-4 flex flex-col gap-3">
       {navLinks.map(link => (
-        <a href={link.href} class="text-white/90 hover:text-white text-sm font-medium py-1 transition-colors">
+        <a href={link.href} class="text-white/90 hover:text-white text-sm font-medium py-1 transition-colors border-b border-white/10 pb-2">
           {link.label}
         </a>
       ))}
       <a href="https://fareharbor.com/hungrytarpon/" target="_blank" rel="noopener"
-        class="bg-amber-500 text-white px-5 py-2 rounded text-sm font-semibold text-center">
+        class="bg-amber-500 text-white px-5 py-3 rounded text-sm font-semibold text-center mt-2">
         Book Now
       </a>
+      <div class="text-white/50 text-xs text-center pt-2">
+        📍 77522 Overseas Hwy, Islamorada FL 33036
+      </div>
     </div>
   </div>
 </header>
 
 <style>
-  .font-playfair { font-family: 'Playfair Display', serif; }
-  #site-header.scrolled { background-color: #0a1628; box-shadow: 0 2px 20px rgba(0,0,0,0.3); }
+  #site-header.scrolled {
+    background-color: #0a1628;
+    box-shadow: 0 2px 20px rgba(0,0,0,0.3);
+  }
 </style>
 
 <script>
@@ -72,5 +84,10 @@ const navLinks = [
 
   menuToggle?.addEventListener('click', () => {
     mobileMenu?.classList.toggle('hidden');
+  });
+
+  // Close menu on link click
+  mobileMenu?.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => mobileMenu.classList.add('hidden'));
   });
 </script>
