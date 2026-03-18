@@ -1,56 +1,436 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import BookingCTA from '../components/BookingCTA.astro';
+
+const menuTabs = ['Breakfast', 'Lunch & Dinner', 'Cocktails & Drinks', 'Dessert'];
+
+const breakfast = {
+  specials: [
+    { name: 'Minty Pancakes', desc: 'Creme de menthe whipped topping' },
+    { name: 'Cinnamon Sugar Beignets', desc: 'Tossed in cinnamon, sugar, and sea salt; served with vanilla rum glaze and blackberry jam' },
+    { name: 'Lox Bagel', desc: 'Toasted bagel, cream cheese, sliced onions, tomatoes, cucumbers, and capers' },
+    { name: 'Full American Breakfast', desc: 'Home fries or cheddar scallion hash browns; bacon, sausage, or grilled ham; toast' },
+    { name: 'Brunch Combo', desc: '2 eggs your way; pancake or glazed donut french toast; home fries; sausage, bacon, or grilled ham' },
+  ],
+  skillets: [
+    { name: 'Country Skillet', desc: 'Home fries, bacon, cheddar jack, scallions, sausage gravy' },
+    { name: 'Garden Skillet', desc: 'Home fries, peppers, spinach, swiss, key lime aioli' },
+    { name: 'Tex-Mex Skillet', desc: 'Tortillas, chili spiced ground beef, black beans, pico de gallo, cheddar jack, avocado sour cream' },
+  ],
+  omelettes: [
+    { name: 'Greek Omelette', desc: 'Spinach, tomato, feta cheese' },
+    { name: 'Meat Lovers', desc: 'Bacon, sausage, ham, american cheese sauce' },
+    { name: 'Caprese Omelette', desc: 'Tomatoes, fresh mozzarella, balsamic glaze drizzle, basil' },
+    { name: 'Garden Omelette', desc: 'Spinach, red onion, roasted red peppers, mushrooms, scallions, swiss cheese' },
+    { name: 'Buffalo Chicken Omelette', desc: 'Crispy buffalo chicken, spinach, bleu cheese crumbles' },
+  ],
+  handheld: [
+    { name: 'Breakfast Sandwich', desc: 'Choice of bacon, sausage, or grilled ham; white american cheese' },
+    { name: 'Donut French Toast Sandwich', desc: 'Fried egg, cheddar jack cheese, bacon, fried jalapenos, raspberry jam, on glazed donut french toast' },
+    { name: 'Avocado Toast', desc: 'Open faced; toasted rye, smashed avocado, fried egg, pico de gallo' },
+    { name: 'Breakfast Burrito', desc: 'Scrambled eggs, bacon, shredded cheddar, side of syrup' },
+    { name: 'Breakfast Reuben', desc: 'Griddled rye bread, grilled hamburger, melted swiss cheese, sautéed onions, and fried eggs' },
+  ],
+  benedicts: [
+    { name: 'Classic Benedict', desc: 'Poached eggs & hollandaise; served with home fries or sliced tomato' },
+    { name: 'Florentine Benedict', desc: 'Spinach, poached eggs, hollandaise' },
+  ],
+};
+
+const lunchDinner = {
+  appetizers: [
+    { name: 'Wings', desc: 'Buffalo, BBQ, or Thai chile; with carrots, celery, bleu cheese, or ranch' },
+    { name: 'Guacamole', desc: 'With sea-salted tortilla chips' },
+    { name: 'Pineapple Salsa', desc: 'Red pepper, tomato, red onion, jalapeño, pineapple, cilantro, key lime juice — with sea-salted tortilla chips' },
+    { name: 'Coconut Shrimp', desc: 'Sweet thai chile aioli' },
+    { name: 'Thai Mahi Fingers', desc: 'Thai chili mayo' },
+    { name: 'Mac & Cheese Bites', desc: 'Breaded, house-made mac, served with marinara' },
+    { name: 'Steamed Shrimp', desc: 'Steamed in Florida bay spices, with lemon and cocktail sauce' },
+    { name: 'Lemongrass Ribs', desc: 'Slow roasted Asian spiced ribs tossed in lemongrass sauce, ginger sesame slaw, and tricolored peppers' },
+    { name: 'Pan-Seared Black Mussels', desc: 'Diced chorizo, saffron-basil-butter broth, herb buttered dipping toast' },
+    { name: 'Lobster Nachos', desc: 'Sea-salted tortilla chips, shredded cheddar, lobster cream sauce, lettuce, tomato, jalapeños, scallions, shredded lobster meat' },
+    { name: 'Asian Spiced Ahi Tuna', desc: 'Cold sticky rice, pickled ginger, wakame, wasabi' },
+    { name: 'Panko Crusted Crab Cake', desc: 'Panko-crusted, fried, topped with lemon aioli, thai chile sauce, and scallions' },
+    { name: 'Stone Crab Claws', desc: 'Key lime mustard sauce — Oct 15 – May 1 (seasonal)' },
+  ],
+  salads: [
+    { name: 'Caesar Salad', desc: 'Romaine hearts, croutons, shaved parmesan, creamy caesar dressing' },
+    { name: 'Strawberry Fields', desc: 'Mixed greens, strawberries, mandarin oranges, red onion, cucumber, toasted almonds, strawberry vinaigrette' },
+    { name: 'Caprese Salad', desc: 'Fresh sliced mozzarella, tomato, olive oil, balsamic glaze, basil chiffonade over arugula' },
+    { name: 'Greek Salad', desc: 'Mixed lettuce, red onion, diced tomatoes, cucumbers, tricolored peppers, kalamata olives, feta, herbed greek vinaigrette with herbed chicken' },
+    { name: 'Southwest Salad', desc: 'Mixed green, tomato, red onion, roasted red pepper, avocado, roasted corn, black beans, cheddar jack, bacon, chipotle ranch' },
+    { name: 'Beet & Goat Cheese Salad', desc: 'Mixed greens, roasted golden beets, goat cheese, sweet and spicy pecans, cherry tomatoes, citrus thyme vinaigrette' },
+  ],
+  handheld: [
+    { name: 'Mahi Sandwich', desc: 'Grilled, blackened, or fried; lettuce, tomato, onion, salted pretzel bun' },
+    { name: 'Grouper Sandwich', desc: 'Grilled, blackened, or fried; lettuce, tomato, onion, salted pretzel bun' },
+    { name: 'Salmon BLT', desc: 'Arugula, tomato, roasted red pepper aioli, salted pretzel bun' },
+    { name: 'BBQ Short Rib Sandwich', desc: 'Guinness braised short rib, house BBQ sauce, pepper jack cheese, bacon, sliced tomato, sautéed onions on griddled sourdough' },
+    { name: 'Philly Cheesesteak', desc: 'Shaved ribeye, amoroso bun; wiz wit or wiz wit out' },
+    { name: 'Mahi Reuben', desc: 'Swiss cheese, 1000 island, cole slaw, griddled rye' },
+    { name: 'Fish Tacos Sandwich', desc: 'Grilled, blackened, or fried; cheddar jack, pico de gallo, avocado, salted pretzel bun' },
+    { name: 'Crunchy Grouper Hoagie', desc: 'Cornflake grouper, lettuce, tomato, roasted red pepper aioli, toasted hoagie roll' },
+    { name: 'Smash Burger', desc: 'Blend of short rib, brisket, and ground chuck; lettuce, tomato, onion, pickle spear, salted pretzel bun' },
+    { name: 'BBQ Bacon Burger', desc: 'Melted cheddar jack, applewood smoked bacon, house made BBQ sauce, sautéed onion, salted pretzel bun' },
+  ],
+  entrees: [
+    { name: 'Cajun Chicken Pasta', desc: 'Sautéed red onions, tomatoes, mushrooms, chorizo, cavatappi pasta in a cheesy cajun cream sauce, topped with crispy chicken and basil' },
+    { name: 'Grilled Mahi', desc: 'Yellow rice, black beans, fried plantains, chimichurri' },
+    { name: 'Seafood Paella', desc: 'Mussels, shrimp, mahi mahi, tomatoes, red peppers, onions, chorizo, cajun butter tomato sauce; over yellow rice' },
+    { name: 'Pan Seared Salmon', desc: 'Yellow rice, asparagus, plantains, thai chili sauce' },
+    { name: 'Fish & Chips', desc: 'Beer battered haddock, fries, coleslaw, tartar sauce' },
+    { name: 'Lobster Mac & Cheese', desc: 'Lobster meat, tomatoes, scallions, white american parmesan cheese sauce, cavatappi pasta, broiled lobster tail' },
+    { name: 'Fish Tacos', desc: 'Choice of corn or flour tortillas, shredded napa, pico de gallo, lemon aioli; served with beans & rice' },
+    { name: 'Broiled Lobster Tail', desc: 'Warm water lobster tail, portabella and baby shrimp relish, tarragon cream sauce, truffle parmesan mashed, steamed asparagus' },
+    { name: 'Rum Glazed Banana Mahi', desc: 'Topped with rum glazed banana; over coconut jalapeño grits and steamed baby carrots' },
+    { name: 'Fried Whole Snapper', desc: 'Fries, coleslaw, cocktail sauce' },
+  ],
+  hookAndCook: { name: 'Hook & Cook', desc: 'You hook it, we\'ll cook it! Bring your own fish or lobster (cleaned filets only). Blackened, grilled, fried, or Thai style. Served with choice of 2 sides.' },
+};
+
+const cocktails = {
+  signatures: [
+    { name: 'Coconut Bay Breeze', desc: 'Coconut rum, cranberry and pineapple juice' },
+    { name: 'Pain Reliever', desc: 'Aged island rum, coconut, orange and pineapple juice, with a dash of nutmeg' },
+    { name: 'Lemon Drop Martini', desc: 'Citrus vodka, splash of simple syrup and fresh lemon; shaken icy cold, served with a sugar rim' },
+    { name: 'Purple Island Crush', desc: 'Orange vodka, triple sec, orange juice, lemon lime soda, splash of blackberry liqueur' },
+    { name: 'Dark & Stormy', desc: 'Dark rum, ginger beer, fresh lime' },
+    { name: 'Key Lime Pie Martini', desc: 'Vanilla vodka, keke liqueur, lime juice, graham cracker sprinkle' },
+    { name: 'Tropical Mule', desc: 'Tequila, fresh lime juice, soda water' },
+    { name: 'Island Tea', desc: 'Sweet tea vodka, lemonade, splash of champagne' },
+  ],
+  bloodymary: { name: 'Trailer Trash Bloody Mary', desc: 'Our legendary loaded Bloody Mary — bleu cheese, pickle & pimento stuffed olives, pickled green bean, celery, crispy bacon strip, cocktail shrimp, meat straw. Voted best Upper Keys Bloody Mary.' },
+  frozens: ['Piña Colada', 'Rum Runner', 'Pain in the Ass', 'Miami Vice', 'Key Lime Colada'],
+  mojitos: ['Classic', 'Strawberry', 'Blueberry', 'Mango'],
+  margaritas: ['Classic', 'Strawberry & Jalapeño', 'Cucumber & Jalapeño', 'Pineapple & Vanilla', 'Mango'],
+  drafts: ['Beach Blonde Ale', 'Stella Artois', 'Yuengling', 'Seasonal Draft', 'Seasonal Cider', 'Honey Hibiscus Kölsch', 'American Amber Ale'],
+};
+
+const desserts = [
+  { name: 'Key Lime Pie', desc: 'Graham cracker crust, white chocolate & raspberry sauces, lime zest, pastry cream' },
+  { name: "S'Mores Brownie", desc: 'Toasted homemade marshmallow fluff, graham crackers' },
+  { name: 'Piña Colada Cake', desc: 'Vanilla rum glaze, whipped pastry cream, sweet and spicy pecans' },
+  { name: 'Bananas Foster', desc: 'Spiced rum glazed bananas foster, caramel & raspberry sauces, vanilla ice cream' },
+  { name: 'Dulce De Leche Cheesecake', desc: 'Graham cracker crust, caramel sauce, white chocolate shavings, pink himalayan sea salt, pastry cream' },
+  { name: 'Donut Sundae', desc: 'Warm glazed donuts, scoops of vanilla ice cream, sprinkles, toasted almonds, chocolate chips, mini marshmallows, sliced strawberries, white chocolate and caramel sauces, pastry cream and maraschino cherries' },
+];
+
+const photos = [
+  { src: 'https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=600&q=80&auto=format&fit=crop', alt: 'Waterfront dining' },
+  { src: 'https://images.unsplash.com/photo-1551024709-8f23befc6f87?w=600&q=80&auto=format&fit=crop', alt: 'Signature cocktails' },
+  { src: 'https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=600&q=80&auto=format&fit=crop', alt: 'Fresh seafood' },
+  { src: 'https://images.unsplash.com/photo-1485963631004-f2f00b1d6606?w=600&q=80&auto=format&fit=crop', alt: 'Breakfast at the dock' },
+  { src: 'https://images.unsplash.com/photo-1567620905732-2d1ec7ab7445?w=600&q=80&auto=format&fit=crop', alt: 'Fresh catch' },
+  { src: 'https://images.unsplash.com/photo-1609167830220-7164aa360951?w=600&q=80&auto=format&fit=crop', alt: 'Bloody Mary' },
+];
 ---
 
-<Layout title="Dining" description="Hungry Tarpon Restaurant & Thirsty Tarpon Bar at Robbie's Marina. Fresh seafood, signature cocktails, waterfront dining in Islamorada.">
-  <section class="pt-20 pb-20 px-6 text-center text-white" style="background: linear-gradient(135deg, #1a0a00, #3a1a00, #5a2a00);">
-    <p class="text-amber-400 text-sm font-semibold uppercase tracking-widest mb-4">Waterfront Dining</p>
-    <h1 class="text-4xl md:text-5xl font-bold mb-6" style="font-family: 'Playfair Display', serif;">Hungry Tarpon Restaurant</h1>
-    <p class="text-white/70 text-lg max-w-2xl mx-auto">Fresh Florida Keys seafood, signature cocktails, and the famous Trailer Trash Bloody Mary — all on the waterfront deck.</p>
-  </section>
+<Layout title="Hungry Tarpon Restaurant & Bar" description="Waterfront dining at Robbie's Marina of Islamorada. Fresh Florida Keys seafood, signature cocktails, the legendary Trailer Trash Bloody Mary. Open daily 6:30am–9pm.">
 
-  <section class="py-20 px-6">
-    <div class="max-w-5xl mx-auto grid md:grid-cols-2 gap-12">
-      <div>
-        <h2 class="text-2xl font-bold text-gray-900 mb-4" style="font-family: 'Playfair Display', serif;">The Restaurant</h2>
-        <p class="text-gray-600 leading-relaxed mb-4">Gorge on fresh, delicious seafood while sitting on the waterfront deck and watching the tarpon feeding frenzy below. The Hungry Tarpon offers a large menu that will make the entire family happy.</p>
-        <p class="text-gray-600 leading-relaxed mb-6">Open daily from 6:30am to 9:00pm — catch sunrise over the water with breakfast or end your day of adventure with a sunset dinner.</p>
-        <div class="bg-amber-50 rounded-xl p-5">
-          <p class="font-semibold text-amber-800 mb-1">🕰 Hours</p>
-          <p class="text-amber-700">Mon–Sun: 6:30am – 9:00pm</p>
-        </div>
-      </div>
-
-      <div>
-        <h2 class="text-2xl font-bold text-gray-900 mb-4" style="font-family: 'Playfair Display', serif;">Thirsty Tarpon Bar</h2>
-        <p class="text-gray-600 leading-relaxed mb-6">Relax on the deck with one of our signature cocktails, local draft beers, or our world-famous loaded Trailer Trash Bloody Mary. The perfect way to toast another perfect day in the Keys.</p>
-        <div class="bg-red-50 rounded-xl p-5 border border-red-100">
-          <p class="font-bold text-red-800 mb-2">🍹 The Trailer Trash Bloody Mary</p>
-          <p class="text-red-700 text-sm">Our legendary loaded Bloody Mary — piled high and absolutely unforgettable. Order one. You'll understand immediately.</p>
-        </div>
-      </div>
+  <!-- Hero -->
+  <section class="relative h-80 md:h-96 flex items-end overflow-hidden">
+    <img
+      src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=1600&q=80&auto=format&fit=crop"
+      alt="Hungry Tarpon Restaurant waterfront dining"
+      class="absolute inset-0 w-full h-full object-cover"
+    />
+    <div class="absolute inset-0" style="background: linear-gradient(to top, rgba(10,22,40,0.85) 0%, rgba(10,22,40,0.2) 60%, transparent 100%);"></div>
+    <div class="relative z-10 w-full max-w-5xl mx-auto px-6 pb-10">
+      <p class="text-amber-400 text-sm font-semibold uppercase tracking-widest mb-2">Robbie's Marina · Islamorada</p>
+      <h1 class="text-4xl md:text-5xl font-bold text-white mb-2" style="font-family: 'Playfair Display', serif;">Hungry Tarpon Restaurant</h1>
+      <p class="text-white/80">Open Daily · 6:30am – 9:00pm · Waterfront Deck · (305) 664-0535</p>
     </div>
   </section>
 
-  <section class="py-16 px-6 bg-gray-50">
-    <div class="max-w-3xl mx-auto text-center">
-      <h2 class="text-2xl font-bold text-gray-900 mb-10" style="font-family: 'Playfair Display', serif;">The Full Experience</h2>
-      <div class="grid sm:grid-cols-3 gap-6">
-        {[
-          { emoji: '🦐', label: 'Fresh Seafood', desc: 'Caught local, served fresh' },
-          { emoji: '🌊', label: 'Waterfront Deck', desc: 'Watch the tarpon feeding while you eat' },
-          { emoji: '🍹', label: 'Craft Cocktails', desc: 'Signature drinks & local drafts' },
-        ].map(item => (
-          <div>
-            <span class="text-4xl mb-3 block">{item.emoji}</span>
-            <p class="font-semibold text-gray-900 mb-1">{item.label}</p>
-            <p class="text-gray-600 text-sm">{item.desc}</p>
-          </div>
+  <!-- Quick info bar -->
+  <section class="py-4 px-6 bg-amber-500">
+    <div class="max-w-5xl mx-auto flex flex-wrap justify-center gap-6 text-white text-sm font-semibold">
+      <span>🕐 Mon–Sat Breakfast 6:30am–10:30am · Sun until 11am</span>
+      <span>🍽️ Lunch & Dinner Mon–Sun 6:30am–9pm</span>
+      <span>📞 (305) 664-0535</span>
+      <a href="https://311i00301793492.s4shops.com/giftcard.html" target="_blank" rel="noopener" class="underline hover:no-underline">🎁 Gift Cards</a>
+    </div>
+  </section>
+
+  <!-- Photo grid -->
+  <section class="py-12 px-6 bg-gray-50">
+    <div class="max-w-6xl mx-auto grid grid-cols-2 md:grid-cols-3 gap-3">
+      {photos.map(p => (
+        <div class="aspect-square overflow-hidden rounded-xl">
+          <img src={p.src} alt={p.alt} class="w-full h-full object-cover hover:scale-105 transition-transform duration-500" loading="lazy" />
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <!-- Signature dishes callout -->
+  <section class="py-16 px-6">
+    <div class="max-w-5xl mx-auto text-center mb-12">
+      <p class="text-amber-600 text-sm font-semibold uppercase tracking-widest mb-3">Must Try</p>
+      <h2 class="text-3xl font-bold text-gray-900" style="font-family: 'Playfair Display', serif;">Signature Dishes</h2>
+    </div>
+    <div class="max-w-5xl mx-auto grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+      {[
+        { name: 'Trailer Trash Bloody Mary', desc: 'Our legendary loaded Bloody Mary — voted best in the Upper Keys', emoji: '🍅' },
+        { name: 'Lobster Mac & Cheese', desc: 'Broiled lobster tail, cavatappi pasta, parmesan cream sauce', emoji: '🦞' },
+        { name: 'Lemongrass Ribs', desc: 'Slow roasted Asian spiced ribs, ginger sesame slaw', emoji: '🍖' },
+        { name: 'Key Lime Pie', desc: 'Graham cracker crust, white chocolate & raspberry, lime zest', emoji: '🥧' },
+      ].map(dish => (
+        <div class="bg-white rounded-2xl p-6 shadow-sm border border-gray-100 text-center">
+          <span class="text-5xl mb-4 block">{dish.emoji}</span>
+          <h3 class="font-bold text-gray-900 mb-2">{dish.name}</h3>
+          <p class="text-gray-600 text-sm">{dish.desc}</p>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <!-- MENU TABS -->
+  <section class="py-16 px-6 bg-gray-50" id="menu">
+    <div class="max-w-5xl mx-auto">
+      <div class="text-center mb-10">
+        <p class="text-amber-600 text-sm font-semibold uppercase tracking-widest mb-3">Hungry Tarpon Restaurant</p>
+        <h2 class="text-3xl font-bold text-gray-900" style="font-family: 'Playfair Display', serif;">Our Menu</h2>
+      </div>
+
+      <!-- Tab buttons -->
+      <div class="flex flex-wrap gap-2 justify-center mb-10" id="menu-tabs">
+        {menuTabs.map((tab, i) => (
+          <button
+            class={`menu-tab px-5 py-2 rounded-full text-sm font-semibold transition-colors ${i === 0 ? 'bg-amber-500 text-white' : 'bg-white text-gray-700 border border-gray-200 hover:border-amber-400'}`}
+            data-tab={i}
+          >
+            {tab}
+          </button>
         ))}
       </div>
+
+      <!-- BREAKFAST TAB -->
+      <div class="menu-content" data-content="0">
+        <div class="grid md:grid-cols-2 gap-8">
+          <div>
+            <h3 class="text-lg font-bold text-gray-900 mb-4 pb-2 border-b border-gray-200">Hungry Tarpon Specials</h3>
+            <div class="space-y-3">
+              {breakfast.specials.map(item => (
+                <div class="flex gap-3">
+                  <div class="w-1.5 h-1.5 rounded-full bg-amber-400 mt-2 flex-shrink-0"></div>
+                  <div><p class="font-semibold text-gray-900 text-sm">{item.name}</p><p class="text-gray-500 text-xs mt-0.5">{item.desc}</p></div>
+                </div>
+              ))}
+            </div>
+
+            <h3 class="text-lg font-bold text-gray-900 mt-8 mb-4 pb-2 border-b border-gray-200">Scrambled Egg Skillets</h3>
+            <div class="space-y-3">
+              {breakfast.skillets.map(item => (
+                <div class="flex gap-3">
+                  <div class="w-1.5 h-1.5 rounded-full bg-amber-400 mt-2 flex-shrink-0"></div>
+                  <div><p class="font-semibold text-gray-900 text-sm">{item.name}</p><p class="text-gray-500 text-xs mt-0.5">{item.desc}</p></div>
+                </div>
+              ))}
+            </div>
+
+            <h3 class="text-lg font-bold text-gray-900 mt-8 mb-4 pb-2 border-b border-gray-200">Croissant Benedicts</h3>
+            <div class="space-y-3">
+              {breakfast.benedicts.map(item => (
+                <div class="flex gap-3">
+                  <div class="w-1.5 h-1.5 rounded-full bg-amber-400 mt-2 flex-shrink-0"></div>
+                  <div><p class="font-semibold text-gray-900 text-sm">{item.name}</p><p class="text-gray-500 text-xs mt-0.5">{item.desc}</p></div>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          <div>
+            <h3 class="text-lg font-bold text-gray-900 mb-4 pb-2 border-b border-gray-200">Omelettes</h3>
+            <p class="text-xs text-gray-500 mb-3 italic">All served with home fries or cheddar scallion hash browns, and toast. Egg whites +$1.95 · Lobster +$8.95</p>
+            <div class="space-y-3">
+              {breakfast.omelettes.map(item => (
+                <div class="flex gap-3">
+                  <div class="w-1.5 h-1.5 rounded-full bg-amber-400 mt-2 flex-shrink-0"></div>
+                  <div><p class="font-semibold text-gray-900 text-sm">{item.name}</p><p class="text-gray-500 text-xs mt-0.5">{item.desc}</p></div>
+                </div>
+              ))}
+            </div>
+
+            <h3 class="text-lg font-bold text-gray-900 mt-8 mb-4 pb-2 border-b border-gray-200">Hand-Helds</h3>
+            <p class="text-xs text-gray-500 mb-3 italic">All sandwiches served with home fries or cheddar scallion hash browns</p>
+            <div class="space-y-3">
+              {breakfast.handheld.map(item => (
+                <div class="flex gap-3">
+                  <div class="w-1.5 h-1.5 rounded-full bg-amber-400 mt-2 flex-shrink-0"></div>
+                  <div><p class="font-semibold text-gray-900 text-sm">{item.name}</p><p class="text-gray-500 text-xs mt-0.5">{item.desc}</p></div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- LUNCH & DINNER TAB -->
+      <div class="menu-content hidden" data-content="1">
+        <div class="grid md:grid-cols-2 gap-8">
+          <div>
+            <h3 class="text-lg font-bold text-gray-900 mb-4 pb-2 border-b border-gray-200">Appetizers</h3>
+            <div class="space-y-3">
+              {lunchDinner.appetizers.map(item => (
+                <div class="flex gap-3">
+                  <div class="w-1.5 h-1.5 rounded-full bg-amber-400 mt-2 flex-shrink-0"></div>
+                  <div><p class="font-semibold text-gray-900 text-sm">{item.name}</p><p class="text-gray-500 text-xs mt-0.5">{item.desc}</p></div>
+                </div>
+              ))}
+            </div>
+
+            <h3 class="text-lg font-bold text-gray-900 mt-8 mb-4 pb-2 border-b border-gray-200">Soups & Salads</h3>
+            <div class="space-y-3">
+              {lunchDinner.salads.map(item => (
+                <div class="flex gap-3">
+                  <div class="w-1.5 h-1.5 rounded-full bg-amber-400 mt-2 flex-shrink-0"></div>
+                  <div><p class="font-semibold text-gray-900 text-sm">{item.name}</p><p class="text-gray-500 text-xs mt-0.5">{item.desc}</p></div>
+                </div>
+              ))}
+            </div>
+            <p class="text-xs text-gray-500 mt-2 italic">Add protein: Chicken $8.95 · Shrimp $11.95 · Mahi $12.95 · Grouper $13.95 · Salmon $18.95 · Tuna $16.95</p>
+          </div>
+
+          <div>
+            <h3 class="text-lg font-bold text-gray-900 mb-4 pb-2 border-b border-gray-200">Hand-Helds</h3>
+            <div class="space-y-3">
+              {lunchDinner.handheld.map(item => (
+                <div class="flex gap-3">
+                  <div class="w-1.5 h-1.5 rounded-full bg-amber-400 mt-2 flex-shrink-0"></div>
+                  <div><p class="font-semibold text-gray-900 text-sm">{item.name}</p><p class="text-gray-500 text-xs mt-0.5">{item.desc}</p></div>
+                </div>
+              ))}
+            </div>
+
+            <h3 class="text-lg font-bold text-gray-900 mt-8 mb-4 pb-2 border-b border-gray-200">Entrees</h3>
+            <div class="space-y-3">
+              {lunchDinner.entrees.map(item => (
+                <div class="flex gap-3">
+                  <div class="w-1.5 h-1.5 rounded-full bg-amber-400 mt-2 flex-shrink-0"></div>
+                  <div><p class="font-semibold text-gray-900 text-sm">{item.name}</p><p class="text-gray-500 text-xs mt-0.5">{item.desc}</p></div>
+                </div>
+              ))}
+            </div>
+
+            <div class="mt-8 bg-amber-50 rounded-xl p-5 border border-amber-200">
+              <h3 class="font-bold text-amber-900 mb-2">🎣 {lunchDinner.hookAndCook.name}</h3>
+              <p class="text-amber-800 text-sm">{lunchDinner.hookAndCook.desc}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- COCKTAILS TAB -->
+      <div class="menu-content hidden" data-content="2">
+        <!-- Bloody Mary feature -->
+        <div class="bg-red-50 border border-red-100 rounded-2xl p-8 mb-8 flex gap-6 items-center">
+          <span class="text-6xl flex-shrink-0">🍅</span>
+          <div>
+            <h3 class="text-xl font-bold text-red-900 mb-2" style="font-family: 'Playfair Display', serif;">{cocktails.bloodymary.name}</h3>
+            <p class="text-red-800 leading-relaxed">{cocktails.bloodymary.desc}</p>
+          </div>
+        </div>
+
+        <div class="grid md:grid-cols-2 gap-8">
+          <div>
+            <h3 class="text-lg font-bold text-gray-900 mb-4 pb-2 border-b border-gray-200">Signature Cocktails</h3>
+            <div class="space-y-3">
+              {cocktails.signatures.map(item => (
+                <div class="flex gap-3">
+                  <div class="w-1.5 h-1.5 rounded-full bg-amber-400 mt-2 flex-shrink-0"></div>
+                  <div><p class="font-semibold text-gray-900 text-sm">{item.name}</p><p class="text-gray-500 text-xs mt-0.5">{item.desc}</p></div>
+                </div>
+              ))}
+            </div>
+
+            <h3 class="text-lg font-bold text-gray-900 mt-8 mb-4 pb-2 border-b border-gray-200">Frozens</h3>
+            <div class="flex flex-wrap gap-2">
+              {cocktails.frozens.map(f => <span class="bg-blue-50 text-blue-800 text-xs px-3 py-1.5 rounded-full font-medium">{f}</span>)}
+            </div>
+
+            <h3 class="text-lg font-bold text-gray-900 mt-6 mb-4 pb-2 border-b border-gray-200">Mojitos</h3>
+            <div class="flex flex-wrap gap-2">
+              {cocktails.mojitos.map(m => <span class="bg-green-50 text-green-800 text-xs px-3 py-1.5 rounded-full font-medium">{m}</span>)}
+            </div>
+
+            <h3 class="text-lg font-bold text-gray-900 mt-6 mb-4 pb-2 border-b border-gray-200">Margaritas</h3>
+            <div class="flex flex-wrap gap-2">
+              {cocktails.margaritas.map(m => <span class="bg-yellow-50 text-yellow-800 text-xs px-3 py-1.5 rounded-full font-medium">{m}</span>)}
+            </div>
+          </div>
+
+          <div>
+            <h3 class="text-lg font-bold text-gray-900 mb-4 pb-2 border-b border-gray-200">Draft Beer</h3>
+            <div class="space-y-2">
+              {cocktails.drafts.map(d => (
+                <div class="flex gap-3 items-center">
+                  <span class="text-amber-500">🍺</span>
+                  <p class="text-gray-700 text-sm">{d}</p>
+                </div>
+              ))}
+            </div>
+
+            <h3 class="text-lg font-bold text-gray-900 mt-8 mb-4 pb-2 border-b border-gray-200">Wine</h3>
+            <p class="text-gray-600 text-sm">Glass $10 · Bottle $35</p>
+
+            <div class="mt-8 bg-gray-50 rounded-xl p-5">
+              <h3 class="font-semibold text-gray-900 mb-3">Sides</h3>
+              <p class="text-gray-600 text-xs leading-relaxed">Fries · Sweet Potato Fries · Sea-Salted Tortilla Chips · Mashed Potatoes · Coconut Jalapeño Grits · Beans & Rice · Coleslaw · Southern Potato Salad · Side Caesar · Side House Salad</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- DESSERT TAB -->
+      <div class="menu-content hidden" data-content="3">
+        <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          {desserts.map(item => (
+            <div class="bg-white rounded-2xl p-6 shadow-sm border border-gray-100">
+              <h3 class="font-bold text-gray-900 mb-2">{item.name}</h3>
+              <p class="text-gray-600 text-sm leading-relaxed">{item.desc}</p>
+            </div>
+          ))}
+        </div>
+      </div>
     </div>
   </section>
 
-  <BookingCTA headline="Dine on the Water" subtext="Come hungry. Leave happy." />
+  <!-- Brad Bertelli -->
+  <section class="py-16 px-6" style="background-color: #0a1628;">
+    <div class="max-w-3xl mx-auto text-center">
+      <p class="text-amber-400 text-sm font-semibold uppercase tracking-widest mb-3">Mondays & Thursdays</p>
+      <h2 class="text-2xl font-bold text-white mb-4" style="font-family: 'Playfair Display', serif;">Tasting Florida Keys History with Brad Bertelli</h2>
+      <p class="text-white/70 leading-relaxed mb-6">Sip a rumrunner, savor traditional conch chowder and fritters, and finish with Key lime pie — while local historian Brad Bertelli takes you through the incredible stories of the Florida Keys and the Conch Republic.</p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center mb-6">
+        <div class="bg-white/10 rounded-lg px-6 py-3 text-white text-sm font-semibold">11:30am – 12:30pm</div>
+        <div class="bg-white/10 rounded-lg px-6 py-3 text-white text-sm font-semibold">2:30pm – 3:30pm</div>
+      </div>
+      <a href="https://fareharbor.com/embeds/book/hungrytarpon/?full-items=yes" target="_blank" rel="noopener"
+        class="inline-block bg-amber-500 hover:bg-amber-400 text-white px-8 py-3 rounded font-semibold transition-colors">
+        Book Your Seat
+      </a>
+    </div>
+  </section>
+
+  <BookingCTA headline="Come Dine on the Water" subtext="Hungry Tarpon Restaurant — open daily 6:30am to 9pm at Robbie's Marina." />
 </Layout>
+
+<script>
+  const tabs = document.querySelectorAll('.menu-tab');
+  const contents = document.querySelectorAll('.menu-content');
+
+  tabs.forEach(tab => {
+    tab.addEventListener('click', () => {
+      const idx = tab.getAttribute('data-tab');
+      tabs.forEach(t => {
+        t.classList.remove('bg-amber-500', 'text-white');
+        t.classList.add('bg-white', 'text-gray-700', 'border', 'border-gray-200');
+      });
+      tab.classList.add('bg-amber-500', 'text-white');
+      tab.classList.remove('bg-white', 'text-gray-700', 'border', 'border-gray-200');
+      contents.forEach(c => c.classList.add('hidden'));
+      document.querySelector(`[data-content="${idx}"]`)?.classList.remove('hidden');
+    });
+  });
+</script>
