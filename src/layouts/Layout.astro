@@ -1,6 +1,7 @@
 ---
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
+import AnnouncementBar from '../components/AnnouncementBar.astro';
 import '../styles/global.css';
 
 interface Props {
@@ -27,6 +28,7 @@ const fullTitle = title === 'Home' ? "Robbie's of Islamorada | Best Place To Vis
     <link rel="icon" type="image/x-icon" href="/favicon.ico" />
   </head>
   <body class="bg-white text-gray-900" style="font-family: 'Inter', sans-serif;">
+    <AnnouncementBar />
     <Header />
     <main>
       <slot />

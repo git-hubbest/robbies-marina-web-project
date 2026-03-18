@@ -1,0 +1,38 @@
+---
+const messages = [
+  { text: "🐟 Tarpon Dock Open Daily 7am–9pm — Hand-Feed the Silver Kings!", href: "/activities" },
+  { text: "🎣 Captain Michael Party Boat: 3 Trips Daily · $100/person · All Tackle Included", href: "/fishing" },
+  { text: "🪸 Glass Bottom Boat Tours: 9:30am · 12pm · 3pm · Night Tour after Sunset", href: "/glass-bottom-boat" },
+  { text: "🌅 Sunset Cruises from $49 — Catamaran · Private Boat · Luxury Yacht", href: "/sunset-cruises" },
+  { text: "📍 77522 Overseas Hwy, Islamorada FL · Open Mon–Sun 7am–9pm · (305) 664-8070", href: "/" },
+  { text: "🏆 Voted #1 Place in the Florida Keys Every Tourist Should Visit!", href: "/" },
+];
+---
+
+<div id="announcement-bar" class="text-white text-xs font-medium py-2 px-4 text-center relative overflow-hidden" style="background-color: #c9a84c;">
+  {messages.map((msg, i) => (
+    <a
+      href={msg.href}
+      class={`announcement-msg absolute inset-0 flex items-center justify-center hover:underline transition-opacity duration-500 ${i === 0 ? 'opacity-100' : 'opacity-0'}`}
+      data-index={i}
+    >
+      {msg.text}
+    </a>
+  ))}
+  <!-- Static fallback for first message height -->
+  <span class="invisible text-xs">{messages[0].text}</span>
+</div>
+
+<script>
+  const msgs = document.querySelectorAll('.announcement-msg');
+  let current = 0;
+  if (msgs.length > 1) {
+    setInterval(() => {
+      msgs[current].classList.remove('opacity-100');
+      msgs[current].classList.add('opacity-0');
+      current = (current + 1) % msgs.length;
+      msgs[current].classList.remove('opacity-0');
+      msgs[current].classList.add('opacity-100');
+    }, 4000);
+  }
+</script>
