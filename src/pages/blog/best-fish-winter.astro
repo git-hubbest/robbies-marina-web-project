@@ -1,0 +1,47 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import BookingCTA from '../../components/BookingCTA.astro';
+
+const fish = [
+  { name: 'Mahi-Mahi (Dolphin Fish)', emoji: '🐟', desc: 'Winter is peak mahi season offshore. These colorful, hard-fighting fish are one of the most sought-after catches in the Keys.' },
+  { name: 'Wahoo', emoji: '🎣', desc: 'Fast, powerful, and delicious. Wahoo are aggressive winter offshore targets that put up a serious fight.' },
+  { name: 'Sailfish', emoji: '⚡', desc: 'Winter brings sailfish migrations close to the Keys. One of the most acrobatic and spectacular fish you can catch.' },
+  { name: 'Blackfin Tuna', emoji: '🐡', desc: 'Abundant in winter near the reef edges and offshore. Great table fare and a reliable target.' },
+  { name: 'King Mackerel', emoji: '🎯', desc: 'Winter kings run strong off Islamorada. Trolling the reef edge is a proven technique.' },
+  { name: 'Bonefish', emoji: '🏆', desc: 'The flats are active year-round. Bonefish are the ultimate shallow-water challenge for fly and light tackle anglers.' },
+];
+---
+
+<Layout title="Best Fish to Catch in the Florida Keys in Winter" description="Winter is prime fishing season in Islamorada. Here's what's running, where to find them, and how to book your trip with Captain Michael at Robbie's Marina.">
+  <section class="pt-32 pb-16 px-6 text-center text-white" style="background: linear-gradient(135deg, #0a1628, #1a3a5c);">
+    <p class="text-amber-400 text-sm font-semibold uppercase tracking-widest mb-4">Fishing Guide</p>
+    <h1 class="text-3xl md:text-4xl font-bold mb-4" style="font-family: 'Playfair Display', serif;">Best Fish to Catch in the Florida Keys in Winter</h1>
+    <p class="text-white/60 text-sm">March 2026 · 5 min read</p>
+  </section>
+
+  <article class="py-16 px-6">
+    <div class="max-w-2xl mx-auto">
+      <p class="text-gray-600 text-lg leading-relaxed mb-10">Ask any local and they'll tell you: winter is one of the best times to fish Islamorada. Cooler water temps push bait fish and game fish closer to shore, offshore structure is loaded, and the crowds are smaller. Here's what's biting.</p>
+
+      <div class="space-y-4 mb-12">
+        {fish.map(f => (
+          <div class="bg-white rounded-xl p-6 border border-gray-100 shadow-sm flex gap-4">
+            <span class="text-3xl">{f.emoji}</span>
+            <div>
+              <h3 class="font-bold text-gray-900 mb-1">{f.name}</h3>
+              <p class="text-gray-600 text-sm leading-relaxed">{f.desc}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+
+      <div class="bg-blue-50 rounded-xl p-6 border border-blue-100">
+        <p class="font-semibold text-blue-900 mb-2">📅 Pro Tip: Book Early</p>
+        <p class="text-blue-800 text-sm leading-relaxed">Winter is a popular time to fish Islamorada. Captain Michael's party boat runs 3 trips daily at $100/person — all bait and tackle included. Private charters book up fast in season, so call ahead.</p>
+        <a href="/fishing" class="inline-block mt-3 bg-amber-500 hover:bg-amber-400 text-white px-5 py-2 rounded text-sm font-semibold transition-colors">View Fishing Options</a>
+      </div>
+    </div>
+  </article>
+
+  <BookingCTA headline="Book Your Winter Fishing Trip" subtext="Three party boat trips daily with Captain Michael at Robbie's Marina." />
+</Layout>

@@ -1,0 +1,49 @@
+---
+import Layout from '../layouts/Layout.astro';
+import BookingCTA from '../components/BookingCTA.astro';
+
+const vendors = [
+  { name: 'Fresh Coconuts', desc: 'Ice-cold fresh coconuts straight from the source.' },
+  { name: 'Niknax', desc: 'Unique gifts, jewelry, and Florida Keys keepsakes.' },
+  { name: 'Bead Shack', desc: 'Handcrafted beaded jewelry and accessories.' },
+  { name: 'Glass Shack', desc: 'Beautiful handcrafted glass art and home décor.' },
+  { name: 'The Shop at Robbie\'s', desc: 'Official Robbie\'s merchandise and souvenirs.' },
+  { name: 'Tim Rahn Photography', desc: 'Stunning prints of the Florida Keys by local photographer Tim Rahn.' },
+  { name: 'Barbara Weingardt Art', desc: 'Original acrylic paintings — animals, Keys landscapes, and commissioned work.' },
+  { name: 'Charli\'s Icee Shack', desc: 'Cool off with a refreshing icee on a hot Keys day.' },
+];
+---
+
+<Layout title="Tropical Open Air Market" description="Robbie's Tropical Open Air Market in Islamorada — local artists, handcrafted souvenirs, fresh coconuts, photography, and unique Florida Keys gifts.">
+  <section class="pt-32 pb-20 px-6 text-center text-white" style="background: linear-gradient(135deg, #1a2a0a, #2a4a1a, #1a3a0a);">
+    <p class="text-amber-400 text-sm font-semibold uppercase tracking-widest mb-4">Local Artists & Vendors</p>
+    <h1 class="text-4xl md:text-5xl font-bold mb-6" style="font-family: 'Playfair Display', serif;">Tropical Open Air Market</h1>
+    <p class="text-white/70 text-lg max-w-2xl mx-auto">Browse handcrafted souvenirs, local art, photography, jewelry, and only-in-the-Keys finds — all under the Florida sun at Robbie's Marina.</p>
+  </section>
+
+  <section class="py-20 px-6">
+    <div class="max-w-5xl mx-auto">
+      <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
+        {vendors.map(vendor => (
+          <div class="bg-white rounded-xl p-6 shadow-sm border border-gray-100 hover:shadow-md transition-shadow">
+            <h3 class="font-bold text-gray-900 mb-2">{vendor.name}</h3>
+            <p class="text-gray-600 text-sm leading-relaxed">{vendor.desc}</p>
+          </div>
+        ))}
+      </div>
+
+      <!-- Barbara feature -->
+      <div class="bg-amber-50 rounded-2xl p-10 border border-amber-100">
+        <div class="max-w-2xl mx-auto text-center">
+          <span class="text-5xl mb-4 block">🎨</span>
+          <h2 class="text-2xl font-bold text-gray-900 mb-4" style="font-family: 'Playfair Display', serif;">Meet Barbara Weingardt</h2>
+          <p class="text-gray-600 leading-relaxed mb-4">A Florida Keys institution for 25 years. Barbara grew up in Brentwood, California, earned art degrees at the Colorado Women's College and the University of Denver, and was eventually lured to the Keys by the weather and fishing. She's been painting at Robbie's ever since — animals, marina scenes, the Hungry Tarpon interior — and is exclusive to Robbie's.</p>
+          <p class="text-gray-600 italic text-sm">"I can't remember a time when I wasn't painting. I know it is a cliché, but it is not what I do but who I am." — Barbara Weingardt</p>
+          <p class="text-amber-700 text-sm font-semibold mt-4">Find Barbara at Robbie's on weekdays and the occasional Saturday.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <BookingCTA headline="Shop, Eat, and Explore" subtext="Visit the Tropical Open Air Market at Robbie's Marina — open daily." />
+</Layout>

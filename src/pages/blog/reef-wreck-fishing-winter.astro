@@ -1,0 +1,49 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import BookingCTA from '../../components/BookingCTA.astro';
+---
+
+<Layout title="Reef & Wreck Fishing in the Florida Keys in Winter" description="Winter is prime time for reef and wreck fishing in Islamorada. Here's what to target, where to go, and how to book your trip from Robbie's Marina.">
+  <section class="pt-32 pb-16 px-6 text-center text-white" style="background: linear-gradient(135deg, #0a1628, #1a3a5c);">
+    <p class="text-amber-400 text-sm font-semibold uppercase tracking-widest mb-4">Fishing Guide</p>
+    <h1 class="text-3xl md:text-4xl font-bold mb-4" style="font-family: 'Playfair Display', serif;">Reef & Wreck Fishing in the Florida Keys in Winter</h1>
+    <p class="text-white/60 text-sm">February 2026 · 4 min read</p>
+  </section>
+
+  <article class="py-16 px-6">
+    <div class="max-w-2xl mx-auto prose prose-lg text-gray-600 space-y-6">
+      <p>The Florida Keys sit atop one of the most productive reef systems in North America. Just miles offshore from Robbie's Marina, the reef edge drops into deep water — and in winter, it absolutely loads up with fish.</p>
+
+      <h2 class="text-2xl font-bold text-gray-900 mt-10 mb-4" style="font-family: 'Playfair Display', serif;">Why Winter is Prime Time</h2>
+      <p>Cooler water temperatures concentrate baitfish over the reef structure. That draws in everything that feeds on them — snapper, grouper, kingfish, amberjack, and more. Winter also means calmer seas on average, making for more comfortable trips offshore.</p>
+
+      <h2 class="text-2xl font-bold text-gray-900 mt-10 mb-4" style="font-family: 'Playfair Display', serif;">What You'll Catch</h2>
+      <div class="grid sm:grid-cols-2 gap-4 not-prose my-6">
+        {[
+          { fish: 'Yellowtail Snapper', note: 'Year-round reef staple, abundant in winter' },
+          { fish: 'Mutton Snapper', note: 'Prized table fare, active over structure' },
+          { fish: 'Black Grouper', note: 'Deep structure fish, excellent eating' },
+          { fish: 'King Mackerel', note: 'Aggressive trolling target along reef edge' },
+          { fish: 'Amberjack', note: 'Powerful fighters over deep wrecks' },
+          { fish: 'Cobia', note: 'Often found near buoys and wrecks in winter' },
+        ].map(item => (
+          <div class="bg-gray-50 rounded-lg p-4">
+            <p class="font-semibold text-gray-900 text-sm">{item.fish}</p>
+            <p class="text-gray-500 text-xs mt-1">{item.note}</p>
+          </div>
+        ))}
+      </div>
+
+      <h2 class="text-2xl font-bold text-gray-900 mt-10 mb-4" style="font-family: 'Playfair Display', serif;">The San Pedro Wreck</h2>
+      <p>Just 1 mile from Robbie's sits the San Pedro — a 287-year-old Spanish galleon resting in 18 feet of water. It's an underwater archaeological preserve, but the surrounding area is a magnet for fish. Snapper and grouper stack up on the structure year-round.</p>
+
+      <p>Our captains know these waters inside and out — 250+ combined years of experience fishing Islamorada's reefs and wrecks. Tell us what you want to catch, and we'll put you on fish.</p>
+
+      <a href="/fishing" class="inline-block bg-amber-500 hover:bg-amber-400 text-white px-6 py-3 rounded font-semibold transition-colors not-prose">
+        Book a Reef & Wreck Charter →
+      </a>
+    </div>
+  </article>
+
+  <BookingCTA headline="Fish the Reefs & Wrecks of Islamorada" subtext="Book a charter at Robbie's Marina — expert guides, all gear included." />
+</Layout>

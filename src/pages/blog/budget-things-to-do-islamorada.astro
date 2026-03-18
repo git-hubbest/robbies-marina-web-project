@@ -1,0 +1,50 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import BookingCTA from '../../components/BookingCTA.astro';
+
+const activities = [
+  { title: 'Feed the Tarpon at Robbie\'s', cost: '$3–$5', desc: 'The most iconic Keys experience costs almost nothing. Buy a bucket of bait fish, walk up to the dock, and hand-feed a 200-pound Silver King.' },
+  { title: 'Snorkeling Party Boat', cost: '$55–$65', desc: 'Twice-daily snorkel trips from Robbie\'s with all gear included. One of the best value activities in the Keys.' },
+  { title: 'Kayak to Indian Key State Park', cost: 'Rental rates', desc: 'Rent a kayak from the Kayak Shack and paddle 20 minutes to a historic state park. Self-guided, no reservation needed.' },
+  { title: 'Anne\'s Beach', cost: 'Free', desc: 'A beautiful, free public beach on the ocean side of Islamorada. Perfect for swimming and picnicking.' },
+  { title: 'Islamorada Library Beach', cost: 'Free', desc: 'A hidden gem — small public beach behind the library with calm, shallow bay water. Great for kids.' },
+  { title: 'Morada Way Arts & Cultural District', cost: 'Free', desc: 'Browse local galleries and art studios along Morada Way. Free to walk and explore.' },
+  { title: 'History of Diving Museum', cost: 'Small admission', desc: 'A world-class diving history museum covering 4,000 years of underwater exploration. Surprisingly incredible.' },
+  { title: 'Sunset from a Public Dock', cost: 'Free', desc: 'The Florida Keys sunsets are legendary. Pull up to any bayside spot around 7pm and watch the show.' },
+  { title: 'Fishing on the Party Boat', cost: '$100/person', desc: 'Relatively affordable for a full day of offshore fishing with all gear, bait, and tackle included.' },
+  { title: 'Browse Robbie\'s Open Air Market', cost: 'Free to browse', desc: 'Walk through the Tropical Open Air Market while you\'re at Robbie\'s — local art, photography, jewelry, and fresh coconuts.' },
+];
+---
+
+<Layout title="10 Budget-Friendly Things To Do in Islamorada" description="Great Florida Keys experiences don't have to break the bank. Here are 10 affordable activities to add to your Islamorada itinerary.">
+  <section class="pt-32 pb-16 px-6 text-center text-white" style="background: linear-gradient(135deg, #0a2a1a, #1a4a2a);">
+    <p class="text-amber-400 text-sm font-semibold uppercase tracking-widest mb-4">Islamorada Travel Guide</p>
+    <h1 class="text-3xl md:text-4xl font-bold mb-4" style="font-family: 'Playfair Display', serif;">10 Budget-Friendly Things To Do in Islamorada</h1>
+    <p class="text-white/60 text-sm">September 2025 · 5 min read</p>
+  </section>
+
+  <article class="py-16 px-6">
+    <div class="max-w-2xl mx-auto">
+      <p class="text-gray-600 text-lg leading-relaxed mb-10">Islamorada has a reputation for luxury — and yes, there are $1,000 yacht charters and fine dining. But there's also plenty to do here that won't wreck your budget. Here are 10 of the best value activities in the Keys.</p>
+
+      <div class="space-y-4">
+        {activities.map((item, i) => (
+          <div class="bg-white rounded-xl p-6 border border-gray-100 shadow-sm flex gap-4">
+            <div class="w-8 h-8 bg-amber-100 rounded-full flex items-center justify-center font-bold text-amber-700 flex-shrink-0 text-sm">
+              {i + 1}
+            </div>
+            <div>
+              <div class="flex flex-wrap items-center gap-2 mb-1">
+                <h3 class="font-bold text-gray-900">{item.title}</h3>
+                <span class="bg-green-100 text-green-700 text-xs px-2 py-0.5 rounded-full font-medium">{item.cost}</span>
+              </div>
+              <p class="text-gray-600 text-sm leading-relaxed">{item.desc}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </article>
+
+  <BookingCTA headline="Start Your Islamorada Adventure" subtext="Robbie's Marina — the #1 stop in the Florida Keys." />
+</Layout>

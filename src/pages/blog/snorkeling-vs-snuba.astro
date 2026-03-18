@@ -1,0 +1,64 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import BookingCTA from '../../components/BookingCTA.astro';
+---
+
+<Layout title="Snorkeling vs SNUBA: What's the Difference?" description="Not sure whether to snorkel or SNUBA on your Florida Keys trip? We break down the differences — depth, gear, experience level — so you can choose the right underwater adventure at Robbie's.">
+  <section class="pt-32 pb-16 px-6 text-center text-white" style="background: linear-gradient(135deg, #0a2a3a, #0d4a6b);">
+    <p class="text-amber-400 text-sm font-semibold uppercase tracking-widest mb-4">Florida Keys Guide</p>
+    <h1 class="text-3xl md:text-4xl font-bold mb-4" style="font-family: 'Playfair Display', serif;">Snorkeling vs SNUBA: What's the Difference?</h1>
+    <p class="text-white/60 text-sm">March 2026 · 5 min read</p>
+  </section>
+
+  <article class="py-16 px-6">
+    <div class="max-w-2xl mx-auto prose prose-lg text-gray-600 space-y-6">
+      <p>Planning a trip to the Florida Keys and trying to decide between snorkeling and SNUBA? Both are incredible ways to explore the underwater world — but they offer very different experiences.</p>
+
+      <h2 class="text-2xl font-bold text-gray-900 mt-10 mb-4" style="font-family: 'Playfair Display', serif;">What is Snorkeling?</h2>
+      <p>Snorkeling is a surface-level activity. Using just a mask, snorkel tube, and fins, you float on the water's surface and observe the marine life below. It's perfect for beginners, families, and anyone who wants a relaxed, gear-free underwater experience. No training required.</p>
+      <p>At Robbie's, snorkeling trips run daily at 10am and 1:30pm aboard <em>The Blue</em> by Sundance Watersports. Gear is included. Duration: 2.5 hours. Rates start at $55 for kids, $65 for adults.</p>
+
+      <h2 class="text-2xl font-bold text-gray-900 mt-10 mb-4" style="font-family: 'Playfair Display', serif;">What is SNUBA?</h2>
+      <p>SNUBA is the step between snorkeling and scuba diving. A long air hose connects you to a floating tank on the surface — allowing you to dive deeper (up to 20 feet) without needing scuba certification or carrying tanks on your back.</p>
+      <p>You breathe normally through a regulator, just like in scuba, but the tank stays up top. SNUBA at Robbie's is guided — an experienced instructor goes with you every step of the way.</p>
+
+      <h2 class="text-2xl font-bold text-gray-900 mt-10 mb-4" style="font-family: 'Playfair Display', serif;">Which Should You Choose?</h2>
+      <div class="overflow-x-auto">
+        <table class="w-full text-sm border border-gray-200 rounded-xl overflow-hidden">
+          <thead class="bg-gray-50">
+            <tr>
+              <th class="px-4 py-3 text-left font-semibold text-gray-700"></th>
+              <th class="px-4 py-3 text-left font-semibold text-gray-700">Snorkeling</th>
+              <th class="px-4 py-3 text-left font-semibold text-gray-700">SNUBA</th>
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-gray-100">
+            {[
+              ['Depth', 'Surface only', 'Up to 20 feet'],
+              ['Certification', 'None required', 'None required'],
+              ['Gear', 'Mask, snorkel, fins', 'Regulator + surface air hose'],
+              ['Experience needed', 'None', 'Brief orientation'],
+              ['Best for', 'Families, beginners', 'Adventure seekers'],
+              ['Price', 'From $55', 'Ask at the dock'],
+            ].map(([label, snorkel, snuba]) => (
+              <tr>
+                <td class="px-4 py-3 font-medium text-gray-700">{label}</td>
+                <td class="px-4 py-3 text-gray-600">{snorkel}</td>
+                <td class="px-4 py-3 text-gray-600">{snuba}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+
+      <p class="mt-6">Both are available at Robbie's Marina of Islamorada. If it's your first time in the water, start with snorkeling. If you want to go deeper and see the reef up close, SNUBA is your move.</p>
+
+      <div class="flex flex-wrap gap-4 mt-8">
+        <a href="/snorkeling" class="bg-amber-500 hover:bg-amber-400 text-white px-6 py-3 rounded font-semibold transition-colors">Book Snorkeling</a>
+        <a href="/activities" class="border border-amber-500 text-amber-600 hover:bg-amber-50 px-6 py-3 rounded font-semibold transition-colors">View All Activities</a>
+      </div>
+    </div>
+  </article>
+
+  <BookingCTA headline="Ready to Get in the Water?" subtext="Book your snorkeling or SNUBA adventure at Robbie's Marina." />
+</Layout>

@@ -1,0 +1,47 @@
+---
+import Layout from '../layouts/Layout.astro';
+import BookingCTA from '../components/BookingCTA.astro';
+---
+
+<Layout title="History of Robbie's" description="The story of how Robbie's of Islamorada came to be — starting with Scarface the tarpon in 1976. Now voted #1 place in the Florida Keys.">
+  <section class="pt-32 pb-20 px-6 text-center text-white" style="background: linear-gradient(135deg, #0a1628, #1a3a5c);">
+    <p class="text-amber-400 text-sm font-semibold uppercase tracking-widest mb-4">Since 1976</p>
+    <h1 class="text-4xl md:text-5xl font-bold mb-6" style="font-family: 'Playfair Display', serif;">How Robbie's Came To Be</h1>
+    <p class="text-white/70 text-lg max-w-2xl mx-auto">A wounded tarpon, a compassionate fisherman, and the beginning of a legend.</p>
+  </section>
+
+  <section class="py-20 px-6">
+    <div class="max-w-3xl mx-auto">
+      <h2 class="text-3xl font-bold text-gray-900 mb-8" style="font-family: 'Playfair Display', serif;">The Story of Scarface</h2>
+      <div class="prose prose-lg text-gray-600 space-y-5">
+        <p>Robbie and his wife Mona started feeding Scarface in 1976. Scarface appeared floundering in the shallow waters near the dock. Robbie saw the struggling tarpon and, thinking it had swum too shallow and gotten stuck on the bank, went out into the water to free it.</p>
+        <p>He lifted the fish and saw that the right side of its jaw was torn open. Hoping to revive the tarpon, Robbie placed it in the oxygen-rich shrimp tank and called old Doc Roach.</p>
+        <p>The doctor showed up with his wife's mattress needles and some twine, and Scarface became the first known tarpon with stitches. After several days of force-feeding, Scarface showed good recovery and weight gain. Six months later, he was released into the waters off the dock.</p>
+        <p>Afterward, Scarface continued to frequent the docks — sometimes bringing a friend. Soon, more and more of the fish began to appear. That's how the history of Robbie's started.</p>
+        <p>Today, more than 100 tarpon come daily to the docks, and visitors from all across the world come to marvel at the spectacle and offer these magnificent creatures a snack. Robbie's has been voted the <strong>#1 place in the Florida Keys that every tourist should visit.</strong></p>
+      </div>
+
+      <div class="mt-16 bg-gray-50 rounded-2xl p-8 border border-gray-100">
+        <h2 class="text-2xl font-bold text-gray-900 mb-2" style="font-family: 'Playfair Display', serif;">Tasting Florida Keys History</h2>
+        <p class="text-amber-600 font-semibold text-sm mb-4">With Brad Bertelli · Mondays & Thursdays at Hungry Tarpon Restaurant</p>
+        <p class="text-gray-600 leading-relaxed mb-6">Dive into the rich history and flavors of the Florida Keys with local historian, author, and Honorary Conch Brad Bertelli. Sip a rumrunner, savor traditional conch chowder and fritters, and finish with a sweet slice of Key lime pie — all while learning the incredible stories of Islamorada and the Conch Republic.</p>
+        <div class="grid sm:grid-cols-2 gap-4 mb-6">
+          <div class="bg-white rounded-lg p-4 border border-amber-100 text-center">
+            <p class="text-amber-600 font-semibold text-sm uppercase tracking-widest mb-1">Morning Slot</p>
+            <p class="font-bold text-gray-900">11:30am – 12:30pm</p>
+          </div>
+          <div class="bg-white rounded-lg p-4 border border-amber-100 text-center">
+            <p class="text-amber-600 font-semibold text-sm uppercase tracking-widest mb-1">Afternoon Slot</p>
+            <p class="font-bold text-gray-900">2:30pm – 3:30pm</p>
+          </div>
+        </div>
+        <a href="https://fareharbor.com/embeds/book/hungrytarpon/?full-items=yes" target="_blank" rel="noopener"
+          class="inline-block bg-amber-500 hover:bg-amber-400 text-white px-8 py-3 rounded font-semibold transition-colors">
+          Book Your Seat
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <BookingCTA headline="Be Part of the Story" subtext="Visit Robbie's Marina — a true Florida Keys legend." />
+</Layout>

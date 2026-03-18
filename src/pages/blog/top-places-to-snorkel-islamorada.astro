@@ -1,0 +1,48 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import BookingCTA from '../../components/BookingCTA.astro';
+
+const spots = [
+  { name: 'Cheeca Rocks', depth: '6–15 ft', desc: 'A shallow, protected patch reef just offshore. Teeming with tropical fish, coral formations, and easy to access from Robbie\'s snorkel boats.' },
+  { name: 'Alligator Reef Lighthouse', depth: '6–100 ft', desc: 'One of the most famous reefs in the Keys. The coral heads rise to just 3 feet below the surface. Also excellent for diving.' },
+  { name: 'Caloosa Rocks', depth: '10–25 ft', desc: 'A beautiful patch reef visited on the Transparensea glass bottom boat tours. Great fish diversity.' },
+  { name: 'San Pedro Underwater Archaeological Preserve', depth: '18 ft', desc: 'A 287-year-old Spanish galleon within 1 mile of Robbie\'s. Cannons, ballast stones, and historic timbers still visible.' },
+  { name: 'Indian Key Historic State Park', depth: '5–15 ft', desc: 'A 20-minute kayak paddle from Robbie\'s. Snorkel the island perimeter and explore the historic wrecking colony on land.' },
+  { name: 'Hens & Chickens Reef', depth: '5–20 ft', desc: 'One of Islamorada\'s oldest established reefs. A great beginner reef with diverse marine life and easy conditions.' },
+];
+---
+
+<Layout title="Top Places to Snorkel in Islamorada" description="The best snorkeling spots in Islamorada, Florida Keys — Cheeca Rocks, Alligator Reef, San Pedro Galleon, and more. All accessible from Robbie's Marina.">
+  <section class="pt-32 pb-16 px-6 text-center text-white" style="background: linear-gradient(135deg, #0a2a3a, #0d4a6b);">
+    <p class="text-amber-400 text-sm font-semibold uppercase tracking-widest mb-4">Snorkeling Guide</p>
+    <h1 class="text-3xl md:text-4xl font-bold mb-4" style="font-family: 'Playfair Display', serif;">Top Places to Snorkel in Islamorada</h1>
+    <p class="text-white/60 text-sm">September 2025 · 5 min read</p>
+  </section>
+
+  <article class="py-16 px-6">
+    <div class="max-w-3xl mx-auto">
+      <p class="text-gray-600 text-lg leading-relaxed mb-10">The Florida Keys sit atop the third-largest barrier reef in the world. Islamorada is perfectly positioned to access some of the most stunning underwater scenery in the US. Here are the top snorkeling spots — most reachable directly from Robbie's Marina.</p>
+
+      <div class="grid sm:grid-cols-2 gap-6 mb-12">
+        {spots.map((spot, i) => (
+          <div class="bg-white rounded-xl p-6 border border-gray-100 shadow-sm">
+            <div class="flex items-center gap-2 mb-3">
+              <span class="w-7 h-7 bg-blue-100 rounded-full flex items-center justify-center text-blue-700 font-bold text-sm">{i+1}</span>
+              <h3 class="font-bold text-gray-900">{spot.name}</h3>
+            </div>
+            <p class="text-amber-600 text-xs font-semibold mb-2">Depth: {spot.depth}</p>
+            <p class="text-gray-600 text-sm leading-relaxed">{spot.desc}</p>
+          </div>
+        ))}
+      </div>
+
+      <div class="bg-cyan-50 rounded-xl p-6 border border-cyan-100">
+        <p class="font-semibold text-cyan-900 mb-2">🚢 How to Get There</p>
+        <p class="text-cyan-800 text-sm leading-relaxed">Robbie's snorkel boats (Sundance Watersports) depart daily at 10am and 1:30pm and visit reefs including Cheeca Rocks and Alligator Reef. Duration: 2.5 hours. Gear included. Adults $65, Children $55.</p>
+        <a href="/snorkeling" class="inline-block mt-3 bg-amber-500 hover:bg-amber-400 text-white px-5 py-2 rounded text-sm font-semibold transition-colors">Book Snorkeling Tour</a>
+      </div>
+    </div>
+  </article>
+
+  <BookingCTA headline="Explore the Reef" subtext="Daily snorkeling tours from Robbie's Marina of Islamorada." />
+</Layout>

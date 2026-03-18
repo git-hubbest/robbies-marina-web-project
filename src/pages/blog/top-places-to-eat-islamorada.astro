@@ -1,0 +1,52 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import BookingCTA from '../../components/BookingCTA.astro';
+
+const places = [
+  { name: "Hungry Tarpon Restaurant", type: "Waterfront Seafood & Bar", desc: "Our own waterfront restaurant — fresh seafood, the famous Trailer Trash Bloody Mary, and the best seats in the house watching the tarpon feed below.", href: "/dining" },
+  { name: "Morada Bay Beach Cafe", type: "Beach Bar & Grill", desc: "Full moon parties, tiki torches, feet-in-the-sand dining on the bayside. A true Keys classic." },
+  { name: "Chef Michael's", type: "Fine Dining", desc: "The upscale option in Islamorada — chef-driven menu, local seafood elevated to its fullest." },
+  { name: "Lorelei Restaurant & Cabana Bar", type: "Waterfront Bar", desc: "Casual bayside dining with stunning sunset views. Great for drinks after a day on the water." },
+  { name: "Ziggie & Mad Dog's", type: "Casual Dining", desc: "A local favorite — laid-back atmosphere, solid food, and a good draft beer selection." },
+  { name: "Square Grouper", type: "Seafood", desc: "Fresh local catch, friendly service, reliably good food. A must-stop on the Overseas Highway." },
+  { name: "Islamorada Shrimp Shack", type: "Casual Seafood", desc: "Affordable, fresh, and very local. Shrimp platters and Keys-style sides done right." },
+  { name: "Mangrove Mike's Cafe", type: "Breakfast & Lunch", desc: "The spot for a hearty Keys breakfast before a day of fishing or snorkeling." },
+  { name: "Italian Food Company", type: "Italian", desc: "Great pizza and pasta in an unexpected Keys setting — popular with locals." },
+];
+---
+
+<Layout title="Top Places to Eat in Islamorada" description="The best restaurants and dining experiences in Islamorada, Florida Keys — from Hungry Tarpon's waterfront seafood to local hidden gems.">
+  <section class="pt-32 pb-16 px-6 text-center text-white" style="background: linear-gradient(135deg, #1a0a00, #3a1a00, #5a2a00);">
+    <p class="text-amber-400 text-sm font-semibold uppercase tracking-widest mb-4">Islamorada Food Guide</p>
+    <h1 class="text-3xl md:text-4xl font-bold mb-4" style="font-family: 'Playfair Display', serif;">Top Places to Eat in Islamorada</h1>
+    <p class="text-white/60 text-sm">February 2026 · 6 min read</p>
+  </section>
+
+  <article class="py-16 px-6">
+    <div class="max-w-3xl mx-auto">
+      <p class="text-gray-600 text-lg leading-relaxed mb-12">Islamorada punches well above its weight when it comes to food. Between fresh-caught seafood, waterfront views, and laid-back Keys vibes, you'll eat well here. Here are the best spots — starting with our own.</p>
+
+      <div class="space-y-6">
+        {places.map((place, i) => (
+          <div class="bg-white rounded-xl p-6 shadow-sm border border-gray-100 flex gap-5">
+            <div class="w-10 h-10 bg-amber-100 rounded-full flex items-center justify-center flex-shrink-0 font-bold text-amber-700">
+              {i + 1}
+            </div>
+            <div>
+              <div class="flex flex-wrap items-center gap-2 mb-1">
+                <h3 class="font-bold text-gray-900">{place.name}</h3>
+                <span class="bg-gray-100 text-gray-600 text-xs px-2 py-0.5 rounded-full">{place.type}</span>
+              </div>
+              <p class="text-gray-600 text-sm leading-relaxed">{place.desc}</p>
+              {place.href && (
+                <a href={place.href} class="text-amber-600 text-sm font-semibold mt-2 inline-block hover:underline">View Menu →</a>
+              )}
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </article>
+
+  <BookingCTA headline="Start at Robbie's" subtext="The Hungry Tarpon Restaurant is open daily 6:30am–9pm. Waterfront dining, fresh seafood, and the Keys' best Bloody Mary." />
+</Layout>
