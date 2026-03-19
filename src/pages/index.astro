@@ -7,23 +7,26 @@ import WeatherWidget from '../components/WeatherWidget.astro';
 const activities = [
   { title: 'Tarpon Feeding', description: 'Hand-feed massive tarpon in the world-famous feeding frenzy at Robbie\'s dock.', href: '/activities', image: '/img/feed-tarpon2.webp' },
   { title: 'Glass Bottom Boat', description: 'Explore Islamorada\'s stunning reefs aboard the Seakeeper-stabilized Transparensea.', href: '/glass-bottom-boat', image: '/img/glass-bottom-boat.webp' },
-  { title: 'Snorkeling Tours', description: 'Dive into crystal-clear Florida Keys waters. Two trips daily at 10am & 1:30pm. Adults $65.', href: '/snorkeling', image: '/img/snorkeling-keys.webp' },
-  { title: 'Sport Fishing', description: 'Three party boat trips daily with Captain Michael. All bait & tackle included. $100/person.', href: '/fishing', image: '/img/captain-michael-fishing.webp' },
+  { title: 'Snorkeling Tours', description: 'Two trips daily at 10am & 1:30pm. Adults $65. Gear included.', href: '/snorkeling', image: '/img/snorkeling-keys.webp' },
+  { title: 'Sport Fishing', description: 'Three party boat trips daily with Captain Michael. $100/person, all tackle included.', href: '/fishing', image: '/img/captain-michael-fishing.webp' },
   { title: 'Kayak & Paddleboard', description: 'Explore mangrove eco-systems and two Florida state parks from The Kayak Shack.', href: '/kayak-paddleboard', image: '/img/kayak-paddle.webp' },
   { title: 'Jet Ski Tours', description: '14–22 mile tours through turquoise bays. Spot dolphins and manatees in the wild.', href: '/kayak-paddleboard', image: '/img/beach.webp' },
-  { title: 'Sunset Cruises', description: 'Three options from $49 — catamaran with champagne, private deck boat, or luxury yacht.', href: '/sunset-cruises', image: '/img/sunset-cruise.webp' },
+  { title: 'Sunset Cruises', description: 'Three options from $49 — catamaran, private deck boat, or luxury yacht.', href: '/sunset-cruises', image: '/img/sunset-cruise.webp' },
   { title: 'Eco Tours', description: '2-hour Florida Bay expeditions through mangrove islands and sea grass beds.', href: '/eco-tours', image: '/img/islamorada.webp' },
   { title: 'Boat Rentals', description: 'Set your own course across Florida Bay and the Atlantic. Prime Islamorada access.', href: '/boat-rentals', image: '/img/beach.webp' },
-  { title: 'SNUBA Diving', description: 'Guided underwater adventures — deeper than snorkeling, no certification required.', href: '/activities', image: '/img/snorkeling.webp' },
-  { title: 'Four Aces Yacht', description: 'Luxury 55-foot Hatteras yacht charter. Fish Islamorada or cruise to the Bahamas.', href: '/four-aces', image: '/img/four-aces-boat.webp' },
+  { title: 'SNUBA Diving', description: 'Deeper than snorkeling, no certification required. Guided underwater adventures.', href: '/activities', image: '/img/snorkeling.webp' },
+  { title: 'Four Aces Yacht', description: 'Luxury 55-foot Hatteras charter. Fish Islamorada or cruise to the Bahamas.', href: '/four-aces', image: '/img/four-aces-boat.webp' },
   { title: 'History Tours', description: 'Brad Bertelli\'s Keys history experience — conch chowder, rumrunner & Key lime pie.', href: '/history-tours', image: '/img/history-brad.webp' },
 ];
+
+const featuredIn = ['National Geographic', 'Vogue', 'New York Times', 'Hilton Grand Vacations', 'CNN'];
 ---
 
 <Layout title="Home">
-  <!-- Hero -->
-  <section class="relative min-h-screen flex items-center justify-center overflow-hidden">
-    <!-- Desktop video (WebM first for Chrome/Firefox, MP4 fallback for Safari) -->
+
+  <!-- ═══ HERO ═══ -->
+  <section class="relative flex items-center justify-center overflow-hidden" style="min-height: 100svh;">
+    <!-- Desktop video -->
     <video
       class="hidden md:block absolute inset-0 w-full h-full object-cover"
       autoplay muted loop playsinline preload="auto"
@@ -32,7 +35,7 @@ const activities = [
       <source src="/hero-desktop.webm" type="video/webm" />
       <source src="/hero-desktop.mp4" type="video/mp4" />
     </video>
-    <!-- Mobile video (portrait) -->
+    <!-- Mobile video -->
     <video
       class="md:hidden absolute inset-0 w-full h-full object-cover"
       autoplay muted loop playsinline preload="auto"
@@ -41,95 +44,119 @@ const activities = [
       <source src="/hero-mobile.webm" type="video/webm" />
       <source src="/hero-mobile.mp4" type="video/mp4" />
     </video>
-    <div class="absolute inset-0" style="background: linear-gradient(to bottom, rgba(10,22,40,0.55) 0%, rgba(10,22,40,0.35) 50%, rgba(10,22,40,0.65) 100%);"></div>
+    <div class="absolute inset-0" style="background: linear-gradient(to bottom, rgba(10,22,40,0.6) 0%, rgba(10,22,40,0.3) 40%, rgba(10,22,40,0.75) 100%);"></div>
 
-    <div class="relative z-10 text-center px-6 max-w-4xl mx-auto">
-      <p class="text-amber-400 text-sm font-semibold uppercase tracking-widest mb-6">Islamorada, Florida Keys</p>
-      <h1 class="text-4xl md:text-6xl lg:text-7xl font-bold text-white mb-6 leading-tight" style="font-family: 'Playfair Display', serif;">
-        Voted #1 Place in the Florida Keys
+    <div class="relative z-10 text-center px-5 max-w-4xl mx-auto w-full">
+      <p class="text-amber-400 text-xs md:text-sm font-semibold uppercase tracking-widest mb-3 md:mb-5">Islamorada, Florida Keys</p>
+      <h1 class="text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-4 md:mb-6 leading-tight" style="font-family: 'Playfair Display', serif;">
+        Voted #1 Place<br class="sm:hidden" /> in the Florida Keys
       </h1>
-      <p class="text-white/70 text-lg md:text-xl mb-10 max-w-2xl mx-auto leading-relaxed">
-        Every tourist should visit. Home of the world-famous tarpon feeding, world-class fishing, snorkeling, and unforgettable adventures.
+      <p class="text-white/75 text-base md:text-xl mb-7 md:mb-10 max-w-xl md:max-w-2xl mx-auto leading-relaxed">
+        Home of the world-famous tarpon feeding, world-class fishing, snorkeling, and unforgettable Keys adventures.
       </p>
-      <div class="flex flex-col sm:flex-row gap-4 justify-center">
-        <a href="#activities" class="bg-amber-500 hover:bg-amber-400 text-white px-8 py-4 rounded font-semibold text-lg transition-colors shadow-xl">
+      <!-- CTAs — stacked on mobile, side-by-side on sm+ -->
+      <div class="flex flex-col sm:flex-row gap-3 justify-center px-4 sm:px-0">
+        <a href="#activities"
+          class="bg-amber-500 hover:bg-amber-400 text-white px-7 py-4 rounded font-semibold text-base md:text-lg transition-colors shadow-xl">
           Explore Activities
         </a>
         <a href="https://fareharbor.com/hungrytarpon/" target="_blank" rel="noopener"
-          class="border-2 border-white/50 hover:border-white text-white px-8 py-4 rounded font-semibold text-lg transition-colors">
+          class="border-2 border-white/60 hover:border-white hover:bg-white/10 text-white px-7 py-4 rounded font-semibold text-base md:text-lg transition-colors">
           Book Now
         </a>
       </div>
+      <!-- Quick stats — only on sm+ -->
+      <div class="hidden sm:flex justify-center gap-8 mt-10 text-white/60 text-sm">
+        <span>🐟 Tarpon Feeding Daily</span>
+        <span>🎣 3 Fishing Trips/Day</span>
+        <span>🤿 Snorkel Tours from $55</span>
+      </div>
     </div>
 
-    <div class="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce">
-      <svg class="w-6 h-6 text-white/50" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+    <div class="absolute bottom-6 left-1/2 -translate-x-1/2 animate-bounce hidden sm:block">
+      <svg class="w-5 h-5 text-white/40" fill="none" stroke="currentColor" viewBox="0 0 24 24">
         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
       </svg>
     </div>
   </section>
 
-  <!-- Featured In -->
-  <section class="py-12 px-6 bg-gray-50 border-b border-gray-200">
-    <div class="max-w-5xl mx-auto text-center">
-      <p class="text-xs font-semibold uppercase tracking-widest text-gray-400 mb-8">Featured In</p>
-      <div class="flex flex-wrap justify-center items-center gap-8 md:gap-16">
-        {['National Geographic', 'Vogue', 'New York Times', 'Hilton Grand Vacations'].map(pub => (
-          <span class="text-gray-500 font-semibold text-lg tracking-wide">{pub}</span>
+  <!-- ═══ QUICK CALL BAR (mobile only) ═══ -->
+  <div class="md:hidden bg-amber-500 py-3 px-4 flex items-center justify-between">
+    <span class="text-white text-sm font-semibold">Open Daily 7am – 9pm</span>
+    <a href="tel:3056648070" class="bg-white text-amber-600 px-4 py-1.5 rounded-full text-sm font-bold">
+      Call Us
+    </a>
+  </div>
+
+  <!-- ═══ FEATURED IN ═══ -->
+  <section class="py-6 md:py-10 px-4 bg-white border-b border-gray-100">
+    <div class="max-w-5xl mx-auto">
+      <p class="text-center text-xs font-semibold uppercase tracking-widest text-gray-400 mb-4">As Featured In</p>
+      <!-- Mobile: horizontal scroll -->
+      <div class="flex items-center gap-6 overflow-x-auto pb-1 scrollbar-hide md:flex-wrap md:justify-center md:gap-10 md:overflow-visible">
+        {featuredIn.map(pub => (
+          <span class="text-gray-500 font-semibold text-sm md:text-base tracking-wide whitespace-nowrap flex-shrink-0">{pub}</span>
         ))}
       </div>
     </div>
   </section>
 
-  <!-- Welcome -->
-  <section class="py-24 px-6">
+  <!-- ═══ WELCOME ═══ -->
+  <section class="py-12 md:py-20 px-5">
     <div class="max-w-3xl mx-auto text-center">
-      <p class="text-amber-600 text-sm font-semibold uppercase tracking-widest mb-4">Welcome to Robbie's</p>
-      <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-6" style="font-family: 'Playfair Display', serif;">
+      <p class="text-amber-600 text-xs font-semibold uppercase tracking-widest mb-3">Welcome to Robbie's</p>
+      <h2 class="text-2xl md:text-4xl font-bold text-gray-900 mb-4 md:mb-6" style="font-family: 'Playfair Display', serif;">
         The Heart of the Florida Keys
       </h2>
-      <p class="text-gray-600 text-lg leading-relaxed mb-6">
-        Just an hour from Miami, Robbie's Marina of Islamorada is where the Florida Keys come alive. Whether you want to hand-feed massive tarpon, seek thrills on the water, or simply soak in the beauty of this legendary island — we've got something for everyone.
+      <p class="text-gray-600 text-base md:text-lg leading-relaxed mb-4">
+        Just an hour from Miami, Robbie's Marina of Islamorada is where the Florida Keys come alive. Hand-feed massive tarpon, seek thrills on the water, or simply soak in the beauty of this legendary island.
       </p>
-      <p class="text-gray-600 text-lg leading-relaxed italic">
-        "Close to perfect, far from normal."
-      </p>
+      <p class="text-gray-500 text-base italic">"Close to perfect, far from normal."</p>
     </div>
   </section>
 
-  <!-- Hours -->
-  <section class="py-16 px-6" style="background-color: #0a1628;">
+  <!-- ═══ HOURS ═══ -->
+  <section class="py-10 md:py-16 px-4" style="background-color: #0a1628;">
     <div class="max-w-5xl mx-auto">
-      <h2 class="text-center text-2xl font-bold text-white mb-12" style="font-family: 'Playfair Display', serif;">Hours of Operation</h2>
-      <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+      <h2 class="text-center text-xl md:text-2xl font-bold text-white mb-7 md:mb-10" style="font-family: 'Playfair Display', serif;">Hours of Operation</h2>
+      <!-- 2-col on mobile, 4-col on lg -->
+      <div class="grid grid-cols-2 lg:grid-cols-4 gap-3 md:gap-5">
         {[
-          { name: "Robbie's of Islamorada", hours: "7:00am – 9:00pm", days: "Mon–Sun" },
-          { name: "Tarpon Booth", hours: "7:00am – 9:00pm", days: "Mon–Sun" },
-          { name: "Hungry Tarpon Restaurant", hours: "6:30am – 9:00pm", days: "Mon–Sun" },
-          { name: "Captain Michael Fishing", hours: "7:00am – 8:00pm", days: "Mon–Sun" },
+          { name: "Robbie's", hours: "7:00am – 9:00pm", emoji: "⚓" },
+          { name: "Tarpon Booth", hours: "7:00am – 9:00pm", emoji: "🐟" },
+          { name: "Hungry Tarpon", hours: "6:30am – 9:00pm", emoji: "🍽️" },
+          { name: "Capt. Michael", hours: "7:00am – 8:00pm", emoji: "🎣" },
         ].map(item => (
-          <div class="bg-white/5 border border-white/10 rounded-xl p-6 text-center">
-            <p class="text-amber-400 text-sm font-semibold mb-3">{item.days}</p>
-            <h3 class="text-white font-semibold mb-2">{item.name}</h3>
-            <p class="text-white/60 text-sm">{item.hours}</p>
+          <div class="bg-white/8 border border-white/10 rounded-xl p-4 text-center">
+            <span class="text-2xl mb-2 block">{item.emoji}</span>
+            <h3 class="text-white font-semibold text-sm mb-1 leading-tight">{item.name}</h3>
+            <p class="text-white/50 text-xs">Mon–Sun</p>
+            <p class="text-amber-400 text-xs font-medium mt-1">{item.hours}</p>
           </div>
         ))}
       </div>
+      <div class="text-center mt-5">
+        <a href="tel:3056648070" class="inline-flex items-center gap-2 text-white/60 hover:text-white text-sm transition-colors">
+          📞 (305) 664-8070
+        </a>
+      </div>
     </div>
   </section>
 
+  <!-- ═══ WEATHER ═══ -->
   <WeatherWidget />
 
-  <!-- Activities -->
-  <section id="activities" class="py-24 px-6 bg-gray-50">
+  <!-- ═══ ACTIVITIES ═══ -->
+  <section id="activities" class="py-12 md:py-20 px-4 bg-gray-50">
     <div class="max-w-7xl mx-auto">
-      <div class="text-center mb-16">
-        <p class="text-amber-600 text-sm font-semibold uppercase tracking-widest mb-4">Things To Do</p>
-        <h2 class="text-3xl md:text-4xl font-bold text-gray-900" style="font-family: 'Playfair Display', serif;">
-          The Best of the Florida Keys, All in One Place
+      <div class="text-center mb-8 md:mb-14">
+        <p class="text-amber-600 text-xs font-semibold uppercase tracking-widest mb-2">Things To Do</p>
+        <h2 class="text-2xl md:text-4xl font-bold text-gray-900" style="font-family: 'Playfair Display', serif;">
+          The Best of the Florida Keys
         </h2>
       </div>
-      <div class="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+      <!-- 2-col mobile, 3-col md, 4-col xl -->
+      <div class="grid grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-3 md:gap-5">
         {activities.map(activity => (
           <ActivityCard {...activity} />
         ))}
@@ -139,3 +166,9 @@ const activities = [
 
   <BookingCTA />
 </Layout>
+
+<style>
+  .scrollbar-hide::-webkit-scrollbar { display: none; }
+  .scrollbar-hide { -ms-overflow-style: none; scrollbar-width: none; }
+  .bg-white\/8 { background-color: rgba(255,255,255,0.08); }
+</style>
