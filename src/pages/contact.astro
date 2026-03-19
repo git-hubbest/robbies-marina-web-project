@@ -1,0 +1,117 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="Contact Us" description="Contact Robbie's Marina of Islamorada. Call (305) 664-8070, email booth@robbies.com, or use our contact form. Located at 77522 Overseas Hwy, Islamorada FL 33036.">
+
+  <section class="pt-20 pb-14 px-6 text-center text-white" style="background: linear-gradient(135deg, #0a1628, #1a3a5c);">
+    <p class="text-amber-400 text-sm font-semibold uppercase tracking-widest mb-3">We'd Love to Hear From You</p>
+    <h1 class="text-4xl md:text-5xl font-bold mb-4" style="font-family: 'Playfair Display', serif;">Contact Us</h1>
+    <p class="text-white/70 text-lg max-w-xl mx-auto">Questions about activities, bookings, events, or weddings — we're here to help.</p>
+  </section>
+
+  <section class="py-16 px-6">
+    <div class="max-w-5xl mx-auto grid md:grid-cols-2 gap-12">
+
+      <!-- Contact info -->
+      <div>
+        <h2 class="text-2xl font-bold text-gray-900 mb-6" style="font-family: 'Playfair Display', serif;">Get In Touch</h2>
+
+        <div class="space-y-5 mb-8">
+          {[
+            { icon: '📍', label: 'Address', value: '77522 Overseas Hwy, Islamorada, FL 33036', href: 'https://www.google.com/maps/place/Robbie\'s+of+Islamorada/' },
+            { icon: '📞', label: 'Phone', value: '(305) 664-8070', href: 'tel:3056648070' },
+            { icon: '✉️', label: 'Email (General)', value: 'booth@robbies.com', href: 'mailto:booth@robbies.com' },
+            { icon: '✉️', label: 'Email (Restaurant)', value: 'hungry.tarpon@robbies.com', href: 'mailto:hungry.tarpon@robbies.com' },
+          ].map(item => (
+            <div class="flex gap-4 items-start">
+              <span class="text-xl">{item.icon}</span>
+              <div>
+                <p class="text-xs font-semibold uppercase tracking-wide text-gray-400 mb-0.5">{item.label}</p>
+                <a href={item.href} class="text-gray-800 hover:text-blue-600 font-medium transition-colors" target={item.href.startsWith('http') ? '_blank' : undefined} rel={item.href.startsWith('http') ? 'noopener' : undefined}>{item.value}</a>
+              </div>
+            </div>
+          ))}
+        </div>
+
+        <h3 class="text-lg font-bold text-gray-900 mb-3">Hours of Operation</h3>
+        <div class="space-y-2 text-sm">
+          {[
+            { venue: "Robbie's of Islamorada", hours: "Mon–Sun: 7:00am – 9:00pm" },
+            { venue: "Hungry Tarpon Restaurant", hours: "Mon–Sun: 6:30am – 9:00pm" },
+            { venue: "Tarpon Booth", hours: "Mon–Sun: 7:00am – 9:00pm" },
+            { venue: "Captain Michael Fishing", hours: "Mon–Sun: 7:00am – 8:00pm" },
+          ].map(h => (
+            <div class="flex justify-between py-1.5 border-b border-gray-100">
+              <span class="text-gray-700 font-medium">{h.venue}</span>
+              <span class="text-gray-500">{h.hours}</span>
+            </div>
+          ))}
+        </div>
+
+        <!-- Map -->
+        <div class="mt-8 rounded-xl overflow-hidden border border-gray-200">
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3583.06!2d-80.6344!3d24.9225!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x88f800053f5fe013%3A0x615590dfe6a33f86!2sRobbie&#39;s%20of%20Islamorada!5e0!3m2!1sen!2sus!4v1"
+            width="100%" height="240" style="border:0;" allowfullscreen loading="lazy"
+            title="Robbie's of Islamorada map"
+          ></iframe>
+        </div>
+      </div>
+
+      <!-- Contact form (Cloudflare Pages native) -->
+      <div>
+        <h2 class="text-2xl font-bold text-gray-900 mb-6" style="font-family: 'Playfair Display', serif;">Send Us a Message</h2>
+        <form
+          action="https://formspree.io/f/xpwzpvle"
+          method="POST"
+          class="space-y-4"
+          id="contact-form"
+        >
+          <div class="grid sm:grid-cols-2 gap-4">
+            <div>
+              <label class="block text-sm font-semibold text-gray-700 mb-1.5" for="name">Name *</label>
+              <input type="text" id="name" name="name" required
+                class="w-full border border-gray-300 rounded-lg px-4 py-2.5 text-sm focus:outline-none focus:border-amber-400 focus:ring-1 focus:ring-amber-400 transition" />
+            </div>
+            <div>
+              <label class="block text-sm font-semibold text-gray-700 mb-1.5" for="email">Email *</label>
+              <input type="email" id="email" name="email" required
+                class="w-full border border-gray-300 rounded-lg px-4 py-2.5 text-sm focus:outline-none focus:border-amber-400 focus:ring-1 focus:ring-amber-400 transition" />
+            </div>
+          </div>
+          <div>
+            <label class="block text-sm font-semibold text-gray-700 mb-1.5" for="phone">Phone</label>
+            <input type="tel" id="phone" name="phone"
+              class="w-full border border-gray-300 rounded-lg px-4 py-2.5 text-sm focus:outline-none focus:border-amber-400 focus:ring-1 focus:ring-amber-400 transition" />
+          </div>
+          <div>
+            <label class="block text-sm font-semibold text-gray-700 mb-1.5" for="subject">Subject *</label>
+            <select id="subject" name="subject" required
+              class="w-full border border-gray-300 rounded-lg px-4 py-2.5 text-sm focus:outline-none focus:border-amber-400 focus:ring-1 focus:ring-amber-400 transition bg-white">
+              <option value="">Select a topic...</option>
+              <option>Fishing / Booking</option>
+              <option>Snorkeling / Water Activities</option>
+              <option>Sunset Cruises</option>
+              <option>Weddings & Private Events</option>
+              <option>Restaurant / Dining</option>
+              <option>General Inquiry</option>
+              <option>Other</option>
+            </select>
+          </div>
+          <div>
+            <label class="block text-sm font-semibold text-gray-700 mb-1.5" for="message">Message *</label>
+            <textarea id="message" name="message" required rows="5"
+              class="w-full border border-gray-300 rounded-lg px-4 py-2.5 text-sm focus:outline-none focus:border-amber-400 focus:ring-1 focus:ring-amber-400 transition resize-none"
+              placeholder="Tell us how we can help..."></textarea>
+          </div>
+          <button type="submit"
+            class="w-full bg-amber-500 hover:bg-amber-400 text-white py-3 rounded-lg font-semibold text-sm transition-colors">
+            Send Message
+          </button>
+          <p class="text-gray-400 text-xs text-center">We typically respond within 24 hours. For urgent bookings, call (305) 664-8070.</p>
+        </form>
+      </div>
+    </div>
+  </section>
+</Layout>

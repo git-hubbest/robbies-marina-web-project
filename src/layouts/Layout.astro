@@ -4,6 +4,8 @@ import Footer from '../components/Footer.astro';
 import AnnouncementBar from '../components/AnnouncementBar.astro';
 import GoogleReviews from '../components/GoogleReviews.astro';
 import InstagramFeed from '../components/InstagramFeed.astro';
+import SchemaMarkup from '../components/SchemaMarkup.astro';
+import StickyBookNow from '../components/StickyBookNow.astro';
 import '../styles/global.css';
 
 interface Props {
@@ -28,6 +30,7 @@ const fullTitle = title === 'Home' ? "Robbie's of Islamorada | Best Place To Vis
     <title>{fullTitle}</title>
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+    <SchemaMarkup />
   </head>
   <body class="bg-white text-gray-900" style="font-family: 'Inter', sans-serif;">
     <AnnouncementBar />
@@ -38,5 +41,6 @@ const fullTitle = title === 'Home' ? "Robbie's of Islamorada | Best Place To Vis
     <GoogleReviews />
     <InstagramFeed />
     <Footer />
+    <StickyBookNow />
   </body>
 </html>

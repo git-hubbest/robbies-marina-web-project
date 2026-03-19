@@ -1,0 +1,92 @@
+---
+import Layout from '../layouts/Layout.astro';
+import BookingCTA from '../components/BookingCTA.astro';
+
+const recurringEvents = [
+  {
+    name: "Hungry Tarpon Trivia Night",
+    day: "Every Tuesday",
+    time: "6:30pm – 8:30pm",
+    location: "Hungry Tarpon Restaurant",
+    emoji: "🧠",
+    desc: "Test your knowledge and meet fellow Keys visitors at our weekly trivia night. Free to attend — just show up, grab a drink, and play.",
+    cta: { label: "Free RSVP", href: "https://www.facebook.com/events/1496220575544441/" },
+    image: "/img/trivia-night.webp"
+  },
+  {
+    name: "Coconut Painting with Painting the Keys",
+    day: "Every Tuesday",
+    time: "5:00pm",
+    location: "Robbie's Marina",
+    emoji: "🎨",
+    desc: "Paint your very own coconut with expert guidance from Painting the Keys. A uniquely Keys souvenir you'll actually want to keep. All skill levels welcome.",
+    cta: { label: "Book Now", href: "https://www.paintingthekeys.com/keysclasses" },
+    image: "/img/islamorada.webp"
+  },
+  {
+    name: "Tasting Florida Keys History with Brad Bertelli",
+    day: "Every Monday & Thursday",
+    time: "11:30am–12:30pm or 2:30pm–3:30pm",
+    location: "Hungry Tarpon Restaurant",
+    emoji: "📜",
+    desc: "Dive into the rich history and flavors of the Florida Keys with local historian Brad Bertelli. Includes rumrunner, conch chowder, fritters, and Key lime pie.",
+    cta: { label: "Book Your Seat", href: "https://fareharbor.com/embeds/book/hungrytarpon/?full-items=yes" },
+    image: "/img/history-brad.webp"
+  },
+];
+---
+
+<Layout title="Events" description="Upcoming events at Robbie's Marina of Islamorada — trivia nights, coconut painting, history tours, and more. Free and paid events weekly.">
+  <section class="pt-20 pb-16 px-6 text-center text-white" style="background: linear-gradient(135deg, #0a1628, #1a3a5c);">
+    <p class="text-amber-400 text-sm font-semibold uppercase tracking-widest mb-4">What's On</p>
+    <h1 class="text-4xl md:text-5xl font-bold mb-4" style="font-family: 'Playfair Display', serif;">Events at Robbie's</h1>
+    <p class="text-white/70 text-lg max-w-xl mx-auto">Weekly recurring events and special happenings at Robbie's Marina of Islamorada.</p>
+  </section>
+
+  <!-- Recurring Events -->
+  <section class="py-16 px-6">
+    <div class="max-w-5xl mx-auto">
+      <h2 class="text-2xl font-bold text-gray-900 mb-10" style="font-family: 'Playfair Display', serif;">Regular Weekly Events</h2>
+      <div class="space-y-8">
+        {recurringEvents.map(event => (
+          <div class="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden flex flex-col md:flex-row">
+            <div class="md:w-56 h-48 md:h-auto flex-shrink-0 overflow-hidden">
+              <img src={event.image} alt={event.name} class="w-full h-full object-cover" loading="lazy" />
+            </div>
+            <div class="p-6 flex-1 flex flex-col justify-between">
+              <div>
+                <div class="flex flex-wrap items-center gap-3 mb-3">
+                  <span class="text-2xl">{event.emoji}</span>
+                  <h3 class="text-xl font-bold text-gray-900">{event.name}</h3>
+                </div>
+                <div class="flex flex-wrap gap-3 mb-3">
+                  <span class="bg-amber-50 text-amber-700 text-xs font-semibold px-3 py-1 rounded-full">📅 {event.day}</span>
+                  <span class="bg-blue-50 text-blue-700 text-xs font-semibold px-3 py-1 rounded-full">🕐 {event.time}</span>
+                  <span class="bg-gray-100 text-gray-600 text-xs font-semibold px-3 py-1 rounded-full">📍 {event.location}</span>
+                </div>
+                <p class="text-gray-600 text-sm leading-relaxed">{event.desc}</p>
+              </div>
+              <div class="mt-4">
+                <a href={event.cta.href} target="_blank" rel="noopener"
+                  class="inline-block bg-amber-500 hover:bg-amber-400 text-white px-6 py-2.5 rounded text-sm font-semibold transition-colors">
+                  {event.cta.label}
+                </a>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Directions callout -->
+  <section class="py-10 px-6 bg-gray-50 border-t border-gray-100">
+    <div class="max-w-3xl mx-auto text-center">
+      <p class="text-gray-600 mb-3">📍 All events at <strong>77522 Overseas Hwy, Islamorada, FL 33036</strong> — Mile Marker 77.5 Bayside</p>
+      <a href="https://www.google.com/maps/place/Robbie's+of+Islamorada/" target="_blank" rel="noopener"
+        class="text-blue-600 hover:underline text-sm font-semibold">Get Directions →</a>
+    </div>
+  </section>
+
+  <BookingCTA headline="Join Us at Robbie's" subtext="Events, activities, dining and more — all in one place on the water." />
+</Layout>
