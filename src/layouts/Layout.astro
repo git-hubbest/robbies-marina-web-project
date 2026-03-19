@@ -2,6 +2,8 @@
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import AnnouncementBar from '../components/AnnouncementBar.astro';
+import GoogleReviews from '../components/GoogleReviews.astro';
+import InstagramFeed from '../components/InstagramFeed.astro';
 import '../styles/global.css';
 
 interface Props {
@@ -33,6 +35,8 @@ const fullTitle = title === 'Home' ? "Robbie's of Islamorada | Best Place To Vis
     <main>
       <slot />
     </main>
+    <GoogleReviews />
+    <InstagramFeed />
     <Footer />
   </body>
 </html>
